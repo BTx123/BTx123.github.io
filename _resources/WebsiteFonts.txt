@@ -1,0 +1,8 @@
+HTML
+<link href='https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900|Ubuntu+Mono:400,400italic,700,700italic|Rambla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans|Orbitron|Ubuntu+Mono' rel='stylesheet' type='text/css'>
+
+CSS
+font-family: 'Orbitron', sans-serif;
+font-family: 'Ubuntu Mono' , ;
+font-family: 'Rambla', sans-serif;

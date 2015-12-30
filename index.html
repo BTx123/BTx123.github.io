@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- The below 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- WEB ICON -->
+        <link href="img/favicon.ico" rel="icon" type="image/ico"/>
+        <!-- /WEB ICON -->
+        
+        <!-- WEB TITLE -->
+        <title>Brian Tom</title>
+        <!-- /WEB TITLE -->
+        
+        <!-- CUSTOM -->
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/animate.css" rel="stylesheet">
+        
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        
+        <!-- HEADER and FOOTER -->
+        <script>
+        $(function(){
+            $("#navigation").load("navigation.html");
+            $("#header").load("header.html"); 
+            $("#footer").load("footer.html"); 
+        });
+        </script>
+        
+        <!-- SMOOTH SCROLL -->
+        <script>
+            $(function() {
+                $('a[href*=#]:not([href=#])').click(function() {
+                    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                        if (target.length) {
+                            $('html,body').animate({
+                                scrollTop: target.offset().top
+                            }, 1000);
+                            return false;
+                        }
+                    }
+                });
+            });
+        </script>
+        <!-- /SMOOTH SCROLL -->
+    </head>    
+    <body>
+        <!-- NAVIGATION -->
+        <nav id="navigation"></nav>
+        <!-- /NAVIGATION -->
+        <!-- HEADER -->
+        <header id="header"></header>
+        <!-- /HEADER -->
+        <!-- MAIN CONTENT -->
+        <div class="main-content container-fluid">
+            <div class="row">
+                <!-- about me -->
+                <div id="about" class="about-me">
+                    <h3>ABOUT ME</h3>
+                    <h4>BRIAN TOM<small>PROGRAMMER and PHOTOGRAPHER</small></h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis vestibulum aliquam. Maecenas orci lacus, venenatis a ipsum ac, suscipit volutpat leo. Vivamus lacus tellus, luctus eget nulla ac, congue dictum dui. Vestibulum eu accumsan metus. Nunc posuere blandit sapien in interdum. Cras ultricies tempus dolor vel aliquet. In dictum rhoncus magna, ut malesuada urna rutrum sed. Etiam</p>
+                </div>
+                <!-- /about me -->
+                <hr>
+                <!-- blog -->
+                <div class="blog">
+                    <h3>BLOG</h3>
+                    <div class="row">
+                        <div class="col-md-6 post">
+                            <a href="#"><img src="img/blog1.png" class="img-responsive"></a>
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <p>In ipsum arcu, malesuada a nibh in, pulvinar semper odio. Duis quis sodales odio. Proin quis consectetur augue. Nullam commodo nunc mollis malesuada aliquam.</p>
+                        </div> <!-- /first column -->
+                        <div class="col-md-6 post">
+                            <a href="#"><img src="img/blog2.png" class="img-responsive"></a>
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <p>In ipsum arcu, malesuada a nibh in, pulvinar semper odio. Duis quis sodales odio. Proin quis consectetur augue. Nullam commodo nunc mollis malesuada aliquam.</p>
+                        </div> <!-- /second column -->
+                    </div> <!-- /row -->
+                </div>
+                <!-- /blog -->
+                <hr>
+                <!-- contact info -->
+                <div id="contact" class="contact">
+                    <h3>CONTACT INFO</h3>
+                    <h4>GET IN TOUCH</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis vestibulum aliquam. Maecenas orci lacus, venenatis a ipsum ac, suscipit volutpat leo. Vivamus lacus tellus, luctus eget nulla ac, congue dictum dui.</p>
+                    <div class="row">
+                        <!-- contact form -->
+                        <div class="col-md-9">
+                            <form name="contactForm" action="mailto:btom.0831@gmail.com" method="post">
+                                <input type="text" name="name" id="fullname" value="FULL NAME" onblur="if (this.value == '') { this.value = 'FULL NAME'; }"
+ onfocus="if (this.value == 'FULL NAME') {this.value = '';}">
+                                <br>
+                                <input type="email" name="email" id="email" value="EMAIL ADDRESS" onblur="if (this.value == '') { this.value = 'EMAIL ADDRESS'; }"
+ onfocus="if (this.value == 'EMAIL ADDRESS') { this.value = ''; }">
+                                <br>
+                                <input class="message" type="text" name="message" id="message" value="MESSAGE" onblur="if (this.value == '') { this.value = 'MESSAGE'; }"
+ onfocus="if (this.value == 'MESSAGE') { this.value = ''; }">
+                                <br>
+                                <input class="send" type="submit" value="SEND MESSAGE" onclick="if (contactForm.elements['name'].value == 'FULL NAME' || contactForm.elements['email'].value == 'EMAIL ADDRESS' || contactForm.elements['message'].value == 'MESSAGE') { window.alert('You have left one of the fields empty!') } else { window.alert('Thank you!') }">
+                            </form>
+                        </div>
+                        <!-- /contact form -->
+                        <!-- quick info -->
+                        <div class="col-md-3 quick-info">
+                            <div>
+                                <i class="fa fa-envelope"></i><p>btom.0831@gmail.com</p>
+                            </div>
+                            <div>
+                                <i class="fa fa-map-marker"></i><p>San Francisco, CA</p>
+                            </div>
+                            <div>
+                                <i class="fa fa-mobile"></i><p>1-415-370-0597</p>
+                            </div>
+                        </div>
+                        <!-- /quick info -->
+                    </div> <!-- /row -->
+                </div>
+                <!-- /contact info -->
+            </div> <!-- /row -->
+        </div> <!-- /main-content container-fluid -->
+        <!-- FOOTER -->
+        <div id="footer"></div>
+        <!-- /FOOTER -->
+    </body>
+    <!-- /MAIN CONTENT -->
+</html>
