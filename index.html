@@ -25,13 +25,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         
         <!-- HEADER and FOOTER -->
-        <script>
+        <!-- <script>
         $(function(){
             $("#navigation").load("navigation.html");
             $("#header").load("header.html"); 
             $("#footer").load("footer.html"); 
         });
-        </script>
+        </script> -->
         
         <!-- SMOOTH SCROLL -->
         <script>
@@ -54,10 +54,52 @@
     </head>    
     <body>
         <!-- NAVIGATION -->
-        <nav id="navigation"></nav>
+        <nav id="home" class="navbar navbar-default animated fadeInDownBig">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#btx123.github.io"><img src="img/logo.png" class="logo"></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#home">HOME<span class="sr-only">(current)</span></a></li>
+                        <li><a class="smoothScroll" href="#about">ABOUT</a></li>
+                        <li><a href="#porfolio">PORTFOLIO</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                    <!-- SEARCH BOX -->
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <!-- /SEARCH BOX -->
+                    <!-- SOCIAL ICONS -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    </ul>
+                    <!-- /SOCIAL ICONS -->
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
         <!-- /NAVIGATION -->
         <!-- HEADER -->
-        <header id="header"></header>
+        <header class="container-fluid animated fadeInLeft">
+            <div class="row">
+                <img src="img/profile_picture.png" class="img-circle profile-picture animated flipInX">
+                <h2 class="animated slideInRight">Welcome to my website.</h2>
+                <p class="animated rotateInDownRight">I am currently a student at Lowell High School studying Computer Science.</p>
+            </div>
+        </header>
         <!-- /HEADER -->
         <!-- MAIN CONTENT -->
         <div class="main-content container-fluid">
@@ -112,15 +154,9 @@
                         <!-- /contact form -->
                         <!-- quick info -->
                         <div class="col-md-3 quick-info">
-                            <div>
-                                <i class="fa fa-envelope"></i><p>btom.0831@gmail.com</p>
-                            </div>
-                            <div>
-                                <i class="fa fa-map-marker"></i><p>San Francisco, CA</p>
-                            </div>
-                            <div>
-                                <i class="fa fa-mobile"></i><p>1-415-370-0597</p>
-                            </div>
+                            <div><i class="fa fa-envelope"></i><p>btom.0831@gmail.com</p></div>
+                            <div><i class="fa fa-map-marker"></i><p>San Francisco, CA</p></div>
+                            <div><i class="fa fa-mobile"></i><p>1-415-370-0597</p></div>
                         </div>
                         <!-- /quick info -->
                     </div> <!-- /row -->
@@ -129,7 +165,14 @@
             </div> <!-- /row -->
         </div> <!-- /main-content container-fluid -->
         <!-- FOOTER -->
-        <div id="footer"></div>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="pull-left">BTx123.github.io</div>
+                    <div class="pull-right">2014-2015. Designed by <a href="https://btx123.github.io/">Brian Tom</div>
+                </div>
+            </div>
+        </footer>
         <!-- /FOOTER -->
     </body>
     <!-- /MAIN CONTENT -->
