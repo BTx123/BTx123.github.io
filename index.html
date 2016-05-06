@@ -34,7 +34,15 @@
             $("#footer").load("footer.html"); 
         });
         </script> -->
-        
+        <script>
+            var CAPTCHAId;
+            var onloadCallback = function() {
+                CAPTCHAId = grecaptcha.render('recaptchaWidget', {
+                    'sitekey' : '6LcGNR8TAAAAABnoRB5EFjeipBXIx2kSbc5P2v3s',
+                    'theme' : 'dark'
+                })
+            }
+        </script>
         <!-- SMOOTH SCROLL -->
         <script>
             $(function() {
@@ -144,7 +152,7 @@
                     <div class="row">
                         <!-- contact form -->
                         <div class="col-md-9">
-                            <form name="contactForm" action="mailto:btom.0831@gmail.com" method="post">
+                            <form name="contactForm" action="javascript:alert(grecaptcha.getResponse(widgetId1));" method="post">
                                 <input type="text" name="name" id="fullname" value="FULL NAME" onblur="if (this.value == '') { this.value = 'FULL NAME'; }"
  onfocus="if (this.value == 'FULL NAME') {this.value = '';}">
                                 <br>
@@ -154,8 +162,11 @@
                                 <input class="message" type="text" name="message" id="message" value="MESSAGE" onblur="if (this.value == '') { this.value = 'MESSAGE'; }"
  onfocus="if (this.value == 'MESSAGE') { this.value = ''; }">
                                 <br>
-                                <div class="g-recaptcha" data-sitekey="6LcGNR8TAAAAABnoRB5EFjeipBXIx2kSbc5P2v3s"></div>
-                                <input class="send" type="submit" value="SEND MESSAGE" onclick="if (contactForm.elements['name'].value == 'FULL NAME' || contactForm.elements['email'].value == 'EMAIL ADDRESS' || contactForm.elements['message'].value == 'MESSAGE') { window.alert('You have left one of the fields empty!') } else { window.alert('Thank you!') }">
+                                <!-- reCAPTCHA -->
+                                <div id=recaptchaWidget></div>
+                                <br>
+                                <!-- /reCAPTCHA -->
+                                <input class="send" type="submit" value="SEND MESSAGE" value = "getResponse"><!--onclick="if (contactForm.elements['name'].value == 'FULL NAME' || contactForm.elements['email'].value == 'EMAIL ADDRESS' || contactForm.elements['message'].value == 'MESSAGE') { window.alert('You have left one of the fields empty!') } else { window.alert('Thank you!') }">-->
                             </form>
                         </div>
                         <!-- /contact form -->
