@@ -53,6 +53,10 @@
             });
         </script>
         <!-- /SMOOTH SCROLL -->
+
+        <!-- reCAPTCHA -->
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <!-- /reCAPTCHA -->
     </head>    
     <body>
         <!-- NAVIGATION -->
@@ -115,7 +119,7 @@
                 <!-- /about me -->
                 <hr>
                 <!-- portfolio -->
-                <div class="blog" id="portfolio>
+                <div class="blog" id="portfolio">
                     <h3>PORTFOLIO</h3>
                     <div class="row">
                         <div class="col-md-6 post">
@@ -151,6 +155,7 @@
  onfocus="if (this.value == 'MESSAGE') { this.value = ''; }">
                                 <br>
                                 <input class="send" type="submit" value="SEND MESSAGE" onclick="if (contactForm.elements['name'].value == 'FULL NAME' || contactForm.elements['email'].value == 'EMAIL ADDRESS' || contactForm.elements['message'].value == 'MESSAGE') { window.alert('You have left one of the fields empty!') } else { window.alert('Thank you!') }">
+                                <div class="g-recaptcha" data-sitekey="6LcGNR8TAAAAABnoRB5EFjeipBXIx2kSbc5P2v3s"></div>
                             </form>
                         </div>
                         <!-- /contact form -->
