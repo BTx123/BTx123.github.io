@@ -156,7 +156,7 @@
                     <div class="row">
                         <!-- contact form -->
                         <div class="col-md-9">
-                            <form name="contactForm" action="javascript:alert(grecaptcha.getResponse(widgetId1));" method="post">
+                            <form name="contactForm" action="javascript:alert(grecaptcha.getResponse(recaptchaWidget));" method="post">
                                 <input type="text" name="name" id="fullname" value="FULL NAME" onblur="if (this.value == '') { this.value = 'FULL NAME'; }"
  onfocus="if (this.value == 'FULL NAME') {this.value = '';}">
                                 <br>
@@ -170,7 +170,7 @@
                                 <div id="recaptchaWidget"></div>
                                 <br>
                                 <!-- /reCAPTCHA -->
-                                <input type="submit"  value = "getResponse"><!--class="send" value="SEND MESSAGE" onclick="if (contactForm.elements['name'].value == 'FULL NAME' || contactForm.elements['email'].value == 'EMAIL ADDRESS' || contactForm.elements['message'].value == 'MESSAGE') { window.alert('You have left one of the fields empty!') } else { window.alert('Thank you!') }">-->
+                                <input type="submit"  value="getResponse"><!--class="send" value="SEND MESSAGE" onclick="if (contactForm.elements['name'].value == 'FULL NAME' || contactForm.elements['email'].value == 'EMAIL ADDRESS' || contactForm.elements['message'].value == 'MESSAGE') { window.alert('You have left one of the fields empty!') } else { window.alert('Thank you!') }">-->
                             </form>
                         </div>
                         <!-- /contact form -->
