@@ -6,5 +6,5 @@ baseurl: "/blog"
 url: "https://btx123.github.io/"
 # build settings
 name: Brian Tom
-markdown: kramdown
+markdown: markdown
 permalink: /blog/:year/:month/:day/:title
