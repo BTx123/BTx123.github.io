@@ -22,12 +22,13 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 # Plugins
 
 # Conversion
-markdown: kramdown
+markdown:    kramdown
+highlighter: rouge
 
 # Outputting
 permalink: /blog/:year/:month/:day/:title
-timezone: America/Los_Angeles
+timezone:  America/Los_Angeles
 
-# Personal Info
-name: Brian Tom
+# Personal Info (liquid variables)
+author:      Brian Tom
 description: This is my personal website hosting my projects, blog, and CV.
