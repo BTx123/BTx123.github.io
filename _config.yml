@@ -1,3 +1,10 @@
+# site settings
+title: Brian Tom
+email: tombl@uci.edu
+description: This is my personal website hosting my projects, blog, and CV.
+baseurl: "/blog"
+url: "https://btx123.github.io/"
+# build settings
 name: Brian Tom
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
