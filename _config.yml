@@ -1,10 +1,33 @@
-# site settings
-title: Brian Tom
-email: tombl@uci.edu
-description: This is my personal website hosting my projects, blog, and CV.
-baseurl: "/blog"
-url: "https://btx123.github.io/"
-# build settings
-name: Brian Tom
-markdown: markdown
+# Where things are
+source:       .
+destination:  ./_site
+plugins_dir:  _plugins
+layouts_dir:  _layouts
+data_dir:     _data
+includes_dir: _includes
+collections:
+  posts:
+    output:   true
+
+# Handling Reading
+safe:         false
+include:      [".htaccess"]
+exclude:      ["node_modules", "vendor"]
+keep_files:   [".git", ".svn"]
+encoding:     "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Filtering Content
+
+# Plugins
+
+# Conversion
+markdown: kramdown
+
+# Outputting
 permalink: /blog/:year/:month/:day/:title
+timezone: America/Los_Angeles
+
+# Personal Info
+name: Brian Tom
+description: This is my personal website hosting my projects, blog, and CV.
