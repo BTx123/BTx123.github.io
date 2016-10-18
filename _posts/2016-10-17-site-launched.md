@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "My Site Has Launched!"
+title: "Hank Quinlan, Horrible Cop, Launches Site"
 date: 2014-04-30
 ---
 
-Well, I finally got around to using Jekyll for my website and this will be my very first blog post, corresponding with my first year here at UCI. Using Jekyll, I can write my blogs in Markdown and keep parts of my website static (ex. nav bar).
+Well. Finally got around to putting this old website together. Neat thing about it - powered by [Jekyll](http://jekyllrb.com) and I can use Markdown to author my posts. It actually is a lot easier than I thought it was going to be.
