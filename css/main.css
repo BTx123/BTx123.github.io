@@ -56,6 +56,6 @@ ul.posts li {
     list-style: none;
 }
 // formatting for individuals posts
-.post ul {
-    font-size: 3em;
+div.post ul li {
+    font-size: 1.25em;
 }
