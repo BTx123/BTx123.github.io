@@ -7,7 +7,7 @@ body {
     width: 80%;        /* fill only 80% of age width */
 }
 
-nav ul, { /* remove bullets and bold header */
+nav ul { /* remove bullets and bold header */
     padding: 0px;
     list-style: none;
     font-weight: bold;
