@@ -1,6 +1,6 @@
 // variables
 :root {
-    
+
 }
 
 html {
@@ -46,9 +46,9 @@ footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
 }
-// formatting for blog index.html
-ul.posts { 
-    margin: 20px auto 40px; 
+// formatting for blog index
+ul.posts {
+    margin: 20px auto 40px;
     font-size: 1.5em;
 }
 
@@ -58,4 +58,14 @@ ul.posts li {
 // formatting for individuals posts
 div.post ul li {
     font-size: 1.25em;
+}
+// formatting for captioned pictures
+.image-wrapper {
+    text-align: center;
+
+    .image-caption {
+        color: $grey-color;
+        margin-top: $spacing-unit / 3;
+    }
+    
 }
