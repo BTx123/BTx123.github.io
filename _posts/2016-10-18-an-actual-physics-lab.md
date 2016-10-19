@@ -17,3 +17,10 @@ Last but not least, I had my second midterm ever here at UCI for CSE 41. It was 
 
 Until next time,<br/>
 Brian
+
+---
+
+<blockquote>
+"We build too many walls and not enough bridges."<br/>
+&mdash; Isaac Newton
+</blockquote>
