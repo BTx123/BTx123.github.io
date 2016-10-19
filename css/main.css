@@ -11,6 +11,7 @@ nav ul, footer ul { /* remove bullets and bold header and footer */
     padding: 0px;
     list-style: none;
     font-weight: bold;
+    font-size: x-large;
 }
 
 nav ul li, footer ul li {
@@ -32,13 +33,13 @@ h1 {
 }
 
 p {
-    font-size: 1.25em;
+    font-size: x-large;
     line-height: 1.4em; /* spacing between lines */
     color: #333;
 }
 
 blockquote {
-    font-size: 1.15em;
+    font-size: large;
 }
 
 footer {
@@ -48,7 +49,7 @@ footer {
 /*  formatting for blog index */
 ul.posts {
     margin: 20px auto 40px;
-    font-size: 1.5em;
+    font-size: x-large;
 }
 
 ul.posts li {
@@ -56,7 +57,7 @@ ul.posts li {
 }
 /* formatting for individuals posts */
 div.post ul li {
-    font-size: 1.25em;
+    font-size: larger;
 }
 /* formatting for captioned pictures */
 .image-wrapper {
@@ -66,7 +67,7 @@ div.post ul li {
 }
 .image-caption {
     text-align: center;
-    font-size: 1em;
+    font-size: large;
     color: grey;
     margin-top: 1em;
 }
