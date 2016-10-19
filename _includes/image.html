@@ -14,13 +14,13 @@ caption: the text to display below the image
     {% endif %}
         <img src="{{ site.url }}/{{ include.img }}"
             alt="{{ include.title }}"
-            style="width: 80%; margin-left: auto; margin-right: auto;"/>
+            style="width: 80%; margin: auto"/>
     {% if include.url %}
     </a>
     {% endif %}
     {% if include.caption %}
         <p class="image-caption"
-            style="text-align: center; font-size: 1em; color: grey; margin-top: 1em;">
+            style="text-align: center; font-size: 1em; color: grey; margin-top: 1em">
             {{ include.caption }}</p>
     {% endif %}
 </div>
