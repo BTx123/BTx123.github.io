@@ -62,7 +62,8 @@ div.post ul li {
 // formatting for captioned pictures
 .image-wrapper {
     width: 80%;
-    margin: auto;
+    margin-left: auto;
+		margin-right: auto;
     .image-caption {
         text-align: center;
         font-size: 1em;
