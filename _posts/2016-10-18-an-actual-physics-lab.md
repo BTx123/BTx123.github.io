@@ -15,5 +15,5 @@ I also attended a Git(Hub) workshop with few of my [VGDC](http://vgdc-uci.com/) 
 
 Last but not least, I had my second midterm ever here at UCI for CSE 41. It was a walk in the park by APCS standards but a good review of what we've been doing in Python so far.
 
-Until next time,</br>
+Until next time,<br/>
 Brian
