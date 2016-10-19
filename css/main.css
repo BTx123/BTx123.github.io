@@ -3,19 +3,19 @@ html {
 }
 
 body {
-    margin: 40px auto; // margin from screen top
-    width: 80%;        // fill only 80% of age width
+    margin: 40px auto; /* margin from screen top */
+    width: 80%;        /* fill only 80% of age width */
 }
 
-nav ul, footer ul { // remove bullets and bold header and footer
+nav ul, footer ul { /* remove bullets and bold header and footer */
     padding: 0px;
     list-style: none;
     font-weight: bold;
 }
 
 nav ul li, footer ul li {
-    display: inline;    // display list items in single row
-    margin-right: 40px; // spacing between list items
+    display: inline;    /* display list items in single row */
+    margin-right: 40px; /* spacing between list items */
 }
 
 a {
@@ -45,7 +45,7 @@ footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
 }
-// formatting for blog index
+/*  formatting for blog index */
 ul.posts {
     margin: 20px auto 40px;
     font-size: 1.5em;
@@ -54,11 +54,11 @@ ul.posts {
 ul.posts li {
     list-style: none;
 }
-// formatting for individuals posts
+/* formatting for individuals posts */
 div.post ul li {
     font-size: 1.25em;
 }
-/*// formatting for captioned pictures
+/* formatting for captioned pictures */
 .image-wrapper {
     width: 80%;
     margin-left: auto;
@@ -69,4 +69,4 @@ div.post ul li {
 	font-size: 1em;
 	color: grey;
 	margin-top: 1em;
-}*/
+}
