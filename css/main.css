@@ -1,5 +1,5 @@
 html {
-	font-family: Verdana, Tahoma, sans-serif;
+    font-family: Verdana, Tahoma, sans-serif;
 }
 
 body {
@@ -19,12 +19,12 @@ nav ul li, footer ul li {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none; /* no text decoration for links */
     color: grey;
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* underline links when mouse hovers */
 }
 
 h1 {
@@ -32,13 +32,13 @@ h1 {
 }
 
 p {
-    font-size: 1.5em;
-    line-height: 1.4em;
+    font-size: 1.25em;
+    line-height: 1.4em; /* spacing between lines */
     color: #333;
 }
 
 blockquote {
-	font-size: 1.25em;
+    font-size: 1.15em;
 }
 
 footer {
@@ -62,11 +62,11 @@ div.post ul li {
 .image-wrapper {
     width: 80%;
     margin-left: auto;
-	margin-right: auto;
+    margin-right: auto;
 }
 .image-caption {
-	text-align: center;
-	font-size: 1em;
-	color: grey;
-	margin-top: 1em;
+    text-align: center;
+    font-size: 1em;
+    color: grey;
+    margin-top: 1em;
 }
