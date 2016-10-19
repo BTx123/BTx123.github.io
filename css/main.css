@@ -14,8 +14,8 @@ nav ul, footer ul { // remove bullets and bold header and footer
 }
 
 nav ul li, footer ul li {
-    display: inline;     // display list items in single row
-    margin-right: 1.5em; // spacing between list items
+    display: inline;    // display list items in single row
+    margin-right: 40px; // spacing between list items
 }
 
 a {
