@@ -61,11 +61,10 @@ div.post ul li {
 }
 // formatting for captioned pictures
 .image-wrapper {
+    width: 80%;
     text-align: center;
-
     .image-caption {
         color: $grey-color;
         margin-top: $spacing-unit / 3;
     }
-    
 }
