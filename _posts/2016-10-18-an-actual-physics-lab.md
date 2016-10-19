@@ -13,7 +13,7 @@ So, putting behind the extra charge for lab equipment that was just added this l
 
 I also attended a Git(Hub) workshop with few of my [VGDC](http://vgdc-uci.com/) buddies so that we could all learn (or for me, refresh) Git's version control capabilities.
 
-Last but not least, I had my second midterm ever here at UCI for CSE 41. It was a walk in the park by APCS standards but a good review of what we've been doing in Python so far.
+Last but not least, I had my second midterm ever here at UCI for CSE 41. It was a walk in the park by APCS standards, but a good review of what we've been doing in Python so far.
 
 Until next time,<br/>
 Brian
