@@ -10,6 +10,9 @@ Or, more specifically, the first team meeting for the VGDC game development grou
 
 If you would like to check out how our team is doing, visit our [GitHub repo for "The Last Robot."](https://github.com/BTx123/VGDC_TheLastRobot)
 
+Machine learning for autonomous cars
+Natural language processing
+
 Oh, and I just finished all my midterms for the time being &mdash; just waiting for that second round...
 
 Thanks for reading,<br/>
@@ -17,7 +20,7 @@ Brian
 
 ---
 
-**insert quote here**
 {% include quote.html
-    quote=""
-    person="" %}
+    quote="The rate at which a person can mature is directly proportional to the embarrassment he can tolerate."
+    person="Douglas Engelbart"
+    url="https://en.wikipedia.org/wiki/Douglas_Engelbart" %}
