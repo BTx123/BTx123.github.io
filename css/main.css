@@ -44,8 +44,8 @@ p {
     line-height: 1.4em; /* spacing between lines */
     color: #333;
 }
-
-blockquote {
+/* formatting for quotes */
+.quote {
     font-size: large;
 }
 
