@@ -45,7 +45,7 @@ p {
     color: #333;
 }
 /* formatting for quotes */
-.quote {
+.quote blockquote {
     font-size: large;
 }
 
