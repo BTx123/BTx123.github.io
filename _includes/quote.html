@@ -11,7 +11,7 @@ url (opt): link to person/quote source
     <blockquote>
         "{{ include.quote }}"<br/>
         {% if include.person %}
-        &emdash; <a href="{{ include.url }}">{{ include.person }}</a>
+        <p>&emdash;<a href="{{ include.url }}">{{ include.person }}</a></p>
         {% endif %}
     </blockquote>
 </div>
