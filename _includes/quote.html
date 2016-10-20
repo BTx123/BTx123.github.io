@@ -7,9 +7,11 @@ person (opt): person who spoke those words
 url (opt): link to person/quote source
 -->
 
-<blockquote>
-    "{{ include.quote }}"<br/>
-    {% if include.person %}
-    &emdash; <a href=include.url>{{ include.person }}</a>
-    {% endif %}
-</blockquote>
+<div class="quote">
+    <blockquote>
+        "{{ include.quote }}"<br/>
+        {% if include.person %}
+        &emdash; <a href="{{ include.url }}">{{ include.person }}</a>
+        {% endif %}
+    </blockquote>
+</div>
