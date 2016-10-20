@@ -22,7 +22,7 @@ Every Wednesday I have a seminar P/NP class called ICS 90 that gives us Freshman
 
 Oh, and I just finished all my midterms for the time being &mdash; just waiting for that second round...
 
-Thanks for reading,<br/>
+Thanks for reading,<br>
 Brian
 
 ## Update #1
