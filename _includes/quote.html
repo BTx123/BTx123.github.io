@@ -9,9 +9,9 @@ url (opt): link to person/quote source
 
 <div class="quote">
     <blockquote>
-        "{{ include.quote }}"<br/>
+        "{{ include.quote }}"<br/>&emdash;
         {% if include.person %}
-        <p>&emdash;<a href="{{ include.url }}">{{ include.person }}</a></p>
+        <a href="{{ include.url }}">{{ include.person }}</a>
         {% endif %}
     </blockquote>
 </div>
