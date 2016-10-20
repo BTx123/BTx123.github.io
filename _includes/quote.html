@@ -4,11 +4,12 @@
 Liquid Variables
 quote: string to be enclosed in double quotes
 person (opt): person who spoke those words
+url (opt): link to person/quote source
 -->
 
 <blockquote>
     "{{ include.quote }}"<br/>
     {% if include.person %}
-    &emdash; {{ include.person }}
+    &emdash; <a href=include.url>{{ include.person }}</a>
     {% endif %}
 </blockquote>
