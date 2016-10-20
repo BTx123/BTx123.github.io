@@ -20,7 +20,7 @@ Brian
 
 ---
 
-<blockquote>
-"We build too many walls and not enough bridges."<br/>
-&mdash; <a href="https://en.wikipedia.org/wiki/Isaac_Newton">Isaac Newton</a>
-</blockquote>
+{% include quote.html
+    quote="We build too many walls and not enough bridges."
+    person="Issac Newton"
+    url="https://en.wikipedia.org/wiki/Isaac_Newton" %}
