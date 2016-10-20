@@ -47,6 +47,7 @@ p {
 /* formatting for quotes */
 .quote blockquote {
     font-size: large;
+    color: #333;
 }
 
 footer {
