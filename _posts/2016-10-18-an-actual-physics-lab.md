@@ -5,7 +5,7 @@ date: 2016-10-18
 ---
 
 {% include image.html
-    img="assets/2016-10-18-physics-lab.jpg"
+    img="/assets/2016-10-18-physics-lab.jpg"
     title="Physics Lab Image"
     caption="Lab instruments: A Fast Fly-by" %}
 
