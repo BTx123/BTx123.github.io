@@ -25,5 +25,6 @@ Oh, and I just finished all my midterms for the time being &mdash; just waiting 
 Thanks for reading,<br>
 Brian
 
-## Update #1
-So, that meeting I was talking about earlier. Well, it took longer than I expected. 3 hours to be exact, from 7PM - 10PM. Whew, that was a long day! ...and I've still got more work to do.
+{% include update.html
+    number="1"
+    content="So, that meeting I was talking about earlier. Well, it took longer than I expected. 3 hours to be exact, from 7PM - 10PM. Whew, that was a long day! ...and I've still got more work to do."%}
