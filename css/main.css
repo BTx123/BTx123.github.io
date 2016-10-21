@@ -61,6 +61,7 @@ a:hover {
     display: inline-block;
     width: 20%;
     padding: 0.5em;
+    border-radius: 10%;
     background-color: #fff;
     transition: background-color 0.5s ease-out;
 }
