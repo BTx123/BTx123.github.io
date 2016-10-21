@@ -58,6 +58,7 @@ a:hover {
 
 /* control width of images, transition when hover */
 .gallery a img {
+    display: inline-block;
     width: 20%;
     padding: 1em;
     background-color: #fff;
@@ -67,6 +68,7 @@ a:hover {
 /* change backgroud color on hover */
 .gallery a img:hover {
     background-color: #333;
+    transition: none;
 }
 
 /* center tagline on about page */
