@@ -9,8 +9,6 @@ date: 2016-10-20
     person="Robert W. Floyd"
     url="https://en.wikipedia.org/wiki/Robert_W._Floyd" %}
 
-<br>
-
 {% include image.html
     img="/assets/2016-10-20-bug.jpg"
     title="First actual case of bug being found."
