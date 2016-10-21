@@ -7,6 +7,11 @@ body {
     width: 80%;        /* fill only 80% of age width */
 }
 
+#logo {
+    border-style: solid;
+    height: 3em;
+}
+
 nav ul { /* remove bullets and bold header */
     padding: 0px;
     list-style: none;
@@ -22,8 +27,9 @@ footer ul { /* remove bullets and bold footer */
 }
 
 nav ul li, footer ul li {
-    display: inline;    /* display list items in single row */
-    margin-right: 40px; /* spacing between list items */
+    display: inline-block;  /* display list items in single row */
+    vertical-align: middle; /* align text to vertical center of logo */
+    margin-right: 40px;     /* spacing between list items */
 }
 
 a {
