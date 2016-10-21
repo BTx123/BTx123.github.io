@@ -12,6 +12,7 @@ date: 2016-10-20
 {% include image.html
     img="/assets/2016-10-20-bug.jpg"
     title="First actual case of bug being found."
-    caption="By Courtesy of the Naval Surface Warfare Center, Dahlgren, VA., 1988. - U.S. Naval Historical Center Online Library Photograph NH 96566-KN, [Public Domain](https://commons.wikimedia.org/w/index.php?curid=165211)" %}
+    url="https://commons.wikimedia.org/w/index.php?curid=165211"
+    caption="By Courtesy of the Naval Surface Warfare Center, Dahlgren, VA., 1988. - U.S. Naval Historical Center Online Library Photograph NH 96566-KN, Public Domain" %}
 
 Brian
