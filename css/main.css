@@ -1,55 +1,109 @@
+/*==============================================================================
+    ===CSS DIRECTORY===
+    1. =GLOBAL
+	2. =PRIMARY
+	3. =NAVIGATION
+	4. =FOOTER
+	5. =QUOTES
+    6. =IMAGES
+    7. =BLOG
+==============================================================================*/
+
+/*==============================================================================
+    ===GLOBAL===
+==============================================================================*/
+
 html {
-    font-family: Verdana, Tahoma, sans-serif;
+    font-family: Verdana,Tahoma,sans-serif;
 }
 
+/*==============================================================================
+    ===PRIMARY===
+==============================================================================*/
+
+/* main contents of each page */
 body {
-    margin: 40px auto; /* margin from screen top */
-    width: 80%;        /* fill only 80% of age width */
-}
-
-#logo {
-    border-style: solid;
-    height: 3em;
-}
-
-nav ul { /* remove bullets and bold header */
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
-    font-size: x-large;
-}
-
-footer ul { /* remove bullets and bold footer */
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
-    font-size: medium;
-}
-
-nav ul li, footer ul li {
-    display: inline-block;  /* display list items in single row */
-    vertical-align: middle; /* align text to vertical center of logo */
-    margin-right: 40px;     /* spacing between list items */
-}
-
-a {
-    text-decoration: none; /* no text decoration for links */
-    color: grey;
-}
-
-a:hover {
-    text-decoration: underline; /* underline links when mouse hovers */
+    /* margin from screen top */
+    margin: 40px auto;
+    /* fill only 80% of age width */
+    width: 80%;
 }
 
 h1 {
     font-size: 3em;
 }
 
+/* paragraph font size, spacing between lines, color */
 p {
     font-size: x-large;
-    line-height: 1.4em; /* spacing between lines */
+    line-height: 1.5em;
     color: #333;
 }
+
+/* no text decoration for links, color */
+a {
+    text-decoration: none;
+    color: gray;
+}
+
+/* underline links when mouse hovers */
+a:hover {
+    text-decoration: underline;
+}
+
+/*==============================================================================
+    ===NAVIGATION===
+==============================================================================*/
+
+/* personal logo */
+#logo {
+    border-style: solid;
+    height: 3em;
+}
+
+/* remove bullets and bold header */
+nav ul {
+    padding: 0;
+    list-style: none;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+/* single row of list items, align text to vertical center of logo, space out list items */
+nav ul li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 40px;
+}
+
+/*==============================================================================
+    ===FOOTER===
+==============================================================================*/
+
+/* line above contact info. font size */
+footer {
+    border-top: 1px solid #d5d5d5;
+    font-size: .8em;
+}
+
+/* bold footer and remove bullets */
+footer ul {
+    padding: 0;
+    list-style: none;
+    font-weight: bold;
+    font-size: medium;
+}
+
+/* single row of list items, space out list items */
+footer ul li {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+/*==============================================================================
+    ===QUOTES===
+==============================================================================*/
+
 /* formatting for quotes */
 .quote blockquote {
     line-height: 1.5em;
@@ -57,23 +111,10 @@ p {
     color: #333;
 }
 
-footer {
-    border-top: 1px solid #d5d5d5;
-    font-size: .8em;
-}
-/*  formatting for blog index */
-ul.posts {
-    margin: 20px auto 40px;
-    font-size: x-large;
-}
+/*==============================================================================
+    ===IMAGES===
+==============================================================================*/
 
-ul.posts li {
-    list-style: none;
-}
-/* formatting for individuals posts */
-div.post ul li {
-    font-size: larger;
-}
 /* formatting for captioned pictures */
 .image-wrapper img {
     display: block;
@@ -81,9 +122,30 @@ div.post ul li {
     margin: auto;
     width: 70%;
 }
+
 .image-caption {
     text-align: center;
     margin-top: 1em;
     font-size: large;
-    color: grey;
+    color: gray;
+}
+
+/*==============================================================================
+    ===BLOG===
+==============================================================================*/
+
+/*  formatting for blog index */
+ul.posts {
+    margin: 20px auto 40px;
+    font-size: x-large;
+}
+
+/* remove bullets from list of blog posts */
+ul.posts li {
+    list-style: none;
+}
+
+/* formatting for lists in posts */
+.post ul li {
+    font-size: larger;
 }
