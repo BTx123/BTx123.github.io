@@ -4,6 +4,11 @@ title: "An Actual Physics Lab"
 date: 2016-10-18
 ---
 
+{% include quote.html
+    quote="We build too many walls and not enough bridges."
+    person="Issac Newton"
+    url="https://en.wikipedia.org/wiki/Isaac_Newton" %}
+    
 {% include image.html
     img="/assets/2016-10-18-physics-lab.jpg"
     title="Physics Lab Image"
@@ -17,10 +22,3 @@ Last but not least, I had my second midterm ever here at UCI for CSE 41. It was 
 
 Until next time,<br/>
 Brian
-
----
-
-{% include quote.html
-    quote="We build too many walls and not enough bridges."
-    person="Issac Newton"
-    url="https://en.wikipedia.org/wiki/Isaac_Newton" %}
