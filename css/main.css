@@ -60,6 +60,7 @@ a:hover {
 .gallery a img {
     width: 20%;
     padding: 1em;
+    background-color: #fff;
     transition: background-color 0.5s ease-out;
 }
 
