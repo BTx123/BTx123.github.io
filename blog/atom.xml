@@ -5,7 +5,7 @@ layout: feed
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-	<title>Brian Tom's Blog</title>
+	<title>brian tom's blog</title>
 	<link href="https://btx123.github.io/blog/atom.xml" rel="self" />
 	<link href="https://btx123.github.io/blog"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>

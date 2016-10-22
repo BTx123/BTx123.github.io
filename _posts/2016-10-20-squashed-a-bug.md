@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Squashed A Bug"
+title: "squashed a bug"
 date: 2016-10-20
 ---
 
@@ -11,7 +11,7 @@ date: 2016-10-20
 
 {% include image.html
     img="/images/2016-10-20-bug.jpg"
-    title="First actual case of bug being found."
+    title="first actual case of bug being found"
     url="https://commons.wikimedia.org/w/index.php?curid=165211"
     caption="By Courtesy of the Naval Surface Warfare Center, Dahlgren, VA., 1988. - U.S. Naval Historical Center Online Library Photograph NH 96566-KN, Public Domain" %}
 

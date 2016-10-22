@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The First Meeting"
+title: "the first meeting"
 date: 2016-10-19
 ---
 
@@ -11,8 +11,8 @@ date: 2016-10-19
 
 {% include image.html
     img="/images/2016-10-19-ICS-90-seminar.jpg"
-    title="ICS 90 Seminar"
-    caption="ICS 90 Seminar with Sameer Singh" %}
+    title="ICS 90 seminar"
+    caption="ICS 90 seminar with Sameer Singh" %}
 
 Or, more specifically, the first team meeting for the VGDC game development group for "The Last Robot." After 4 weeks of preparation and adapting to college life, I will be hosting the first of many team meetings in the Student Center (who knew they had private, reservable study rooms, called CSLs?) for our game. I am Project Lead for a team of 7 developers: 4 programmers, 2 artists, and 1 writer (plus an Officer Buddy who will be helping us make sure we have a successful game). At tonight's meeting, we will discuss the schedule for the rest of the quarter, develop a concrete background story, assign jobs to each person, and make sure everyone knows how to use Git.
 

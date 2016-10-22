@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Personal Domain Is Up, Gym Is Up, But GitHub Is Down"
+title: "personal domain is up, but GitHub is down"
 date: 2016-10-21
 ---
 
@@ -11,8 +11,8 @@ date: 2016-10-21
 
 {% include image.html
     img="/images/2016-10-21-gym.jpg"
-    title="Gym is open at Mesa Towers!"
-    caption="Gym is open at Mesa Towers!" %}
+    title="gym is open at Mesa Towers!"
+    caption="gym is open at Mesa Towers!" %}
 
 Hooray! I registered my personal domain name [briantom.me](http://briantom.me/) yesterday and it is up and running. [GitHub's Student Developer Pack](https://education.github.com/pack) provided my with a free domain name for a year hosted by [Namecheap](https://www.namecheap.com/) so I was able to redirect my previous site name (BTx123.github.io) to this new one. The pack is not limited to just personal domains though, it also offers access to AWS Cloud, private repos on GitHub, a nanodegree program offered by Udacity, and Unreal Engine.
 

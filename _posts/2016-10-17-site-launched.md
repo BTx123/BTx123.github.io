@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "My Site Has Launched!"
+title: "my site has launched!"
 date: 2016-10-17
 ---
 
