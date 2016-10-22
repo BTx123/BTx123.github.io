@@ -83,6 +83,7 @@ a:hover {
 
 /* personal logo */
 #logo {
+    border-radius: 10%;
     border-style: solid;
     height: 3em;
 }
