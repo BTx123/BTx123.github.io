@@ -8,8 +8,6 @@ includes_dir: _includes
 collections:
     posts:
         output: true
-    images:
-        output: true
 
 # Handling Reading
 safe:         false
@@ -29,7 +27,6 @@ highlighter: rouge
 
 # Outputting
 permalink: /blog/:year/:month/:day/:title
-permalink: /images/:year/:month/:day/:title
 timezone:  America/Los_Angeles
 
 # Personal Info (liquid variables)
