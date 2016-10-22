@@ -20,6 +20,8 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 # Filtering Content
 
 # Plugins
+gems:
+    - jekyll-sitemap
 
 # Conversion
 markdown:    kramdown
