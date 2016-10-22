@@ -10,10 +10,10 @@ date: 2016-10-21
     url="" %}
 
 {% include image.html
-    img="/assets/"
-    title=""
+    img="/assets/2016-10-21-gym.jpg"
+    title="Gym is open at Mesa Towers!"
     url=""
-    caption="" %}
+    caption="Gym is open at Mesa Towers!" %}
 
 gym opening
 
