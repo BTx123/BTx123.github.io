@@ -74,6 +74,7 @@ a:hover {
 
 #profile-pict {
     border-radius: 50%;
+    height: 20em;
 }
 
 /* center tagline on about page */
