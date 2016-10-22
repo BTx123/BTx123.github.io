@@ -86,6 +86,7 @@ a:hover {
     border-radius: 10%;
     border-style: solid;
     height: 3em;
+    color: black;
 }
 
 /* remove bullets and bold header */
