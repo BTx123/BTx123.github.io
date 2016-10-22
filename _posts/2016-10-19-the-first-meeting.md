@@ -10,7 +10,7 @@ date: 2016-10-19
     url="https://en.wikipedia.org/wiki/Douglas_Engelbart" %}
 
 {% include image.html
-    img="/assets/2016-10-19-ICS-90-seminar.jpg"
+    img="/images/2016-10-19-ICS-90-seminar.jpg"
     title="ICS 90 Seminar"
     caption="ICS 90 Seminar with Sameer Singh" %}
 
