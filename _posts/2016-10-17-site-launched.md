@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "my site has launched! | brian tom"
+title: "my site has launched!"
 date: 2016-10-17
 ---
 
