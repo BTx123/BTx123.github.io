@@ -168,20 +168,11 @@ footer ul li {
     ===RESUME===
 =============================================================================*/
 
-/* formatting for resume size*/
-.container .resume {
-    height: 100%;
-}
-
 .resume iframe {
     display: block;
     width: 80%;
     margin: auto;
 }
-/*.resume iframe {
-    width: 80%;
-    margin: auto;
-}*/
 
 /*=============================================================================
     ===BLOG===
