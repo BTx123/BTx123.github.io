@@ -169,12 +169,12 @@ footer ul li {
 =============================================================================*/
 
 /* formatting for resume size*/
-.resume {
-    height: 500px;
-    width: 80%;
+.container .resume {
+    height: 100%;
 }
 
 .resume iframe {
+    width: 80%;
     margin: auto;
 }
 
