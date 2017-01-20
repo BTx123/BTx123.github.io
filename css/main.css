@@ -173,6 +173,10 @@ footer ul li {
     height: 100%;
 }
 
+.resume span {
+    width: 80%;
+    margin: auto;
+}
 /*.resume iframe {
     width: 80%;
     margin: auto;
