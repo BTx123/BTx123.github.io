@@ -30,6 +30,10 @@ body {
     width: 80%;
 }
 
+.container {
+    padding-bottom: 40px;
+}
+
 h1 {
     font-size: 3em;
 }
