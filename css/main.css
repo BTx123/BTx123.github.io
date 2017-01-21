@@ -188,7 +188,7 @@ footer ul li {
     display: inline-block;
 }
 
-.projects-content a {
+.project {
     width: 200px;
     height: 200px;
 }
