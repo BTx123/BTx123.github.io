@@ -80,6 +80,7 @@ a:hover {
 
 #profile-pict {
     border-radius: 50%;
+    margin-bottom: 0.5em;
     height: 20em;
 }
 
@@ -112,7 +113,7 @@ nav ul {
 nav ul li {
     display: inline-block;
     vertical-align: middle;
-    margin-right: 40px;
+    margin-right: 1.5em;
 }
 
 /*=============================================================================
@@ -136,7 +137,7 @@ footer ul {
 /* single row of list items, space out list items */
 footer ul li {
     display: inline-block;
-    margin-right: 40px;
+    margin-right: 1.5em;
 }
 
 /*=============================================================================
