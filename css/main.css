@@ -100,11 +100,11 @@ a:hover {
     transition-duration: 0.4s;
     border-radius: 10%;
     border-style: solid;
-    color: white;
+    color: rgba(0, 0, 0, 0.2);
 }
 
 #logo:hover {
-    color: black;
+    color: rgba(0, 0, 0, 1);
 }
 
 /* remove bullets and bold header */
