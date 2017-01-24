@@ -95,9 +95,12 @@ a:hover {
 
 /* personal logo */
 #logo {
+    height: 3em;
+}
+
+#logo:hover {
     border-radius: 10%;
     border-style: solid;
-    height: 3em;
     color: black;
 }
 
