@@ -1,3 +1,10 @@
+# Personal Info (liquid variables)
+name:           Brian Tom's Blog
+description:    This is my personal website hosting my projects, blog, and resume.
+author:         Brian Tom
+author_email:   tombl@uci.edu
+url:            https://briantom.me
+
 # Where things are
 source:       .
 destination:  ./_site
@@ -18,6 +25,7 @@ encoding:     "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 # Filtering Content
+exclude:    [README.md, TODO.txt]
 
 # Plugins
 gems:
@@ -28,9 +36,5 @@ markdown:    kramdown
 highlighter: rouge
 
 # Outputting
-permalink: /blog/:year/:month/:day/:title
-timezone:  America/Los_Angeles
-
-# Personal Info (liquid variables)
-author:      Brian Tom
-description: This is my personal website hosting my projects, blog, and CV.
+permalink:  /blog/:year/:month/:day/:title
+timezone:   America/Los_Angeles
