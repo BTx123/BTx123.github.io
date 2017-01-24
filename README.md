@@ -6,4 +6,5 @@ I am still working on updating major components of my site so stay tuned.
 # Resources
 * Thanks to [Programming Historian's](http://programminghistorian.org/lessons/building-static-sites-with-jekyll-github-pages) online tutorials for helping me create this website
 * The [Jekyll](https://jekyllrb.com) community for its great static site generating capabilities
-* [Lightbox's](http://lokeshdhakar.com/projects/lightbox2/) photogallery creator
+* [Lightbox's](http://lokeshdhakar.com/projects/lightbox2/) photo gallery creator
+* [Wirecraft's](https://wiredcraft.com/blog/make-jekyll-fast/) 13 Steps To A Faster Jekyll Website
