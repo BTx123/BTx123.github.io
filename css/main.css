@@ -50,6 +50,8 @@ p {
 a {
     text-decoration: none;
     color: gray;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
 }
 
 /* underline links when mouse hovers */
@@ -96,11 +98,11 @@ a:hover {
 /* personal logo */
 #logo {
     height: 3em;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    border-radius: 10%;
+    border-radius: 20%;
     border-style: solid;
     color: rgba(0, 0, 0, 0.2);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
 }
 
 #logo:hover {
