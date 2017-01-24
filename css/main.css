@@ -50,8 +50,6 @@ p {
 a {
     text-decoration: none;
     color: gray;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
 }
 
 /* underline links when mouse hovers */
