@@ -12,7 +12,7 @@ date: 2017-01-23
 {% include image.html
     img="/images/blog/2017-01-23-https.png"
     title="HTTPS - secure communication protocol not present with HTTP"
-    caption="HTTPS - secure communication protocol not present with HTTP (image courtesy of [Rigor.com](http://rigor.com), which does not use HTTPS...)" %}
+    caption="HTTPS - secure communication protocol not present with HTTP (image courtesy of Rigor.com)" %}
 
 Today, I updated my site to use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) &mdash; HTTP Secure &mdash; with the CDN [Cloudflare](https://www.cloudflare.com). It provides services such an auto-minification, content protection, and speeds up loading times. The setup process consisted of:
 

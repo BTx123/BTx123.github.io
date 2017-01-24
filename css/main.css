@@ -225,6 +225,6 @@ ul.posts li {
 }
 
 /* formatting for lists in posts */
-.post ul li {
-    font-size: larger;
+.post ul, .post ol {
+    font-size: larger
 }
