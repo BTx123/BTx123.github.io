@@ -96,8 +96,8 @@ a:hover {
 /* personal logo */
 #logo {
     height: 3em;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
     border-radius: 10%;
     border-style: solid;
     color: rgba(0, 0, 0, 0.2);
