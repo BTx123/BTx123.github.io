@@ -9,7 +9,7 @@ date: 2016-10-22
     person="Sarah Condor" %}
 
 {% include image.html
-    img="/images/2016-10-22-notebook.jpg"
+    img="/images/blog/2016-10-22-notebook.jpg"
     title="my coding notes and ideas"
     caption="my coding notes and ideas" %}
 

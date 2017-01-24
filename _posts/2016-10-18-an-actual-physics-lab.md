@@ -10,7 +10,7 @@ date: 2016-10-18
     url="https://en.wikipedia.org/wiki/Isaac_Newton" %}
 
 {% include image.html
-    img="/images/2016-10-18-physics-lab.jpg"
+    img="/images/blog/2016-10-18-physics-lab.jpg"
     title="physics lab image"
     caption="lab instruments, a fast fly-by" %}
 

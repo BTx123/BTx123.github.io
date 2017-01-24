@@ -10,7 +10,7 @@ date: 2016-10-21
     url="http://www.hongkiat.com/blog/programming-jokes/#sharing-wrap-image-6" %}
 
 {% include image.html
-    img="/images/2016-10-21-gym.jpg"
+    img="/images/blog/2016-10-21-gym.jpg"
     title="gym is open at Mesa Towers!"
     caption="gym is open at Mesa Towers!" %}
 
