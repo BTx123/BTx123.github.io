@@ -18,7 +18,7 @@ Today, I updated my site to use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) &md
 
 1. Getting a domain from [Namecheap](https://www.namecheap.com) which I already had from [GitHub Education](https://education.github.com/)
 2. Creating my Cloudflare account with my domain name
-3. [Correctly setting up may nameservers on Namecheap](https://www.namecheap.com/support/knowledgebase/article.aspx/9607/2210/how-to-set-up-dns-records-for-your-domain-in-cloudflare-account)
+3. [Correctly setting up my nameservers on Namecheap](https://www.namecheap.com/support/knowledgebase/article.aspx/9607/2210/how-to-set-up-dns-records-for-your-domain-in-cloudflare-account)
 4. Correctly setting up DNS records for GitHub, email, and redirection to [briantom.me](briantom.me), which I copied from those originally on Namecheap and those that appeared automatically on the private email page
 5. Change a few settings (HTTPS automatic rewrites, firewall, auto-minify, AMP links, caching, content protection, etc.) and [set up HTTPS redirect page rules](https://www.cloudflare.com/features-page-rules/must-use-page-rules/)
 
