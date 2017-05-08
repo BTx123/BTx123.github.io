@@ -181,11 +181,16 @@ footer ul li {
 =============================================================================*/
 
 /* styling for embedded resume */
-.resume iframe {
+.resume embed {
     display: block;
     width: 60%;
     margin: auto;
 }
+/*.resume iframe {
+    display: block;
+    width: 60%;
+    margin: auto;
+}*/
 
 /*=============================================================================
     ===PROJECTS===
