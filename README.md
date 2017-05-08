@@ -3,6 +3,11 @@ My website for all my programming, blogging, and work needs.
 
 I am still working on updating major components of my site so stay tuned.
 
+# TODO
+* Projects list
+* Custom 404 page
+* Better image viewing
+
 # Resources
 * Thanks to [Programming Historian's](http://programminghistorian.org/lessons/building-static-sites-with-jekyll-github-pages) online tutorials for helping me create this website
 * The [Jekyll](https://jekyllrb.com) community for its great static site generating capabilities
