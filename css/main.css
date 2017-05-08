@@ -180,17 +180,12 @@ footer ul li {
     ===RESUME===
 =============================================================================*/
 
-/* styling for embedded resume */
-.resume embed {
+/* styling for iframe resume */
+.resume iframe {
     display: block;
     width: 60%;
     margin: auto;
 }
-/*.resume iframe {
-    display: block;
-    width: 60%;
-    margin: auto;
-}*/
 
 /*=============================================================================
     ===PROJECTS===
