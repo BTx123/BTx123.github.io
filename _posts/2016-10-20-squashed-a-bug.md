@@ -13,7 +13,7 @@ date: 2016-10-20
     img="/images/blog/2016-10-20-bug.jpg"
     title="first actual case of bug being found"
     url="https://commons.wikimedia.org/w/index.php?curid=165211"
-    caption="By Courtesy of the Naval Surface Warfare Center, Dahlgren, VA., 1988. - U.S. Naval Historical Center Online Library Photograph NH 96566-KN, Public Domain" %}
+    caption="Courtesy of the Naval Surface Warfare Center, Dahlgren, VA., 1988. - U.S. Naval Historical Center Online Library Photograph NH 96566-KN, Public Domain" %}
 
 No, it wasn't an *actual* bug. Nope, not the crawling kind like that poor moth above. It was a bug in the Unity game I am currently working on. By using Visual Studio's debug and error windows, I found an 'Array Out of Bounds' error which was linked to the player health script. For reasons unknown (as of yet), the sprites for health were unlinked from the main camera which displays the images. After adding the sprites back in, the game was back in working order and I could continue working on the player's movement (since it isn't that smooth yet). Issue #4, fixed.
 
