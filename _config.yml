@@ -21,16 +21,16 @@ url:             "https://briantom.me" # the base hostname & protocol for your s
 github_username: BTx123
 
 # Location settings
+repository:   BTx123/BTx123.github.io
 source:       .
 destination:  ./_site
-plugins_dir:  _plugins
 layouts_dir:  _layouts
 data_dir:     _data
 includes_dir: _includes
 collections:
     posts:
         output: true
-        
+
 # Read settings
 safe:         false
 include:      [".htaccess"]
@@ -41,7 +41,6 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 # Build settings
 markdown: kramdown
-theme: minima
 highlighter: rouge
 gems:
   - jekyll-sitemap
