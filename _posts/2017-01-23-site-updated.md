@@ -10,7 +10,7 @@ date: 2017-01-23
     url="https://en.wikipedia.org/wiki/Publilius_Syrus" %}
 
 {% include image.html
-    img="images/blog/2017-01-23-https.png"
+    img="/blog/2017-01-23-https.png"
     title="HTTPS - secure communication protocol not present with HTTP"
     caption="HTTPS - secure communication protocol not present with HTTP (image courtesy of Rigor.com)" %}
 

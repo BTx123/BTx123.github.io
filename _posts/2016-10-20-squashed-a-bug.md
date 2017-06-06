@@ -10,7 +10,7 @@ date: 2016-10-20
     url="https://en.wikipedia.org/wiki/Robert_W._Floyd" %}
 
 {% include image.html
-    img="/images/blog/2016-10-20-bug.jpg"
+    img="/blog/2016-10-20-bug.jpg"
     title="first actual case of bug being found"
     url="https://commons.wikimedia.org/w/index.php?curid=165211"
     caption="Courtesy of the Naval Surface Warfare Center, Dahlgren, VA., 1988. - U.S. Naval Historical Center Online Library Photograph NH 96566-KN, Public Domain" %}
