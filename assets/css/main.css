@@ -158,7 +158,7 @@ nav li.right {
     float: right;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 800px){
     nav li.right, nav li {
         float: none;
     }
