@@ -12,9 +12,9 @@ caption: the text to display below the image
     {% if include.url %}
     <a href="{{ include.url }}" title="{{ include.title }}" target="_blank">
     {% endif %}
-        <img src="/assets/img/{{ include.img }}" alt="{{ include.title }}" />
+        <img src="/assets/img/{{ include.img }}" alt="{{ include.title }}" onerror="this.onerror=null;this.src='/assets/img/image-not-found.png';"/>
         {% if include.caption %}
-        <p class="image-caption">{{ include.caption }}</p>
+        <div class="image-caption">{{ include.caption }}</div>
         {% endif %}
     {% if include.url %}</a>{% endif %}
 </div>
