@@ -62,6 +62,7 @@ h1 {
 
 /* paragraph font size, spacing between lines, color */
 p {
+    margin: 0.5em auto;
     font-size: x-large;
     line-height: 1.5em;
     color: var(--secondary-text-color);
@@ -239,7 +240,7 @@ footer ul li a {
 /* formatting for captioned pictures */
 .image-wrapper {
     display: block;
-    margin: 1em auto;
+    margin: 2em auto;
     text-align: center;
 }
 
@@ -286,7 +287,12 @@ ul.posts li {
 
 /* formatting for lists in posts */
 .post ul, .post ol {
+    margin: 0;
     font-size: large;
+}
+
+.post ul li, .post ul ol {
+    padding: 0.3em 0;
 }
 
 /*=============================================================================
