@@ -19,6 +19,7 @@ email:           btom.0831@gmail.com
 description:     This is my personal website hosting my projects, blog, and resume.
 url:             https://briantom.me # the base hostname & protocol for your site, e.g. http://example.com
 github_username: BTx123
+linked_username: briantom123
 
 # Location settings
 repository:   BTx123/BTx123.github.io
@@ -40,7 +41,7 @@ encoding:     "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 # Build settings
-markdown: kramdown
+markdown:    kramdown
 highlighter: rouge
 gems:
   - jekyll-sitemap
@@ -49,3 +50,5 @@ exclude:
   - Gemfile.lock
   - README.md
   - TODO.txt
+locale:      "en-US"
+timezone:    America/Los_Angeles
