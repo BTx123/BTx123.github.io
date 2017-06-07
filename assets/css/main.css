@@ -11,6 +11,30 @@
     9. =BLOG
 =============================================================================*/
 
+/*
+COLORS:
+Primary: #b71c1c
+Light: #f05545
+Dark: #7f0000
+Primary Text: #ffffff
+Secondary: #ffffff
+Secondary Text: #000000
+*/
+
+/*=============================================================================
+    ===COLORS===
+=============================================================================*/
+:root {
+    --primary-color: #b71c1c;
+    --light-color: #f05545;
+    --dark-color: #7f0000;
+    --primary-text-color: #ffffff;
+    --secondary-color: #ffffff;
+    --secondary-text-color: #000000;
+    --project-background-color: #cee0dc;
+}
+
+
 /*=============================================================================
     ===GLOBAL===
 =============================================================================*/
@@ -31,19 +55,17 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+    background-color: var(--secondary-color);
 }
 
 .container {
     margin: auto;
-    padding-bottom: 40px;
+    padding: 3% 0;
     width: 80%;
 }
 
-.container a:hover {
-    text-decoration: underline;
-}
-
 h1 {
+    margin: 0;
     font-size: 3em;
 }
 
@@ -51,17 +73,22 @@ h1 {
 p {
     font-size: x-large;
     line-height: 1.5em;
-    color: #333;
+    color: var(--secondary-text-color);
 }
 
 /* no text decoration for links, color */
 a {
     text-decoration: none;
-    color: gray;
+    color: var(--dark-color);
+    transition-duration: 0.2s;
+}
+
+a:hover {
+    color: var(--light-color);
 }
 
 /* justify text */
-.home, .about, .post {
+.home, .about, .post, .contact {
     text-align: justify;
 }
 
@@ -84,7 +111,8 @@ a {
 #profile-pict {
     border-radius: 50%;
     margin-bottom: 0.5em;
-    height: 20em;
+    max-width: 600px;
+    width: 100%
 }
 
 /* center tagline on about page */
@@ -97,14 +125,19 @@ a {
 =============================================================================*/
 
 /* personal logo */
-#logo {
-    height: 3em;
-    /*border-radius: 20%;
+/*#logo {
+    height: 100%;
+    border-radius: 20%;
     border-style: solid;
     color: rgba(0, 0, 0, 0.2);
     -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;*/
+    transition-duration: 0.3s;
 }
+
+#logo-wrapper {
+    display: inline;
+    padding: 0.5em;
+}*/
 
 /*#logo:hover {
     color: rgba(0, 0, 0, 1);
@@ -126,42 +159,39 @@ a {
 }*/
 
 nav {
-    margin: 0;
     padding: 0;
     overflow: hidden;
-    list-style-type: none;
-    font-weight: bold;
-    font-size: x-large;
-    background-color: #be4141;
+    /*font-weight: bold;*/
+    background-color: var(--primary-color);
 }
 
-nav li {
+nav ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: x-large;
+}
+
+nav ul li {
     display: inline;
     float: left;
 }
 
-nav li a {
+nav ul li a {
     display: block;
-    margin: auto;
-    color: black;
-    text-align: center;
-    padding: 0.5em 0.5em;
-    text-decoration: none;
-    text-transform: lowercase;
+    padding: 0.5em 1em;
+    color: var(--primary-text-color);
+    transition-duration: 0.2s;
 }
 
-nav li a:hover {
-    background-color: #b6b6b6;
+nav ul li a:hover {
+    color: var(--primary-text-color);
+    background-color: var(--dark-color);
 }
 
-nav li.right {
+nav ul li.right {
     float: right;
-}
-
-@media screen and (max-width: 700px){
-    nav li.right, nav li {
-        float: none;
-    }
 }
 
 /*=============================================================================
@@ -170,22 +200,34 @@ nav li.right {
 
 /* line above contact info. font size */
 footer {
-    border-top: 1px solid #d5d5d5;
-    font-size: .8em;
+    margin-bottom: 2em;
+    border-top: 1px solid var(--dark-color);
+}
+
+footer p {
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    line-height: normal;
 }
 
 /* bold footer and remove bullets */
 footer ul {
+    display: table;
+    margin: 0 auto;
     padding: 0;
     list-style: none;
-    font-weight: bold;
     font-size: medium;
 }
 
 /* single row of list items, space out list items */
 footer ul li {
-    display: inline-block;
-    margin-right: 1.5em;
+    display: inline;
+}
+
+footer ul li a {
+    margin: 0.5em 1em;
+    text-align: center;
 }
 
 /*=============================================================================
@@ -205,21 +247,17 @@ footer ul li {
 
 /* formatting for captioned pictures */
 .image-wrapper {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    display: block;
+    margin: 1em auto;
+    text-align: center;
 }
 
 .image-wrapper img {
-    display: block;
-    margin: auto;
     width: 70%;
 }
 
 .image-caption {
-    text-align: center;
-    margin-top: 1em;
     font-size: large;
-    color: gray;
 }
 
 /*=============================================================================
@@ -236,11 +274,8 @@ footer ul li {
     ===PROJECTS===
 =============================================================================*/
 
-.project {
-    display: block;
-    margin: 5em auto 5em auto;
-    height: 20em;
-    text-align: center;
+.projects img {
+    border-radius: 1em;
 }
 
 /*=============================================================================
@@ -261,4 +296,22 @@ ul.posts li {
 /* formatting for lists in posts */
 .post ul, .post ol {
     font-size: larger
+}
+
+/*=============================================================================
+    ===MEDIA===
+=============================================================================*/
+
+.fa-envelope, .fa-linkedin-square, .fa-github-alt {
+    padding: 0.5em;
+    color: var(--secondary-text-color)
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+    nav ul li.right, nav ul li, footer ul li {
+        float: none;
+    }
 }
