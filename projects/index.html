@@ -3,19 +3,16 @@ layout: default
 title: projects
 ---
 
-<h1>projects</h1>
-{% include image.html
-    img="/projects/replay!.png"
-    title="REPL▶Y! Screenshot"
-    url="https://devpost.com/software/mloop"
-    caption="REPL▶Y! web app developed at HACKUCI<br>(01/13/2017 - 01/15/2017)" %}
-{% include image.html
-    img="/projects/replay!.png"
-    title="REPL▶Y! Screenshot"
-    url="https://devpost.com/software/mloop"
-    caption="REPL▶Y! web app developed at HACKUCI<br>(01/13/2017 - 01/15/2017)" %}
-{% include image.html
-    img="//projects/replay!.png"
-    title="REPL▶Y! Screenshot"
-    url="https://devpost.com/software/mloop"
-    caption="REPL▶Y! web app developed at HACKUCI<br>(01/13/2017 - 01/15/2017)" %}
+<div class="projects">
+    <h1>{{ page.title }}</h1>
+    {% include image.html
+        img="/projects/dwb.png"
+        title="DWB Screenshot"
+        url="https://github.com/ESWDigitalWasteBins/DigitalWasteBins"
+        caption="ESW Digital Waste Bins<br>(03/05/2017 - ongoing)" %}
+    {% include image.html
+        img="/projects/replay!.png"
+        title="REPL▶Y! Screenshot"
+        url="https://devpost.com/software/mloop"
+        caption="REPL▶Y! web app developed at HACKUCI<br>(01/13/2017 - 01/15/2017)" %}
+</div>
