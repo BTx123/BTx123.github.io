@@ -2,6 +2,7 @@
 layout: post
 title: "site updated to Cloudflare"
 date: 2017-01-23
+img: "/blog/2017-01-23-https.png"
 ---
 
 {% include quote.html
@@ -10,7 +11,7 @@ date: 2017-01-23
     url="https://en.wikipedia.org/wiki/Publilius_Syrus" %}
 
 {% include image.html
-    img="/blog/2017-01-23-https.png"
+    img=page.img
     title="HTTPS - secure communication protocol not present with HTTP"
     caption="HTTPS - secure communication protocol not present with HTTP (image courtesy of Rigor.com)" %}
 

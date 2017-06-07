@@ -2,6 +2,7 @@
 layout: post
 title: "the first meeting"
 date: 2016-10-19
+img: "/blog/2016-10-19-ICS-90-seminar.jpg"
 ---
 
 {% include quote.html
@@ -10,7 +11,7 @@ date: 2016-10-19
     url="https://en.wikipedia.org/wiki/Douglas_Engelbart" %}
 
 {% include image.html
-    img="/blog/2016-10-19-ICS-90-seminar.jpg"
+    img=page.img
     title="ICS 90 seminar"
     caption="ICS 90 seminar with Sameer Singh" %}
 

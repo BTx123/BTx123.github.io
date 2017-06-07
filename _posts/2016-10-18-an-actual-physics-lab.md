@@ -2,6 +2,7 @@
 layout: post
 title: "an actual physics lab"
 date: 2016-10-18
+img: "/blog/2016-10-18-physics-lab.jpg"
 ---
 
 {% include quote.html
@@ -10,7 +11,7 @@ date: 2016-10-18
     url="https://en.wikipedia.org/wiki/Isaac_Newton" %}
 
 {% include image.html
-    img="/blog/2016-10-18-physics-lab.jpg"
+    img=page.img
     title="physics lab image"
     caption="lab instruments, a fast fly-by" %}
 
