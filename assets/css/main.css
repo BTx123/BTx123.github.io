@@ -1,18 +1,19 @@
 /*=============================================================================
     ===CSS DIRECTORY===
-    1. =GLOBAL
-	2. =PRIMARY
-	3. =NAVIGATION
-	4. =FOOTER
-	5. =QUOTES
-    6. =IMAGES
-    7. =RESUME
-    8. =PROJECTS
-    9. =BLOG
+     1. =GLOBAL
+	 2. =PRIMARY
+	 3. =NAVIGATION
+	 4. =FOOTER
+ 	 5. =QUOTES
+     6. =IMAGES
+     7. =RESUME
+     8. =PROJECTS
+     9. =BLOG
+    10. =MEDIA
 =============================================================================*/
 
 /*=============================================================================
-    ===COLORS===
+    ===GLOBAL===
 =============================================================================*/
 
 :root {
@@ -22,13 +23,7 @@
     --primary-text-color: #ffffff;
     --secondary-color: #ffffff;
     --secondary-text-color: #000000;
-    --project-background-color: #cee0dc;
 }
-
-
-/*=============================================================================
-    ===GLOBAL===
-=============================================================================*/
 
 html {
     display: block;
@@ -41,11 +36,11 @@ html {
     ===PRIMARY===
 =============================================================================*/
 
-/* main contents of each page */
 body {
     margin: 0;
     padding: 0;
     width: 100%;
+    font-size: large;
     background-color: var(--secondary-color);
 }
 
@@ -57,18 +52,15 @@ body {
 
 h1 {
     margin: 0;
-    font-size: 3em;
 }
 
-/* paragraph font size, spacing between lines, color */
 p {
     margin: 0.5em auto;
-    font-size: x-large;
     line-height: 1.5em;
+    text-align: justify;
     color: var(--secondary-text-color);
 }
 
-/* no text decoration for links, color */
 a {
     text-decoration: none;
     color: var(--dark-color);
@@ -79,12 +71,6 @@ a:hover {
     color: var(--light-color);
 }
 
-/* justify text */
-.home, .about, .post, .contact {
-    text-align: justify;
-}
-
-/* control width of images, transition when hover */
 .gallery a img {
     display: inline-block;
     width: 20%;
@@ -94,7 +80,6 @@ a:hover {
     transition: background-color 0.5s ease-out;
 }
 
-/* change backgroud color on hover */
 .gallery a img:hover {
     background-color: #333;
     transition: none;
@@ -103,11 +88,10 @@ a:hover {
 #profile-pict {
     border-radius: 50%;
     margin-bottom: 0.5em;
-    max-width: 600px;
+    max-width: 300px;
     width: 100%
 }
 
-/* center tagline on about page */
 #about-tagline {
     text-align: center;
 }
@@ -116,65 +100,37 @@ a:hover {
     ===NAVIGATION===
 =============================================================================*/
 
-/* personal logo */
-/*#logo {
-    height: 100%;
-    border-radius: 20%;
-    border-style: solid;
-    color: rgba(0, 0, 0, 0.2);
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-}
-
-#logo-wrapper {
-    display: inline;
-    padding: 0.5em;
-}*/
-
-/*#logo:hover {
-    color: rgba(0, 0, 0, 1);
-}*/
-
-/* remove bullets and bold header */
-/*nav ul {
-    padding: 0;
-    list-style: none;
-    font-weight: bold;
-    font-size: x-large;
-}*/
-
-/* single row of list items, align text to vertical center of logo, space out list items */
-/*nav ul li {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 1.5em;
-}*/
-
 nav {
+    margin: 0;
     padding: 0;
     overflow: hidden;
-    /*font-weight: bold;*/
+    text-align: center;
     background-color: var(--primary-color);
 }
 
 nav ul {
-    display: block;
     margin: 0;
     padding: 0;
     list-style: none;
     font-size: x-large;
 }
 
-nav ul li {
+.left, .right {
     display: inline;
+}
+
+.left li {
     float: left;
+}
+
+.right li {
+    float: right;
 }
 
 nav ul li a {
     display: block;
     padding: 0.5em 1em;
     color: var(--primary-text-color);
-    transition-duration: 0.2s;
 }
 
 nav ul li a:hover {
@@ -182,54 +138,38 @@ nav ul li a:hover {
     background-color: var(--dark-color);
 }
 
-nav ul li.right {
-    float: right;
-}
-
 /*=============================================================================
     ===FOOTER===
 =============================================================================*/
 
-/* line above contact info. font size */
 footer {
-    margin-bottom: 2em;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
     border-top: 1px solid var(--dark-color);
 }
 
-footer p {
-    text-align: center;
-    font-size: medium;
-    font-weight: bold;
-    line-height: normal;
-}
-
-/* bold footer and remove bullets */
 footer ul {
-    display: table;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     list-style: none;
-    font-size: medium;
-}
-
-/* single row of list items, space out list items */
-footer ul li {
-    display: inline;
 }
 
 footer ul li a {
+    display: block;
     margin: 0.5em 1em;
-    text-align: center;
+}
+
+#contact-me {
+    font-weight: bold;
 }
 
 /*=============================================================================
     ===QUOTES===
 =============================================================================*/
 
-/* formatting for quotes */
 .quote blockquote {
     line-height: 1.5em;
-    font-size: large;
     color: #333;
 }
 
@@ -237,10 +177,10 @@ footer ul li a {
     ===IMAGES===
 =============================================================================*/
 
-/* formatting for captioned pictures */
 .image-wrapper {
     display: block;
-    margin: 2em auto;
+    margin: 1em auto;
+    max-width: 800px;
     text-align: center;
 }
 
@@ -248,15 +188,10 @@ footer ul li a {
     width: 70%;
 }
 
-.image-caption {
-    font-size: large;
-}
-
 /*=============================================================================
     ===RESUME===
 =============================================================================*/
 
-/* styling for embedded resume */
 .resume embed {
     display: block;
     margin: auto;
@@ -266,8 +201,15 @@ footer ul li a {
     ===PROJECTS===
 =============================================================================*/
 
-.projects img {
+.projects .image-wrapper {
+    margin: 2em auto;
+    padding: 2em 0;
+    background-color: #eeeeee;
     border-radius: 1em;
+}
+
+.projects img {
+    width: 100%;
 }
 
 /*=============================================================================
@@ -288,7 +230,6 @@ ul.posts li {
 /* formatting for lists in posts */
 .post ul, .post ol {
     margin: 0;
-    font-size: large;
 }
 
 .post ul li, .post ul ol {
@@ -304,11 +245,17 @@ ul.posts li {
     color: var(--secondary-text-color)
 }
 
-@media screen and (max-width: 675px) {
+@media screen and (max-width: 800px) {
     .container {
         width: 90%;
     }
-    nav ul li.right, nav ul li, footer ul li {
+    p {
+        text-align: left;
+    }
+    .image-wrapper img {
+        width: 90%;
+    }
+    .left li, .right li {
         float: none;
     }
 }

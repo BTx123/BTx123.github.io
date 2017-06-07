@@ -32,32 +32,32 @@
         <nav>
             <!-- <a class="logo-wrapper" href="/"><img id="logo" src="/assets/img/icons/android-chrome-192x192.png" alt="bt_logo" /></a> -->
             <ul>
-                <li><a href="/">home</a></li>
-                <li><a href="/about">about me</a></li>
-                <!-- <li><a href="/resume">resume</a></li> -->
-                <li><a href="/projects">projects</a></li>
-                <li><a href="/blog">blog</a></li>
-                <li class="right"><a href="/contact">contact me</a></li>
+                <div class="left">
+                    <li><a href="/">home</a></li>
+                    <li><a href="/about">about me</a></li>
+                    <!-- <li><a href="/resume">resume</a></li> -->
+                    <li><a href="/projects">projects</a></li>
+                    <li><a href="/blog">blog</a></li>
+                </div>
+                <div class="right">
+                    <li><a href="/contact">contact me</a></li>
+                </div>
             </ul>
         </nav>
         <div class="container">
             {{ content }}
         </div><!-- /.container -->
         <footer>
-            <p>contact info</p>
             <ul>
-                <li>
-                    <a href="mailto:{{ site.email }}"><i class="fa fa-envelope" aria-hidden="true"></i>{{ site.email }}</a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/{{ site.linked_username }}"><i class="fa fa-linkedin-square" aria-hidden="true"></i>{{ site.linked_username }}</a>
-                </li>
-                <li>
-                    <a href="https://github.com/{{ site.github_username }}"><i class="fa fa-github-alt" aria-hidden="true"></i>{{ site.github_username }}</a>
-                </li>
-                <li>
-                    <a href="/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></i>RSS</a>
-                </li>
+                <div class="left">
+                    <li><a id="contact-me" href="/contact">contact me</a></li>
+                    <li><a href="mailto:{{ site.email }}"><i class="fa fa-envelope" aria-hidden="true"></i>email</a></li>
+                </div>
+                <div class="right">
+                    <li><a href="https://www.linkedin.com/in/{{ site.linked_username }}"><i class="fa fa-linkedin-square" aria-hidden="true"></i>{{ site.linked_username }}</a></li>
+                    <li><a href="https://github.com/{{ site.github_username }}"><i class="fa fa-github-alt" aria-hidden="true"></i>{{ site.github_username }}</a></li>
+                    <li><a href="/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></i>RSS</a></li>
+                </div>
             </ul>
         </footer>
     </body>
