@@ -42,7 +42,9 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 # Build settings
 markdown:    kramdown
-highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 gems:
   - jekyll-sitemap
 exclude:
