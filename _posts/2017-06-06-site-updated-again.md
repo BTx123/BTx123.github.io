@@ -29,6 +29,6 @@ Here are the major updates to my site:
 * Added syntax highlighting via `rouge`, [link to tutorial](https://benhur07b.github.io/2017/03/25/add-syntax-highlighting-to-your-jekyll-site-with-rouge.html)
 * Added "image not available" placeholder (see above) using simple one-line javascript below:
 {% highlight html %}
-<img src="/assets/img/image.png" alt="image" onerror="this.onerror=null;this.src='/assets/img/image-not-found.png';"/>
+<img src="/assets/img/image.png" alt="image" onerror="this.onerror=null; this.src='/assets/img/image-not-found.png';"/>
 {% endhighlight %}
 * Removed logo :( &mdash; will put back in later
