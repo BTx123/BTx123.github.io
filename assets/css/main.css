@@ -11,19 +11,10 @@
     9. =BLOG
 =============================================================================*/
 
-/*
-COLORS:
-Primary: #b71c1c
-Light: #f05545
-Dark: #7f0000
-Primary Text: #ffffff
-Secondary: #ffffff
-Secondary Text: #000000
-*/
-
 /*=============================================================================
     ===COLORS===
 =============================================================================*/
+
 :root {
     --primary-color: #b71c1c;
     --light-color: #f05545;
@@ -302,7 +293,7 @@ ul.posts li {
     ===MEDIA===
 =============================================================================*/
 
-.fa-envelope, .fa-linkedin-square, .fa-github-alt {
+.fa-envelope, .fa-linkedin-square, .fa-github-alt, .fa-rss-square {
     padding: 0.5em;
     color: var(--secondary-text-color)
 }
