@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang='en'>
+<html lang={{ site.locale }}>
     <head>
         <meta charset="UTF-8" />
         <meta name="description" content="Brian Tom's personal website" />
@@ -21,30 +21,38 @@
         <!-- lighbox stylesheet -->
         <link async rel="stylesheet" href="/assets/css/lightbox.min.css" />
         <!-- jQuery -->
+        <script async src="https://use.fontawesome.com/4d64bf1812.js"></script>
         <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- javascript for lightbox -->
         <script src="/assets/js/lightbox.min.js" async></script>
     </head>
     <body>
         <nav>
-            <li><a href="/"><img id="logo" src="/assets/img/icons/android-chrome-192x192.png" alt="bt_logo" /></a></li>
-            <li><a href="/">home</a></li>
-            <li><a href="/about">about me</a></li>
-            <li><a href="/projects">projects</a></li>
-            <li><a href="/blog">blog</a></li>
-            <li><a href="/gallery">gallery</a></li>
+            <!-- <a class="logo-wrapper" href="/"><img id="logo" src="/assets/img/icons/android-chrome-192x192.png" alt="bt_logo" /></a> -->
+            <ul>
+                <li><a href="/">home</a></li>
+                <li><a href="/about">about me</a></li>
+                <!-- <li><a href="/resume">resume</a></li> -->
+                <li><a href="/projects">projects</a></li>
+                <li><a href="/blog">blog</a></li>
+                <li class="right"><a href="/contact">contact me</a></li>
+            </ul>
         </nav>
         <div class="container">
-
-        {{ content }}
-
+            {{ content }}
         </div><!-- /.container -->
         <footer>
+            <p>contact info</p>
             <ul>
-                <li>contact me</li>
-                <li><a href="mailto:btom.0831@gmail.com">{{ site.email }}</a></li>
-                <li><a href="https://www.linkedin.com/in/briantom0831">LinkedIn</a></li>
-                <li><a href="https://github.com/BTx123">GitHub</a></li>
+                <li>
+                    <a href="mailto:{{ site.email }}"><i class="fa fa-envelope" aria-hidden="true"></i>{{ site.email }}</a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/{{ site.linked_username }}"><i class="fa fa-linkedin-square" aria-hidden="true"></i>{{ site.linked_username }}</a>
+                </li>
+                <li>
+                    <a href="https://github.com/{{ site.github_username }}"><i class="fa fa-github-alt" aria-hidden="true"></i>{{ site.github_username }}</a>
+                </li>
             </ul>
         </footer>
     </body>
