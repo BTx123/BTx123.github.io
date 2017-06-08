@@ -47,7 +47,7 @@ body {
 .container {
     margin: auto;
     padding: 3% 0;
-    width: 80%;
+    width: 90%;
 }
 
 h1 {
@@ -273,9 +273,6 @@ ul.posts li {
 }
 
 @media screen and (max-width: 800px) {
-    .container {
-        width: 90%;
-    }
     p {
         text-align: left;
     }
