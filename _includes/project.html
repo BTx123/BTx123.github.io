@@ -1,0 +1,26 @@
+<!-- _includes/project.html -->
+
+<!--
+Liquid Variables
+img: path to image file (ex. /assets/image.jpg)
+alt: alt text for image
+url (opt): url the image will point to
+caption: the text to display below the image
+date: date project was made
+-->
+
+<div class="project-wrapper" >
+    {% if include.url %}
+    <a href="{{ include.url }}" title="{{ include.title }}" target="_blank">
+    {% endif %}
+        <img src="/assets/img/{{ include.img }}" alt="{{ include.alt }}" onerror="this.onerror=null;this.src='/assets/img/image-not-found.png';"/>
+        {% if include.caption %}
+        <div class="project-caption">
+            {{ include.caption }}
+            {% if include.date %}
+            <span style="white-space: nowrap;"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ include.date }}</span>
+            {% endif %}
+        </div>
+        {% endif %}
+    {% if include.url %}</a>{% endif %}
+</div>
