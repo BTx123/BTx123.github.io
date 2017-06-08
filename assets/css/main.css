@@ -165,12 +165,12 @@ footer ul {
 }
 
 footer ul li a {
-    display: block;
+    display: inline;
     margin: 0.5em 1em;
 }
 
 #contact-me {
-    margin: 0.85em 1.5em;
+    margin: 0.35em 1.5em;
     font-weight: bold;
 }
 
