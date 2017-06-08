@@ -3,7 +3,6 @@
 .highlight pre {
     padding: 0.3em;
     white-space: pre-wrap;
-    text-align: left;
 }
 .highlight .c, .highlight .cd {
     color: #75715e;
@@ -213,5 +212,9 @@
     color: #f8f8f2;
     background-color: #49483e;
     border-radius: 0.3em;
-    font-size: large;
+}
+@media screen and (max-width: 800px) {
+    .highlight {
+        font-size: medium;
+    }
 }
