@@ -30,17 +30,16 @@
     </head>
     <body>
         <nav>
-            <!-- <a class="logo-wrapper" href="/"><img id="logo" src="/assets/img/icons/android-chrome-192x192.png" alt="bt_logo" /></a> -->
             <ul>
                 <div class="left">
-                    <li><a href="/">home</a></li>
+                    <li><div id="logo"><a href="/"><img src="/assets/img/icons/android-chrome-192x192.png" alt="bt_logo"></a></div></li>
                     <li><a href="/about">about me</a></li>
                     <!-- <li><a href="/resume">resume</a></li> -->
                     <li><a href="/projects">projects</a></li>
                     <li><a href="/blog">blog</a></li>
                 </div>
                 <div class="right">
-                    <li><a href="/contact">contact me</a></li>
+                    <li><a href="/contact">contact</a></li>
                 </div>
             </ul>
         </nav>
@@ -50,7 +49,7 @@
         <footer>
             <ul>
                 <div class="left">
-                    <li><a href="/contact"><span style="font-weight: bold;">contact me</span></a></li>
+                    <li><a id="contact-me" href="/contact">contact me</a></li>
                     <li><a href="mailto:{{ site.email }}"><i class="fa fa-envelope" aria-hidden="true"></i>email</a></li>
                 </div>
                 <div class="right">
