@@ -17,7 +17,7 @@ title:           Brian Tom's Blog
 author:          Brian Tom
 email:           btom.0831@gmail.com
 description:     Brian Tom's personal website for hosting projects, blogging, and photography.
-url:             https://briantom.me # the base hostname & protocol for your site, e.g. http://example.com
+url:             https://briantom.me/ # the base hostname & protocol for your site, e.g. http://example.com
 github_username: BTx123
 linked_username: briantom123
 
