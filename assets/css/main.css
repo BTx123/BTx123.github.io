@@ -1,19 +1,19 @@
 /*=============================================================================
-    ===CSS DIRECTORY===
-     1. =GLOBAL
-	 2. =PRIMARY
-	 3. =NAVIGATION
-	 4. =FOOTER
- 	 5. =QUOTES
-     6. =IMAGES
-     7. =RESUME
-     8. =PROJECTS
-     9. =BLOG
-    10. =MEDIA
+===CSS DIRECTORY===
+1. =PRIMARY
+2. =NAVIGATION
+3. =FOOTER
+4. =QUOTES
+5. =IMAGES
+6. =RESUME
+7. =PROJECTS
+8. =BLOG
+9. =GALLERY
+10. =MEDIA
 =============================================================================*/
 
 /*=============================================================================
-    ===GLOBAL===
+===PRIMARY===
 =============================================================================*/
 
 :root {
@@ -32,10 +32,6 @@ html {
     font-family: Roboto, sans-serif;
 }
 
-/*=============================================================================
-    ===PRIMARY===
-=============================================================================*/
-
 body {
     margin: 0;
     padding: 0;
@@ -45,9 +41,9 @@ body {
 }
 
 .container {
-    margin: auto;
-    padding: 3% 0;
+    margin: 2em auto;
     width: 90%;
+    min-height: 39em;
 }
 
 h1 {
@@ -64,32 +60,18 @@ p {
 a {
     text-decoration: none;
     color: var(--dark-color);
-    transition-duration: 0.2s;
+    transition: 0.3s ease;
 }
 
 a:hover {
     color: var(--light-color);
 }
 
-.gallery a img {
-    display: inline-block;
-    width: 20%;
-    padding: 0.3em;
-    border-radius: 10%;
-    background-color: #fff;
-    transition: background-color 0.5s ease-out;
-}
-
-.gallery a img:hover {
-    background-color: #333;
-    transition: none;
-}
-
 #profile-pict {
-    border-radius: 50%;
     margin-bottom: 0.5em;
+    width: 100%;
     max-width: 300px;
-    width: 100%
+    border-radius: 50%;
 }
 
 #about-tagline {
@@ -97,7 +79,7 @@ a:hover {
 }
 
 /*=============================================================================
-    ===NAVIGATION===
+===NAVIGATION===
 =============================================================================*/
 
 nav {
@@ -148,7 +130,7 @@ nav ul li a:hover {
 }
 
 /*=============================================================================
-    ===FOOTER===
+===FOOTER===
 =============================================================================*/
 
 footer {
@@ -166,16 +148,24 @@ footer ul {
 
 footer ul li a {
     display: inline;
-    margin: 0.5em 1em;
+    margin: 0.5em 0.5em;
 }
 
-#contact-me {
-    margin: 0.35em 1.5em;
-    font-weight: bold;
+.contact-me {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+#updated {
+    margin: 1em auto;
+    text-align: center;
+    font-size: small;
 }
 
 /*=============================================================================
-    ===QUOTES===
+===QUOTES===
 =============================================================================*/
 
 .quote blockquote {
@@ -184,13 +174,13 @@ footer ul li a {
 }
 
 /*=============================================================================
-    ===IMAGES===
+===IMAGES===
 =============================================================================*/
 
 .image-wrapper {
     display: block;
     margin: 1em auto;
-    max-width: 800px;
+    max-width: 700px;
     text-align: center;
 }
 
@@ -199,7 +189,7 @@ footer ul li a {
 }
 
 /*=============================================================================
-    ===RESUME===
+===RESUME===
 =============================================================================*/
 
 .resume embed {
@@ -208,36 +198,76 @@ footer ul li a {
 }
 
 /*=============================================================================
-    ===PROJECTS===
+===PROJECTS===
 =============================================================================*/
 
-.project-wrapper {
-    margin: 2em auto;
-    max-width: 800px;
+.project-table {
     text-align: center;
-    background-color: #eeeeee;
-    border-radius: 0 0 1em 1em;
+}
+
+.project-row {
+    padding: 1em 0;
+}
+
+.project-wrapper {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    margin: 0 1em;
+    width: 350px;
+    height: 350px;
+    transition: 0.3s ease;
 }
 
 .project-wrapper:hover {
-    background-color: #2f2f2f;
+    box-shadow: 0.5em 0.5em 1em #aaa;
 }
 
-.projects img {
+.project-image {
+    position: absolute;
+    margin: auto;
+    width: auto;
+    height: 100%;
+    opacity: 1;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    transition: 0.3s ease;
+}
+
+.project-wrapper:hover .project-image {
+    opacity: 0.5;
+}
+
+.project-overlay {
+    position: absolute;
     width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    overflow: hidden;
+    height: 0;
+    transition: 0.3s ease;
 }
 
-.projects .image-wrapper img: hover {
-    border: 10px;
+.project-wrapper:hover .project-overlay {
+    height: 33%;
 }
 
 .project-caption {
-    padding: 1em;
-    font-weight: bold;
+    color: var(--primary-text-color);
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }
 
 /*=============================================================================
-    ===BLOG===
+===BLOG===
 =============================================================================*/
 
 /*  formatting for blog index */
@@ -261,7 +291,30 @@ ul.posts li {
 }
 
 /*=============================================================================
-    ===MEDIA===
+===GALLERY===
+=============================================================================*/
+
+.gallery-content {
+    text-align: center;
+}
+
+.gallery-content img {
+    display: inline-block;
+    width: 300px;
+    margin: 0.2em;
+    padding: 0.2em;
+    border-radius: 1em;
+    background-color: #fff;
+    transition: 0.3s ease;
+}
+
+.gallery-content img:hover {
+    background-color: var(--dark-color);
+    transition: none;
+}
+
+/*=============================================================================
+===MEDIA===
 =============================================================================*/
 
 .fa {
@@ -272,11 +325,14 @@ ul.posts li {
     color: var(--secondary-text-color)
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
+    .container {
+        min-height: 20em;
+    }
     p {
         text-align: left;
     }
-    .image-wrapper img {
+    .image-wrapper img, .gallery-content img {
         width: 80%;
     }
     .left li, .right li {
