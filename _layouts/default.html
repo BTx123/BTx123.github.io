@@ -37,6 +37,7 @@
                     <!-- <li><a href="/resume">resume</a></li> -->
                     <li><a href="/projects">projects</a></li>
                     <li><a href="/blog">blog</a></li>
+                    <li><a href="/gallery">gallery</a></li>
                 </div>
                 <div class="right">
                     <li><a href="/contact">contact</a></li>
@@ -47,17 +48,20 @@
             {{ content }}
         </div><!-- /.container -->
         <footer>
-            <ul>
-                <div class="left">
-                    <li id="contact-me"><a href="/contact">contact me</a></li>
-                    <li><a href="mailto:{{ site.email }}"><i class="fa fa-envelope" aria-hidden="true"></i>email</a></li>
-                </div>
-                <div class="right">
-                    <li><a href="https://www.linkedin.com/in/{{ site.linked_username }}"><i class="fa fa-linkedin-square" aria-hidden="true"></i>{{ site.linked_username }}</a></li>
-                    <li><a href="https://github.com/{{ site.github_username }}"><i class="fa fa-github-alt" aria-hidden="true"></i>{{ site.github_username }}</a></li>
-                    <li><a href="/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></i>RSS</a></li>
-                </div>
-            </ul>
+            <div class="contact-me">
+                <ul>
+                    <div class="left">
+                        <li style="margin: 0.35em 1em; font-weight: bold;"><a href="/contact">contact me</a></li>
+                        <li><a href="mailto:{{ site.email }}"><i class="fa fa-envelope" aria-hidden="true"></i>email</a></li>
+                    </div>
+                    <div class="right">
+                        <li><a href="https://www.linkedin.com/in/{{ site.linked_username }}"><i class="fa fa-linkedin-square" aria-hidden="true"></i>{{ site.linked_username }}</a></li>
+                        <li><a href="https://github.com/{{ site.github_username }}"><i class="fa fa-github-alt" aria-hidden="true"></i>{{ site.github_username }}</a></li>
+                        <li><a href="/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></i>RSS</a></li>
+                    </div>
+                </ul>
+            </div>
+            <p style="margin: 1em 1em; text-align: center; font-size: small;"><i>updated: {{ site.time | date_to_long_string }}</i></p>
         </footer>
     </body>
 </html>
