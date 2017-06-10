@@ -12,6 +12,7 @@
 10. =MEDIA
 =============================================================================*/
 
+
 /*=============================================================================
 ===PRIMARY===
 =============================================================================*/
@@ -79,6 +80,7 @@ a:hover {
     text-align: center;
 }
 
+
 /*=============================================================================
 ===NAVIGATION===
 =============================================================================*/
@@ -129,6 +131,7 @@ nav ul li a:hover {
     width: 43px;
     height: 43px;
 }
+
 
 /*=============================================================================
 ===FOOTER===
@@ -183,6 +186,7 @@ a.back-to-top:hover {
     font-size: small;
 }
 
+
 /*=============================================================================
 ===QUOTES===
 =============================================================================*/
@@ -191,6 +195,7 @@ a.back-to-top:hover {
     line-height: 1.5em;
     color: #333;
 }
+
 
 /*=============================================================================
 ===IMAGES===
@@ -207,6 +212,16 @@ a.back-to-top:hover {
     width: 70%;
 }
 
+.fade img {
+    opacity: 1;
+	-webkit-transition: .3s ease;
+	transition: .3s ease;
+}
+
+.fade img:hover {
+    opacity: 0.75;
+}
+
 /*=============================================================================
 ===RESUME===
 =============================================================================*/
@@ -215,6 +230,7 @@ a.back-to-top:hover {
     display: block;
     margin: auto;
 }
+
 
 /*=============================================================================
 ===PROJECTS===
@@ -235,7 +251,6 @@ a.back-to-top:hover {
     margin: 0 1em;
     width: 350px;
     height: 350px;
-    transition: 0.3s ease;
 }
 
 .project-wrapper:hover {
@@ -247,16 +262,10 @@ a.back-to-top:hover {
     margin: auto;
     width: auto;
     height: 100%;
-    opacity: 1;
     left: -100%;
     right: -100%;
     top: -100%;
     bottom: -100%;
-    transition: 0.3s ease;
-}
-
-.project-wrapper:hover .project-image {
-    opacity: 0.75;
 }
 
 .project-overlay {
@@ -275,6 +284,10 @@ a.back-to-top:hover {
     height: 33%;
 }
 
+.project-wrapper:hover .fa-external-link {
+
+}
+
 .project-caption {
     color: var(--primary-text-color);
     position: absolute;
@@ -289,43 +302,48 @@ a.back-to-top:hover {
 ===BLOG===
 =============================================================================*/
 
-/*  formatting for blog index */
-ul.posts {
+.blog {
     margin: 20px auto 40px;
-    font-size: x-large;
 }
 
-/* remove bullets from list of blog posts */
-ul.posts li {
+.blog ul li {
     list-style: none;
 }
 
-/* formatting for lists in posts */
-.post ul, .post ol {
+.post ul,
+.post ol {
     margin: 0;
 }
 
-.post ul li, .post ul ol {
+.post ul li,
+.post ul ol {
     padding: 0.3em 0;
 }
+
 
 /*=============================================================================
 ===GALLERY===
 =============================================================================*/
 
-.gallery-content img {
-    display: inline-block;
-    width: 300px;
-    margin: 0.2em;
-    padding: 0.2em;
-    border-radius: 5%;
-    background-color: #fff;
-    transition: 0.3s ease;
+.gallery-content {
+    margin: auto;
+    column-width: 200px;
+    column-gap: 0;
+    line-height: 0;
 }
 
-.gallery-content img:hover {
-    background-color: var(--dark-color);
-    transition: none;
+.gallery-content figure img {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.gallery-content figure {
+    margin: 0;
+    padding: 0;
+}
+
+.gallery-content figcaption {
+    display: none;
 }
 
 /*=============================================================================
@@ -336,8 +354,15 @@ ul.posts li {
     padding: 0.5em;
 }
 
-.fa-envelope, .fa-linkedin-square, .fa-github-alt, .fa-rss-square {
+.fa-envelope,
+.fa-linkedin-square,
+.fa-github-alt,
+.fa-rss-square {
     color: var(--secondary-text-color)
+}
+
+.fa-external-link {
+    color: var(--dark-color)
 }
 
 @media screen and (max-width: 700px) {
@@ -347,7 +372,8 @@ ul.posts li {
     p {
         text-align: left;
     }
-    .image-wrapper img, .gallery-content img {
+    .image-wrapper img,
+    .gallery-content {
         width: 80%;
     }
     .project-wrapper {
@@ -355,11 +381,13 @@ ul.posts li {
     }
     .project-overlay {
         opacity: 1;
+        height: 33%;
     }
     .project-image {
         opacity: 0.75;
     }
-    .left li, .right li {
+    .left li,
+    .right li {
         float: none;
     }
     .back-to-top i {
