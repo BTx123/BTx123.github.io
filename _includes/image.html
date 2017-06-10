@@ -4,7 +4,7 @@
     {% if include.url %}
     <a href="{{ include.url }}" title="{{ include.title }}" target="_blank">
     {% endif %}
-        <img src="/assets/img/{{ include.img }}" alt="{{ include.title }}" onerror="this.onerror=null;this.src='/assets/img/image-not-found.png';"/>
+        <img src="/assets/img/{{ include.img }}" alt="{{ include.title }}" onerror="this.onerror=null;this.src='{{ site.img_not_found }}';"/>
         {% if include.caption %}
         <div class="image-caption">{{ include.caption }}</div>
         {% endif %}
