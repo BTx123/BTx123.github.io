@@ -22,12 +22,12 @@ github_username: BTx123
 linked_username: briantom123
 
 # Location settings
-repository:   BTx123/BTx123.github.io
-source:       .
-destination:  ./_site
-layouts_dir:  _layouts
-data_dir:     _data
-includes_dir: _includes
+repository:    BTx123/BTx123.github.io
+source:        .
+destination:   ./_site
+layouts_dir:   _layouts
+data_dir:      _data
+includes_dir:  _includes
 collections:
     posts:
         output: true
@@ -55,3 +55,6 @@ exclude:
   - TODO.txt
 locale:      "en-US"
 timezone:    America/Los_Angeles
+
+# Other
+img_not_found: /assets/img/0_image-not-found_1000x700.png
