@@ -3,31 +3,79 @@ layout: default
 title: gallery
 ---
 
-<div class="gallery">
-    <h1> {{ page.title }}</h1>
-    <h2>travel</h2>
-    <div class="gallery-content">
+<h1>gallery</h1>
+<h2>travel</h2>
+<div class="gallery-content fade" itemscope itemtype="http://schema.org/ImageGallery">
     {% for image in site.static_files %}
         {% if image.path contains "assets/img/travel"%}
-        {% assign title = image.name | split: '.' | first | downcase %}
-        <a href="{{ site.url }}{{ image.path }}" data-lightbox="travel" data-title="{{ title }}"><img src="{{ site.url }}{{ image.path }}" alt="{{ image.name }}" onerror="this.onerror=null;this.src='/assets/img/image-not-found.png';"/></a>
+        {% assign tokens = image.name | split: '.' | first | downcase | split: '_' %}
+        {% assign title = tokens[1] | split: '-' | join: ' ' %}
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="{{ site.url }}{{ image.path }}" itemprop="contentUrl" data-size="{{ tokens[2] }}">
+                <img src="{{ site.url }}{{ image.path }}" itemprop="thumbnail" onerror="this.onerror=null;this.src='{{ site.img_not_found }}';"/>
+            </a>
+            <figcaption itemprop="caption description">{{ tokens[0] }} {{ title }}</figcaption>
+        </figure>
         {% endif %}
     {% endfor %}
-    </div>
-    <h2>blog</h2>
-    <div class="gallery-content">
+</div>
+<h2>blog</h2>
+<div class="gallery-content fade" itemscope itemtype="http://schema.org/ImageGallery">
     {% for image in site.static_files %}
         {% if image.path contains "assets/img/blog"%}
-        {% assign title = image.name | split: '.' | first | downcase %}
-        <a href="{{ image.path }}" data-lightbox="blog" data-title="{{ title }}"><img src="{{ image.path }}" alt="{{ image.name }}" onerror="this.onerror=null;this.src='/assets/img/image-not-found.png';"/></a>
+        {% assign tokens = image.name | split: '.' | first | downcase | split: '_' %}
+        {% assign title = tokens[1] | split: '-' | join: ' ' %}
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="{{ site.url }}{{ image.path }}" itemprop="contentUrl" data-size="{{ tokens[2] }}">
+                <img src="{{ site.url }}{{ image.path }}" itemprop="thumbnail" onerror="this.onerror=null;this.src='{{ site.img_not_found }}';"/>
+            </a>
+            <figcaption itemprop="caption description">{{ tokens[0] }} {{ title }}</figcaption>
+        </figure>
         {% endif %}
     {% endfor %}
+</div>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe.
+    It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides.
+        PhotoSwipe keeps only 3 of them in the DOM to save memory.
+        Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- element will get class pswp__preloader - active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
     </div>
-    <script>
-        lightbox.option({
-            "fadeDuration" : 300,
-            "resizeDuration": 500,
-            "wrapAround": true
-        })
-    </script>
 </div>
