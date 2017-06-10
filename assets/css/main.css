@@ -240,15 +240,11 @@ a.back-to-top:hover {
     text-align: center;
 }
 
-.project-row {
-    padding: 1em 0;
-}
-
 .project-wrapper {
     display: inline-block;
     position: relative;
     overflow: hidden;
-    margin: 0 1em;
+    margin: 1em;
     width: 350px;
     height: 350px;
 }
