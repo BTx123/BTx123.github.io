@@ -2,7 +2,7 @@
 layout: post
 title: "squashed a bug"
 date: 2016-10-20
-img: "/blog/2016-10-20-bug.jpg"
+img: "/blog/2016-10-20_bug_1000x787.jpg"
 ---
 
 {% include quote.html

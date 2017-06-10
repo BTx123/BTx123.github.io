@@ -2,7 +2,7 @@
 layout: post
 title: "an actual physics lab"
 date: 2016-10-18
-img: "/blog/2016-10-18-physics-lab.jpg"
+img: "/blog/2016-10-18_physics-lab_1000x714.jpg"
 ---
 
 {% include quote.html

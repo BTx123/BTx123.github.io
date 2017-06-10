@@ -2,7 +2,7 @@
 layout: post
 title: "the long run"
 date: 2016-10-22
-img: "/blog/2016-10-22-notebook.jpg"
+img: "/blog/2016-10-22_notebook_1000x750.jpg"
 ---
 
 {% include quote.html

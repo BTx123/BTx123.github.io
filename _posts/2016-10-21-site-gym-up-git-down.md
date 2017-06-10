@@ -2,7 +2,7 @@
 layout: post
 title: "personal domain is up, but GitHub is down"
 date: 2016-10-21
-img: "/blog/2016-10-21-gym.jpg"
+img: "/blog/2016-10-21_gym_1000x749.jpg"
 ---
 
 {% include quote.html

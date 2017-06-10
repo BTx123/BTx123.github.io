@@ -2,7 +2,7 @@
 layout: post
 title: "site updated to Cloudflare"
 date: 2017-01-23
-img: "/blog/2017-01-23-https.png"
+img: "/blog/2017-01-23_https_1000x500.png"
 ---
 
 {% include quote.html

@@ -2,7 +2,7 @@
 layout: post
 title: "the first meeting"
 date: 2016-10-19
-img: "/blog/2016-10-19-ICS-90-seminar.jpg"
+img: "/blog/2016-10-19_ICS-90-seminar_1000x714.jpg"
 ---
 
 {% include quote.html
