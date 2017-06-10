@@ -1,72 +1,111 @@
 <!DOCTYPE html>
-
-<html lang={{ site.locale }}>
+<html lang="{{" site.locale="">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content="Brian Tom's personal website for hosting projects, blogging, and photography." />
-        <meta name="keywords" content="Brian,Tom,about,me,blog,projects,photography,contact" />
-        <meta name="author" content="Brian Tom" />
+        <meta charset="UTF-8">
+        <meta content="Brian Tom's personal website for hosting projects, blogging, and photography." name="description">
+        <meta content="Brian,Tom,about,me,blog,projects,photography,contact" name="keywords">
+        <meta content="Brian Tom" name="author">
         <title>{{ page.title }} | brian tom</title>
-        <!-- wesite icon -->
-        <link rel="icon" type="image/png" href="/assets/img/icons/favicon-32x32.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="/assets/img/icons/favicon-16x16.png" sizes="16x16" />
-        <link rel="manifest" href="/assets/img/icons/manifest.json" />
-        <link rel="mask-icon" href="/assets/img/icons/safari-pinned-tab.svg" color="#5bbad5" />
-        <link rel="shortcut icon" href="/assets/img/icons/favicon.ico" />
-        <meta name="msapplication-config" content="/assets/img/icons/browserconfig.xml" />
-        <meta name="theme-color" content="#b71c1c" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/assets/img/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+        <link href="/assets/img/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+        <link href="/assets/img/icons/manifest.json" rel="manifest">
+        <link color="#5bbad5" href="/assets/img/icons/safari-pinned-tab.svg" rel="mask-icon">
+        <link href="/assets/img/icons/favicon.ico" rel="shortcut icon">
+        <meta content="/assets/img/icons/browserconfig.xml" name="msapplication-config">
+        <meta content="#b71c1c" name="theme-color">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <!-- main stylesheet -->
-        <link defer rel="stylesheet" type="text/css" href="/assets/css/main.min.css" />
+        <link defer href="/assets/css/main.min.css" rel="stylesheet" type="text/css">
         <!-- font stylesheet -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans|Roboto">
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans|Roboto" rel="stylesheet">
         <!--  syntax stylesheet -->
-        <link defer rel="stylesheet" type="text/css" href="/assets/css/syntax.min.css" />
-        <!-- lighbox stylesheet -->
-        <link defer rel="stylesheet" href="/assets/css/lightbox.min.css" />
+        <link defer href="/assets/css/syntax.min.css" rel="stylesheet" type="text/css">
+        <!-- PhotoSwipe stylesheet -->
+        <link defer href="/assets/css/photoswipe.min.css" rel="stylesheet">
+        <link defer href="/assets/css/default-skin.min.css" rel="stylesheet">
         <!-- jQuery -->
-        <script async src="https://use.fontawesome.com/4d64bf1812.js"></script>
         <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script async src="/assets/js/scroll.min.js"></script>
-        <!-- javascript for lightbox -->
-        <script defer src="/assets/js/lightbox.min.js"></script>
+        <script async src="https://use.fontawesome.com/4d64bf1812.js"></script>
+        <script async src="/assets/js/photoswipe.min.js"></script>
+        <script async src="/assets/js/photoswipe-ui-default.min.js"></script>
+        <script async src="/assets/js/main.min.js"></script>
     </head>
     <body>
         <nav>
-            <ul>
+            <div>
                 <div class="left">
-                    <li><div id="logo"><a href="/"><img src="/assets/img/icons/android-chrome-192x192.png" alt="bt_logo"></a></div></li>
-                    <li><a href="/about">about me</a></li>
-                    <!-- <li><a href="/resume">resume</a></li> -->
-                    <li><a href="/projects">projects</a></li>
-                    <li><a href="/blog">blog</a></li>
-                    <li><a href="/gallery">gallery</a></li>
+                    <ul>
+                        <li>
+                            <div id="logo">
+                                <a href="/"><img alt="bt_logo" src="/assets/img/icons/android-chrome-192x192.png"></a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/about">about me</a>
+                        </li>
+                        <!-- <li><a href="/resume">resume</a></li> -->
+                        <li>
+                            <a href="/projects">projects</a>
+                        </li>
+                        <li>
+                            <a href="/blog">blog</a>
+                        </li>
+                        <li>
+                            <a href="/gallery">gallery</a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="right">
-                    <li><a href="/contact">contact</a></li>
+                    <ul>
+                        <li>
+                            <a href="/contact">contact</a>
+                        </li>
+                    </ul>
                 </div>
-            </ul>
+            </div>
         </nav>
         <div class="container">
             {{ content }}
         </div><!-- /.container -->
         <footer>
             <div class="contact-me">
-                <ul>
+                <div>
                     <div class="left">
-                        <li style="margin: 0.35em 1em; font-weight: bold;"><a href="/contact">contact me</a></li>
-                        <li><a href="mailto:{{ site.email }}"><i class="fa fa-envelope" aria-hidden="true"></i>email</a></li>
+                        <ul>
+                            <li style="margin: 0.35em 0.5em; font-weight: bold;">
+                                <a href="/contact">contact me</a>
+                            </li>
+                            <li>
+                                <a href="mailto:{{%20site.email%20}}"><i aria-hidden="true" class="fa fa-envelope"></i>email</a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="right">
-                        <li><a href="https://www.linkedin.com/in/{{ site.linked_username }}"><i class="fa fa-linkedin-square" aria-hidden="true"></i>{{ site.linked_username }}</a></li>
-                        <li><a href="https://github.com/{{ site.github_username }}"><i class="fa fa-github-alt" aria-hidden="true"></i>{{ site.github_username }}</a></li>
-                        <li><a href="/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i></i>RSS</a></li>
+                        <ul>
+                            <li>
+                                <a href="https://www.linkedin.com/in/{{%20site.linked_username%20}}">
+                                    <i aria-hidden="true" class="fa fa-linkedin-square"></i>{{ site.linked_username }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/{{%20site.github_username%20}}">
+                                    <i aria-hidden="true" class="fa fa-github-alt"></i>{{ site.github_username }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/feed.xml">
+                                    <i aria-hidden="true" class="fa fa-rss-square"></i>RSS
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                </ul>
+                </div>
             </div>
-            <p style="margin: 1em 1em; text-align: center; font-size: small;"><i>updated: {{ site.time | date_to_long_string }}</i></p>
+            <p style="margin: 1em 1em; text-align: center; font-size: small;">
+                <i>updated: {{ site.time | date_to_long_string }}</i>
+            </p>
         </footer>
-        <a href="#" class="back-to-top">
+        <a class="back-to-top" href="#">
             <i class="fa fa-angle-double-up"></i>
         </a>
     </body>
