@@ -18,6 +18,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- main stylesheet -->
         <link defer rel="stylesheet" type="text/css" href="/assets/css/main.min.css" />
+        <!-- font stylesheet -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans|Roboto">
         <!--  syntax stylesheet -->
         <link defer rel="stylesheet" type="text/css" href="/assets/css/syntax.min.css" />
         <!-- lighbox stylesheet -->
@@ -25,6 +27,7 @@
         <!-- jQuery -->
         <script async src="https://use.fontawesome.com/4d64bf1812.js"></script>
         <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script async src="/assets/js/scroll.min.js"></script>
         <!-- javascript for lightbox -->
         <script defer src="/assets/js/lightbox.min.js"></script>
     </head>
@@ -63,5 +66,8 @@
             </div>
             <p style="margin: 1em 1em; text-align: center; font-size: small;"><i>updated: {{ site.time | date_to_long_string }}</i></p>
         </footer>
+        <a href="#" class="back-to-top">
+            <i class="fa fa-angle-double-up"></i>
+        </a>
     </body>
 </html>

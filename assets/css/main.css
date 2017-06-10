@@ -29,7 +29,7 @@ html {
     display: block;
     margin: 0;
     padding: 0;
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -43,7 +43,8 @@ body {
 .container {
     margin: 2em auto;
     width: 90%;
-    min-height: 39em;
+    min-height: 40em;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 h1 {
@@ -158,6 +159,25 @@ footer ul li a {
     text-align: center;
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+}
+a.back-to-top:hover {
+    color: var(--primary-text-color);
+    opacity: 0.75;
+}
+.back-to-top i {
+    color: var(--primary-color);
+    padding: 0 0 0 3px;
+    font-size: 50px;
+}
+
 #updated {
     margin: 1em auto;
     text-align: center;
@@ -237,7 +257,7 @@ footer ul li a {
 }
 
 .project-wrapper:hover .project-image {
-    opacity: 0.5;
+    opacity: 0.75;
 }
 
 .project-overlay {
@@ -303,7 +323,7 @@ ul.posts li {
     width: 300px;
     margin: 0.2em;
     padding: 0.2em;
-    border-radius: 1em;
+    border-radius: 5%;
     background-color: #fff;
     transition: 0.3s ease;
 }
