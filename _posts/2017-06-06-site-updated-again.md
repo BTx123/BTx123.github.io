@@ -12,7 +12,7 @@ img: "image-not-found.png"
 
 {% include image.html
     img=page.img
-    title="this is just an update for the site &mdash; image not found placeholders"
+    alt="this is just an update for the site &mdash; image not found placeholders"
     caption="this is just an update for the site &mdash; image not found placeholders" %}
 
 

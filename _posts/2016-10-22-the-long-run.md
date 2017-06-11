@@ -11,7 +11,7 @@ img: "/blog/2016-10-22_notebook_1000x750.jpg"
 
 {% include image.html
     img=page.img
-    title="my coding notes and ideas"
+    alt="my coding notes and ideas"
     caption="my coding notes and ideas" %}
 
 Today's gonna be a short one. Coding takes lots of energy...
