@@ -8,10 +8,10 @@ title: gallery
 <div class="gallery-content fade" itemscope itemtype="http://schema.org/ImageGallery">
     {% for image in site.static_files %}
         {% if image.path contains "assets/img/travel"%}
-        {% assign tokens = image.name | split: '.' | first | downcase | split: '_' %}
+        {% assign tokens = image.name | split: '.' | first | split: '_' %}
         {% assign title = tokens[1] | split: '-' | join: ' ' %}
         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="{{ site.url }}{{ image.path }}" itemprop="contentUrl" data-size="{{ tokens[2] }}">
+            <a href="{{ image.path }}" itemprop="contentUrl" data-size="{{ tokens[2] }}">
                 <img src="{{ site.url }}{{ image.path }}" itemprop="thumbnail" onerror="this.onerror=null;this.src='{{ site.img_not_found }}';"/>
             </a>
             <figcaption itemprop="caption description">{{ tokens[0] }} {{ title }}</figcaption>
@@ -26,7 +26,7 @@ title: gallery
         {% assign tokens = image.name | split: '.' | first | downcase | split: '_' %}
         {% assign title = tokens[1] | split: '-' | join: ' ' %}
         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="{{ site.url }}{{ image.path }}" itemprop="contentUrl" data-size="{{ tokens[2] }}">
+            <a href="{{ image.path }}" itemprop="contentUrl" data-size="{{ tokens[2] }}">
                 <img src="{{ site.url }}{{ image.path }}" itemprop="thumbnail" onerror="this.onerror=null;this.src='{{ site.img_not_found }}';"/>
             </a>
             <figcaption itemprop="caption description">{{ tokens[0] }} {{ title }}</figcaption>
