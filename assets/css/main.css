@@ -69,17 +69,11 @@ a:hover {
     color: var(--light-color);
 }
 
-#profile-pict {
-    margin-bottom: 0.5em;
+#profile-pict img {
     width: 100%;
     max-width: 300px;
     border-radius: 50%;
 }
-
-#about-tagline {
-    text-align: center;
-}
-
 
 /*=============================================================================
 ===NAVIGATION===
