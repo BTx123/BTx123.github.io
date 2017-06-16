@@ -2,7 +2,6 @@
 layout: post
 title: "the long run"
 date: 2016-10-22
-img: "/blog/2016-10-22_notebook_1000x750.jpg"
 ---
 
 {% include quote.html
@@ -10,7 +9,7 @@ img: "/blog/2016-10-22_notebook_1000x750.jpg"
     person="Sarah Condor" %}
 
 {% include image.html
-    img=page.img
+    img="/blog/2016-10-22_notebook_1000x750.jpg"
     alt="my coding notes and ideas"
     caption="my coding notes and ideas" %}
 

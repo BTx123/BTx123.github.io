@@ -2,7 +2,6 @@
 layout: post
 title: "site updated again"
 date: 2017-06-06
-img: "image-not-found.png"
 ---
 
 {% include quote.html
@@ -11,7 +10,7 @@ img: "image-not-found.png"
     url="https://en.wikipedia.org/wiki/Elbert_Hubbard" %}
 
 {% include image.html
-    img=page.img
+    img="image-not-found.png"
     alt="this is just an update for the site &mdash; image not found placeholders"
     caption="this is just an update for the site &mdash; image not found placeholders" %}
 

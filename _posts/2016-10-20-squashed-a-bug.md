@@ -2,7 +2,6 @@
 layout: post
 title: "squashed a bug"
 date: 2016-10-20
-img: "/blog/2016-10-20_bug_1000x787.jpg"
 ---
 
 {% include quote.html
@@ -11,7 +10,7 @@ img: "/blog/2016-10-20_bug_1000x787.jpg"
     url="https://en.wikipedia.org/wiki/Robert_W._Floyd" %}
 
 {% include image.html
-    img=page.img
+    img="/blog/2016-10-20_bug_1000x787.jpg"
     alt="first actual case of bug being found"
     url="https://commons.wikimedia.org/w/index.php?curid=165211"
     caption="Courtesy of the Naval Surface Warfare Center, Dahlgren, VA., 1988. - U.S. Naval Historical Center Online Library Photograph NH 96566-KN, Public Domain" %}

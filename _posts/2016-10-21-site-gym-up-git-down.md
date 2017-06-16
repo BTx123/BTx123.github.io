@@ -2,7 +2,6 @@
 layout: post
 title: "personal domain is up, but GitHub is down"
 date: 2016-10-21
-img: "/blog/2016-10-21_gym_1000x749.jpg"
 ---
 
 {% include quote.html
@@ -11,7 +10,7 @@ img: "/blog/2016-10-21_gym_1000x749.jpg"
     url="http://www.hongkiat.com/blog/programming-jokes/#sharing-wrap-image-6" %}
 
 {% include image.html
-    img=page.img
+    img="/blog/2016-10-21_gym_1000x749.jpg"
     alt="gym is open at Mesa Towers!"
     caption="gym is open at Mesa Towers!" %}
 
