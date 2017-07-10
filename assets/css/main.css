@@ -168,12 +168,6 @@ a.back-to-top:hover {
     opacity: 0.75;
 }
 
-.back-to-top i {
-    color: var(--primary-color);
-    padding: 0 0 0 3px;
-    font-size: 50px;
-}
-
 #updated {
     margin: 1em auto;
     text-align: center;
