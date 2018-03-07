@@ -66,7 +66,7 @@ var PhotoSwipeUI_Default =
 			captionEl: true,
 			fullscreenEl: true,
 			zoomEl: true,
-			shareEl: false,
+			shareEl: true,
 			counterEl: true,
 			arrowEl: true,
 			preloaderEl: true,
