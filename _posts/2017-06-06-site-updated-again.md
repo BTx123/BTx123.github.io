@@ -10,7 +10,7 @@ date: 2017-06-06
     url="https://en.wikipedia.org/wiki/Elbert_Hubbard" %}
 
 {% include image.html
-    img="image-not-found.png"
+    img="/0_image-not-found_1000x700.jpg"
     alt="this is just an update for the site &mdash; image not found placeholders"
     caption="this is just an update for the site &mdash; image not found placeholders" %}
 
