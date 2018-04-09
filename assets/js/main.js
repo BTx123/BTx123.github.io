@@ -3,6 +3,7 @@ const FOOTER_HTML = "footer.html";
 const TIME_TO_SCROLL = 500;
 const RGB_START = 25;
 const DIFF = 5;
+const MAX_SCROLL_DISTANCE = $(window).height() / 2;
 
 // Navigation injection
 $("#top").load(NAV_HTML);
@@ -23,6 +24,7 @@ $(document).ready(function () {
 // Change display status of back to top button
 // when scrolling
 $(window).scroll(function () {
+    updateNavbarBackground();
     updateBackToTop();
 });
 
@@ -59,9 +61,16 @@ function smoothScroll(event) {
     }
 }
 
+function updateNavbarBackground() {
+    if ($("body").scrollTop() > MAX_SCROLL_DISTANCE || $(document.documentElement).scrollTop() > MAX_SCROLL_DISTANCE) {
+        $(".navbar").css("background-color", "rgba(0, 0, 0, 0.5)");
+    } else {
+        $(".navbar").css("background-color", "rgba(0, 0, 0, 0)");
+    }
+}
+
 function updateBackToTop() {
-    var maxScrollDistance = $(window).height() / 4;
-    if ($("body").scrollTop() > maxScrollDistance || $(document.documentElement).scrollTop() > maxScrollDistance) {
+    if ($("body").scrollTop() > MAX_SCROLL_DISTANCE || $(document.documentElement).scrollTop() > MAX_SCROLL_DISTANCE) {
         $("#back-to-top").css("display", "block");
     } else {
         $("#back-to-top").css("display", "none");
