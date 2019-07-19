@@ -1,7 +1,12 @@
 {
-    "name": "",
-    "short_name": "",
+    "short_name": "React App",
+    "name": "Create React App Sample",
     "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        },
         {
             "src": "/assets/img/icons/android-chrome-192x192.png",
             "sizes": "192x192",
@@ -13,7 +18,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "display": "standalone"
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
 }
