@@ -33,9 +33,10 @@ jobs:
         env:
           CI: true
       - name: Build and deploy
-        run: |
-          git config user.email "btom.0831@gmail.com"
-          git config user.name "Brian Tom"
-          npm run deploy
+        uses: JamesIves/github-pages-deploy-action@master
         env:
-          CI: true
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BASE_BRANCH: dev # The branch the action should deploy from.
+          BRANCH: master # The branch the action should deploy to.
+          FOLDER: build # The folder the action should deploy.
+          BUILD_SCRIPT: npm run build # The build script the action should run prior to deploying.
