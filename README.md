@@ -7,8 +7,11 @@ My website for all my programming, blogging, and work needs.
 ## Installing
 Run `npm install` to install all necessary packages for running and building site. You should see a `node_modules` folder after running the command.
 
+## Start
+Run `npm run start` to view site locally.
+
 ## Test
-Run `test.bat` to test site locally.
+Run `npm run test` to run test cases.
 
 ## Build
-Run `deploy.bat` to deploy production build of site to GitHub `master` branch.
+Run `npm run deploy` to deploy production build of site to GitHub `master` branch.
