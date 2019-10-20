@@ -4,9 +4,9 @@
   "private": true,
   "homepage": "https://brian-tom.com",
   "dependencies": {
-    "gh-pages": "^2.0.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "gh-pages": "^2.1.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "react-scripts": "3.0.1"
   },
   "scripts": {
@@ -14,6 +14,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "copy": "cp README.md public/README.md",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build -b master"
   },
