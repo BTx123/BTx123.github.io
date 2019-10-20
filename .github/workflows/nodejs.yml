@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest, macOS-latest]
+        os: [windows-latest]
         node: [10.x]
 
     steps:
@@ -25,7 +25,9 @@ jobs:
       - name: Copy to public folder
         run: |
           cp README.md public/README.md
-      - name: Build, test, and deploy
+      - name: Test
         run: |
           npm run test
+      - name: Build and deploy
+        run: |
           npm run deploy

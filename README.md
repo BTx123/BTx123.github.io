@@ -1,3 +1,5 @@
+![](https://github.com/BTx123/BTx123.github.io/workflows/Node%20CI/badge.svg)
+
 # BTx123.github.io
 My website for all my programming, blogging, and work needs.
 
