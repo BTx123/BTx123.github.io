@@ -4,21 +4,28 @@ on: [push]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        node-version: [10.x]
+        os: [windows-latest, ubuntu-latest, macOS-latest]
+        node: [10.x]
 
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install, build, test, and deploy
+          node: ${{ matrix.node }}
+      - name: Clean install
         run: |
           npm ci
-          npm run deploy
         env:
           CI: true
+      - name: Copy to public folder
+        run: |
+          cp README.md public/README.md
+      - name: Build, test, and deploy
+        run: |
+          npm run test
+          npm run deploy
