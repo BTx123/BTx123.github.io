@@ -2,7 +2,7 @@
 
 set message="Updates"
 
-IF NOT %1 == "" (
+IF NOT "%1" == "" (
   set message=%1
 )
 
