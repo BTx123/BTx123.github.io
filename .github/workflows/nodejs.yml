@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [ubuntu-latest]
         node: [10.x]
 
     steps:
@@ -38,5 +38,6 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BASE_BRANCH: dev # The branch the action should deploy from.
           BRANCH: master # The branch the action should deploy to.
+          CNAME: brian-tom.com
           FOLDER: build # The folder the action should deploy.
           BUILD_SCRIPT: npm run build # The build script the action should run prior to deploying.
