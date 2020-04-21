@@ -1,25 +1,18 @@
-import React from 'react';
-// import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./theme";
 
-const footer =
-  <div id="footer">
-    <ul className="list-unstyled text-center">
-      <li>
-        &copy; Brian Tom {new Date().getFullYear()}
-      </li>
-      <li>
-        Computer Science and Engineering (CSE)
-      </li>
-      <li>
-        University of California, Irvine
-      </li>
-    </ul>
-  </div>;
+import "./App.css";
+
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    footer
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Footer />
+    </ThemeProvider>
   );
 }
 
