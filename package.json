@@ -1,25 +1,57 @@
 {
   "name": "brian-tom.com",
-  "version": "0.1.0",
-  "private": true,
+  "author": "Brian Tom <btom.0831@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/BTx123/BTx123.github.io/issues"
+  },
   "homepage": "https://brian-tom.com",
-  "dependencies": {
-    "@material-ui/core": "^4.9.11",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-scripts": "^3.4.1"
+  "version": "0.1.0",
+  "license": "MIT",
+  "keywords": [
+    "gatsby",
+    "personal"
+  ],
+  "description": "Brian Tom's personal website",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BTx123/BTx123.github.io"
   },
+  "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -b master"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md,yml}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "@material-ui/core": "^4.0.1",
+    "@material-ui/icons": "^4.2.0",
+    "@material-ui/styles": "^4.0.1",
+    "gatsby": "^2.20.29",
+    "gatsby-image": "^2.3.4",
+    "gatsby-plugin-manifest": "^2.3.6",
+    "gatsby-plugin-material-ui": "^2.0.1",
+    "gatsby-plugin-offline": "^3.1.4",
+    "gatsby-plugin-react-helmet": "^3.2.4",
+    "gatsby-plugin-sharp": "^2.5.6",
+    "gatsby-source-filesystem": "^2.2.4",
+    "gatsby-transformer-sharp": "^2.4.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.0.0",
+    "typeface-roboto": "0.0.54"
+  },
+  "devDependencies": {
+    "prettier": "2.0.4",
+    "gh-pages": "^2.2.0"
+  },
+  "engines": {
+    "node": ">= 12.0.0",
+    "npm": ">= 6.0.0"
   },
   "browserslist": {
     "production": [
@@ -32,9 +64,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^2.2.0",
-    "prettier": "^2.0.4"
   }
 }

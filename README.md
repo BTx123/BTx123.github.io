@@ -1,6 +1,6 @@
-![](https://github.com/BTx123/BTx123.github.io/workflows/Node%20CI/badge.svg)
-
 # BTx123.github.io
+
+![Node CI Badge](https://github.com/BTx123/BTx123.github.io/workflows/Node%20CI/badge.svg)
 
 My website for all my programming, blogging, and work needs.
 
