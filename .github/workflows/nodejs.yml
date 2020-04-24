@@ -1,43 +1,21 @@
-name: Node CI
+name: Gatsby CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - dev
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [10.x]
+        node: [12.x]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
+      - uses: enriikke/gatsby-gh-pages-action@v2
         with:
-          node: ${{ matrix.node }}
-      - name: Clean install
-        run: |
-          npm ci
-        env:
-          CI: true
-      - name: Copy to public folder
-        run: |
-          cp README.md public/README.md
-        env:
-          CI: true
-      - name: Test
-        run: |
-          npm run test
-        env:
-          CI: true
-      - name: Build and deploy
-        uses: JamesIves/github-pages-deploy-action@master
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BASE_BRANCH: dev # The branch the action should deploy from.
-          BRANCH: master # The branch the action should deploy to.
-          CNAME: brian-tom.com
-          FOLDER: build # The folder the action should deploy.
-          BUILD_SCRIPT: npm run build # The build script the action should run prior to deploying.
+          access-token: ${{ secrets.ACCESS_TOKEN }}
