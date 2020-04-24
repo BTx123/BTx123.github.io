@@ -1,6 +1,6 @@
 # BTx123.github.io
 
-![Node CI Badge](https://github.com/BTx123/BTx123.github.io/workflows/Node%20CI/badge.svg)
+![Gatsby CI](https://github.com/BTx123/BTx123.github.io/workflows/Gatsby%20CI/badge.svg)
 
 My website for all my programming, blogging, and work needs.
 
