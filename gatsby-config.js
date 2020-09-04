@@ -1,8 +1,38 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Material UI Starter`,
-    description: `Kick off your next, great Gatsby project with this Material UI starter. This barebones starter ships with the main Gatsby and Material UI configuration files you might need.`,
-    author: `@dominicabela`,
+    title: `Brian Tom`,
+    titleTemplate: `%s | Brian Tom`,
+    description: `Brian Tom's personal website.`,
+    author: `Brian Tom`,
+    url: `https://brian-tom.com`,
+    icon: `${__dirname}/src/images/icon.png`,
+    social: {
+      linkedin: {
+        name: "LinkedIn",
+        username: "briantom123",
+        url: "https://www.linkedin.com/in/briantom123",
+      },
+      github: {
+        name: "GitHub",
+        username: "BTx123",
+        url: "https://github.com/BTx123",
+      },
+      facebook: {
+        name: "Facebook",
+        username: "br14n.t0m",
+        url: "https://www.facebook.com/br14n.t0m",
+      },
+      instagram: {
+        name: "Instagram",
+        username: "bt.x123",
+        url: "https://www.instagram.com/bt.x123",
+      },
+      twitter: {
+        name: "Twitter",
+        username: "bt_x123",
+        url: "https://twitter.com/bt_x123",
+      },
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
