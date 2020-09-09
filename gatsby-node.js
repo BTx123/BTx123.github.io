@@ -19,3 +19,33 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
     });
   }
 };
+
+// Programmatically generates pages from markdown
+exports.createPages = async function ({ actions, graphql }) {
+  const { data } = await graphql(`
+    query {
+      allMarkdownRemark {
+        nodes {
+          frontmatter {
+            path
+            active
+            category
+            rating
+            servings
+            total
+            url
+          }
+          html
+        }
+      }
+    }
+  `);
+  data.allMarkdownRemark.nodes.forEach((node) => {
+    const path = frontmatter.path;
+    actions.createPage({
+      path: path,
+      component: require.resolve(`./src/templates/recipes.js`),
+      context: { recipe: node },
+    });
+  });
+};
