@@ -24,7 +24,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0",
+    "audit": "lighthouse http://localhost:9000 --view"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -52,6 +53,7 @@
     "babel-eslint": "^10.1.0",
     "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
+    "lighthouse": "^6.3.0",
     "prettier": "^2.0.4"
   },
   "engines": {
