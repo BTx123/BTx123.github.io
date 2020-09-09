@@ -58,8 +58,8 @@ module.exports = {
         name: `Brian Tom`,
         short_name: `BT`,
         start_url: `/`,
-        // background_color: `#663399`,
-        // theme_color: `#663399`,
+        background_color: `#FFFFFF`,
+        theme_color: `#263238`,
         display: `standalone`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
