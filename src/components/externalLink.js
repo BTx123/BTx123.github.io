@@ -3,9 +3,12 @@ import Link from "@material-ui/core/Link";
 
 import PropTypes from "prop-types";
 
+/**
+ * Open links securely to prevent cross-site hijacking.
+ */
 const ExternalLink = ({ href, children }) => {
   return (
-    <Link href={href} target="_blank" rel="noopener">
+    <Link href={href} rel="noopener">
       {children}
     </Link>
   );

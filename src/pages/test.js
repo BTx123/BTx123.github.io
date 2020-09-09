@@ -1,12 +1,14 @@
 import React from "react";
 
-import SEO from "../components/seo";
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 
-export default function Index() {
+const Test = () => {
   return (
     <Layout>
-      <SEO />
+      <SEO title="Test"></SEO>
     </Layout>
   );
-}
+};
+
+export default Test;

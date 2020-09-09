@@ -8,85 +8,57 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import { useLocation } from "@reach/router";
+import useSiteMetadata from "./queries/siteMetadata";
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  );
+function SEO({ description, lang, title }) {
+  const { pathname } = useLocation();
+  const siteMetadata = useSiteMetadata();
 
-  const metaDescription = description || site.siteMetadata.description;
+  const seo = {
+    title: title || null,
+    description: description || siteMetadata.description,
+    author: siteMetadata.author,
+    url: `${siteMetadata.url}${pathname}`,
+    icon: siteMetadata.icon,
+  };
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `viewport`,
-          content: `minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no`,
-        },
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
+      defer={false}
+      title={seo.title}
+      defaultTitle={siteMetadata.title}
+      titleTemplate={`%s | ${siteMetadata.title}`}
+    >
+      <html lang={lang} />
+      <meta charSet="utf-8" />
+      <meta name="description" content={seo.description} />
+      <meta name="author" content={seo.author} />
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+      />
+      <meta property="og:url" content={seo.url} />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content={lang} />
+      <meta property="og:site_name" content={siteMetadata.title} />
+      <meta property="og:image" content={seo.icon} />
+      <meta property="og:image:alt" content="Brian Tom Logo" />
+      <meta property="og:image:width" content="512" />
+      <meta property="og:image:height" content="512" />
+    </Helmet>
   );
 }
 
 SEO.defaultProps = {
   lang: `en`,
-  meta: [],
   description: ``,
 };
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 export default SEO;
