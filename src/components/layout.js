@@ -221,7 +221,7 @@ export default function Layout({ children }) {
             </Drawer>
           </Hidden>
         </nav>
-        <main className={classes.content} >
+        <main className={classes.content}>
           <div className={classes.toolbar} id="scroll-to-top-anchor" />
           {tempContent}
           {children}
