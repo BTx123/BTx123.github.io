@@ -4,10 +4,12 @@ import Layout from "../../components/layout";
 import Image from "../../components/image";
 import SEO from "../../components/seo";
 
-export default function Recipes() {
+const Recipes = () => {
   return (
     <Layout>
       <SEO title="Recipes" />
     </Layout>
   );
-}
+};
+
+export default Recipes;

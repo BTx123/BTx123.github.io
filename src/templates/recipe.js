@@ -1,4 +1,8 @@
-function Recipe({ pageContext }) {
+import React from "react";
+
+const Recipe = ({ pageContext }) => {
   const { recipe } = pageContext;
-  return <div>{recipe.html}</div>;
-}
+  return <div dangerouslySetInnerHTML={{ __html: recipe.html }} />;
+};
+
+export default Recipe;
