@@ -21,7 +21,7 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 };
 
 // Programmatically generates pages from markdown
-exports.createPages = async function ({ actions, graphql }) {
+exports.createPages = async function ({ actions, graphql, reporter }) {
   const { data } = await graphql(`
     query {
       allMarkdownRemark {
@@ -40,12 +40,21 @@ exports.createPages = async function ({ actions, graphql }) {
       }
     }
   `);
+
+  // Handle errors
+  if (data.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    return;
+  }
+
   data.allMarkdownRemark.nodes.forEach((node) => {
-    const path = frontmatter.path;
-    actions.createPage({
-      path: path,
-      component: require.resolve(`./src/templates/recipes.js`),
-      context: { recipe: node },
-    });
+    const { path } = node.frontmatter;
+    if (path !== null) {
+      actions.createPage({
+        path: path,
+        component: require.resolve(`./src/templates/recipe.js`),
+        context: { recipe: node },
+      });
+    }
   });
 };
