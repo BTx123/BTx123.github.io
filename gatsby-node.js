@@ -24,18 +24,15 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 exports.createPages = async function ({ actions, graphql, reporter }) {
   const { data } = await graphql(`
     query {
-      allMarkdownRemark {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___datetime] }
+        limit: 1000
+      ) {
         nodes {
           frontmatter {
             path
-            active
-            category
-            rating
-            servings
-            total
-            url
+            posttype
           }
-          html
         }
       }
     }
@@ -48,13 +45,24 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
   }
 
   data.allMarkdownRemark.nodes.forEach((node) => {
-    const { path } = node.frontmatter;
+    const { path, posttype } = node.frontmatter;
     if (path !== null) {
-      actions.createPage({
-        path: path,
-        component: require.resolve(`./src/templates/recipe.js`),
-        context: { recipe: node },
-      });
+      switch (posttype) {
+        case "recipes":
+          actions.createPage({
+            path: path,
+            component: require.resolve(`./src/templates/recipe.js`),
+            context: { path: path },
+          });
+          break;
+        default:
+          actions.createPage({
+            path: path,
+            component: require.resolve(`./src/templates/generic.js`),
+            context: { path: path },
+          });
+          break;
+      }
     }
   });
 };

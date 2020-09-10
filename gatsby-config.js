@@ -65,20 +65,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-material-ui`,
       // If you want to use styled components, in conjunction to Material-UI, you should:
       // - Change the injection order
       // - Add the plugin
+      resolve: `gatsby-plugin-material-ui`,
       options: {
-        // stylesProvider: {
-        //   injectFirst: true,
-        // },
+        stylesProvider: {
+          injectFirst: true,
+        },
       },
-      // 'gatsby-plugin-styled-components',
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-git`,
       options: {
@@ -103,5 +100,8 @@ module.exports = {
         plugins: [],
       },
     },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    `gatsby-plugin-offline`,
   ],
 };

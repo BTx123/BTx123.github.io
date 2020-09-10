@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
   const classes = useStyles();
   const theme = useCustomTheme();
   const { title } = useSiteMetadata();
@@ -82,8 +82,14 @@ export default function Layout({ children }) {
   // State for selected list item
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+  const handleDrawerToggle = (open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setMobileOpen(open);
   };
 
   const handleListItemClick = (event, index) => {
@@ -105,64 +111,42 @@ export default function Layout({ children }) {
   `);
 
   const drawer = (
-    <div>
+    <React.Fragment>
       <div className={classes.toolbar} />
-      <List>
-        <ListItem
-          button
-          selected={selectedIndex === 0}
-          onClick={(event) => handleListItemClick(event, 0)}
-        >
-          <ListItemIcon>
-            <PersonIcon />
-          </ListItemIcon>
-          <ListItemText primary="About" />
-        </ListItem>
-        <ListItem
-          button
-          selected={selectedIndex === 1}
-          onClick={(event) => handleListItemClick(event, 1)}
-        >
-          <ListItemIcon>
-            <CodeIcon />
-          </ListItemIcon>
-          <ListItemText primary="Projects" />
-        </ListItem>
-        <ListItem
-          button
-          selected={selectedIndex === 2}
-          onClick={(event) => handleListItemClick(event, 2)}
-        >
-          <ListItemIcon>
-            <RestaurantIcon />
-          </ListItemIcon>
-          <ListItemText primary="Recipes" />
-        </ListItem>
+      <List onClick={handleDrawerToggle(false)}>
+        {["About", "Projects", "Recipes", "Resume", "Contact"].map(
+          (text, index) => (
+            <React.Fragment>
+              <ListItem
+                button
+                key={text}
+                selected={selectedIndex === index}
+                onClick={(event) => handleListItemClick(event, index)}
+              >
+                <ListItemIcon>
+                  {(() => {
+                    switch (index) {
+                      case 0:
+                        return <PersonIcon />;
+                      case 1:
+                        return <CodeIcon />;
+                      case 2:
+                        return <RestaurantIcon />;
+                      case 3:
+                        return <DescriptionIcon />;
+                      case 4:
+                        return <ContactMailIcon />;
+                    }
+                  })()}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+              {index === 2 && <Divider />}
+            </React.Fragment>
+          )
+        )}
       </List>
-      <Divider />
-      <List>
-        <ListItem
-          button
-          selected={selectedIndex === 3}
-          onClick={(event) => handleListItemClick(event, 3)}
-        >
-          <ListItemIcon>
-            <DescriptionIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Resume"} />
-        </ListItem>
-        <ListItem
-          button
-          selected={selectedIndex === 4}
-          onClick={(event) => handleListItemClick(event, 4)}
-        >
-          <ListItemIcon>
-            <ContactMailIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Contact"} />
-        </ListItem>
-      </List>
-    </div>
+    </React.Fragment>
   );
 
   return (
@@ -174,17 +158,17 @@ export default function Layout({ children }) {
               color="inherit"
               aria-label="open drawer"
               edge="start"
-              onClick={handleDrawerToggle}
+              onClick={handleDrawerToggle(!mobileOpen)}
               className={classes.menuButton}
             >
               <MenuIcon />
             </IconButton>
-            <Link href="#" className={classes.logo}>
+            <Link href="/" className={classes.logo}>
               <Img fixed={logo.file.childImageSharp.fixed} alt="bt" />
             </Link>
             <Hidden xsDown>
               <Typography variant="h6" noWrap>
-                <Link href="#" className={classes.siteTitle}>
+                <Link href="/" className={classes.siteTitle}>
                   {title}
                 </Link>
               </Typography>
@@ -198,7 +182,7 @@ export default function Layout({ children }) {
               variant="temporary"
               anchor="top"
               open={mobileOpen}
-              onClose={handleDrawerToggle}
+              onClose={handleDrawerToggle(false)}
               classes={{
                 paper: classes.drawerPaper,
               }}
@@ -223,15 +207,17 @@ export default function Layout({ children }) {
         </nav>
         <main className={classes.content}>
           <div className={classes.toolbar} id="scroll-to-top-anchor" />
-          {tempContent}
           {children}
+          {tempContent}
           <Footer />
         </main>
       </div>
       <ScrollToTop />
     </ThemeProvider>
   );
-}
+};
+
+export default Layout;
 
 const tempContent = (
   <React.Fragment>

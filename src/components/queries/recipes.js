@@ -4,18 +4,22 @@ import { useStaticQuery, graphql } from "gatsby";
 const useRecipes = () => {
   const data = useStaticQuery(graphql`
     {
-      allMarkdownRemark(limit: 1000, filter: {}) {
+      allMarkdownRemark {
         nodes {
-          html
           frontmatter {
             active
-            category
             servings
-            title
             rating
             total
             url
+            path
+            title
+            tags
+            posttype
+            datetime
+            datetimeFromNow: datetime(fromNow: true)
           }
+          html
         }
       }
     }
