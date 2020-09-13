@@ -26,6 +26,8 @@ import useCustomTheme from "../theme";
 import useSiteMetadata from "./queries/siteMetadata";
 import Footer from "../components/footer";
 import ScrollToTop from "../components/scrollToTop";
+import FadeTransitionRouter from "../components/fadeTransitionRouter";
+import { Link as ReachLink } from "@reach/router";
 
 const drawerWidth = 240;
 // const logoSize = 30;
@@ -110,41 +112,42 @@ const Layout = ({ children }) => {
     }
   `);
 
+  const sections = ["about", "projects", "recipes", "resume", "contact"];
+
   const drawer = (
     <React.Fragment>
       <div className={classes.toolbar} />
       <List onClick={handleDrawerToggle(false)}>
-        {["About", "Projects", "Recipes", "Resume", "Contact"].map(
-          (text, index) => (
-            <React.Fragment>
-              <ListItem
-                button
-                key={text}
-                selected={selectedIndex === index}
-                onClick={(event) => handleListItemClick(event, index)}
-              >
-                <ListItemIcon>
-                  {(() => {
-                    switch (index) {
-                      case 0:
-                        return <PersonIcon />;
-                      case 1:
-                        return <CodeIcon />;
-                      case 2:
-                        return <RestaurantIcon />;
-                      case 3:
-                        return <DescriptionIcon />;
-                      case 4:
-                        return <ContactMailIcon />;
-                    }
-                  })()}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-              {index === 2 && <Divider />}
-            </React.Fragment>
-          )
-        )}
+        {sections.map((text, index) => (
+          <React.Fragment key={text}>
+            <ListItem
+              button
+              selected={selectedIndex === index}
+              onClick={(event) => handleListItemClick(event, index)}
+              component={ReachLink}
+              to={`/${text}`}
+            >
+              <ListItemIcon>
+                {(() => {
+                  switch (index) {
+                    case 0:
+                      return <PersonIcon />;
+                    case 1:
+                      return <CodeIcon />;
+                    case 2:
+                      return <RestaurantIcon />;
+                    case 3:
+                      return <DescriptionIcon />;
+                    case 4:
+                      return <ContactMailIcon />;
+                  }
+                })()}
+              </ListItemIcon>
+              <ListItemText primary={text.toUpperCase()} />
+            </ListItem>
+            {index === 2 && <Divider />}
+          </React.Fragment>
+        ))}
       </List>
     </React.Fragment>
   );
@@ -163,12 +166,12 @@ const Layout = ({ children }) => {
             >
               <MenuIcon />
             </IconButton>
-            <Link href="/" className={classes.logo}>
+            <Link className={classes.logo} component={ReachLink} to="/">
               <Img fixed={logo.file.childImageSharp.fixed} alt="bt" />
             </Link>
             <Hidden xsDown>
               <Typography variant="h6" noWrap>
-                <Link href="/" className={classes.siteTitle}>
+                <Link className={classes.siteTitle} component={ReachLink} to="/">
                   {title}
                 </Link>
               </Typography>
@@ -208,7 +211,7 @@ const Layout = ({ children }) => {
         <main className={classes.content}>
           <div className={classes.toolbar} id="scroll-to-top-anchor" />
           {children}
-          {tempContent}
+          {/* {tempContent} */}
           <Footer />
         </main>
       </div>

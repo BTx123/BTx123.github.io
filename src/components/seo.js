@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import useSiteMetadata from "./queries/siteMetadata";
 
-function SEO({ description, lang, title }) {
+function SEO({ description, lang, title, children }) {
   const { pathname } = useLocation();
   const siteMetadata = useSiteMetadata();
 
@@ -46,6 +46,8 @@ function SEO({ description, lang, title }) {
       <meta property="og:image:alt" content="Brian Tom Logo" />
       <meta property="og:image:width" content="512" />
       <meta property="og:image:height" content="512" />
+
+      {children}
     </Helmet>
   );
 }

@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-export default function AboutPage() {
+const AboutPage = () => {
   return (
     <Layout>
       <SEO title="About" />
@@ -13,4 +13,6 @@ export default function AboutPage() {
       <Typography paragraph>Welcome to the about page.</Typography>
     </Layout>
   );
-}
+};
+
+export default AboutPage;
