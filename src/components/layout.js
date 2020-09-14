@@ -26,7 +26,6 @@ import useCustomTheme from "../theme";
 import useSiteMetadata from "./queries/siteMetadata";
 import Footer from "../components/footer";
 import ScrollToTop from "../components/scrollToTop";
-import FadeTransitionRouter from "../components/fadeTransitionRouter";
 import { Link as ReachLink } from "@reach/router";
 
 const drawerWidth = 240;
