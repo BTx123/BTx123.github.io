@@ -11,12 +11,17 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        node: [12.x]
+        os: [windows-latest]
+        node: [14.10.1]
 
     runs-on: ${{ matrix.os }}
 
     steps:
+      # Configures the node version used on GitHub-hosted runners
+      - uses: actions/setup-node@v1
+        with:
+          # The Node.js version to configure
+          node-version: ${{ matrix.node }}
       - name: Checkout repository
         uses: actions/checkout@v1
       - name: Test
