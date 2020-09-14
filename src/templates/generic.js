@@ -13,7 +13,7 @@ export default function GenericPage({ data }) {
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );
-};
+}
 
 export const pageQuery = graphql`
   query($path: String!) {
