@@ -3,9 +3,9 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const GenericPage = ({ pageContext }) => {
-  const { data } = pageContext;
-  const { frontmatter, html } = data;
+export default function GenericPage({ data }) {
+  const { markdownRemark } = data;
+  const { frontmatter, html } = markdownRemark;
 
   return (
     <Layout>
@@ -15,4 +15,15 @@ const GenericPage = ({ pageContext }) => {
   );
 };
 
-export default GenericPage;
+export const pageQuery = graphql`
+  query($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      frontmatter {
+        datetime(formatString: "MMMM DD, YYYY")
+        title
+        tags
+      }
+      html
+    }
+  }
+`;
