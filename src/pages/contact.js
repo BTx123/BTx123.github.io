@@ -23,12 +23,12 @@ const useStyles = makeStyles((theme) => ({
 const ContactPage = () => {
   const classes = useStyles();
 
-  // TODO: Fix null getElementById when switching pages - unload js somehow?
   return (
     <Layout>
       <SEO title="Contact">
-        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=6Leq_soZAAAAAODOc50hERWjUQPLtvaS_9jMOVv3"></script>
-        <script>
+        {/* TODO: Fix null getElementById when switching pages - unload js somehow, move out of seo? */}
+        {/* <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=6Leq_soZAAAAAODOc50hERWjUQPLtvaS_9jMOVv3"></script> */}
+        {/* <script>
           {`function onloadCallback() {
             grecaptcha.ready(() => {
               grecaptcha
@@ -38,7 +38,7 @@ const ContactPage = () => {
                 });
             });
           }`}
-        </script>
+        </script> */}
       </SEO>
       <Typography variant="h1">Contact</Typography>
       <Container maxWidth="md">
@@ -93,11 +93,11 @@ const ContactPage = () => {
               type="submit"
               variant="contained"
               color="secondary"
-            // component="button"
-            // className="g-recaptcha"
-            // data-sitekey="6Leq_soZAAAAAODOc50hERWjUQPLtvaS_9jMOVv3"
-            // data-callback="onSubmit"
-            // data-action="submit"
+              // component="button"
+              // className="g-recaptcha"
+              // data-sitekey="6Leq_soZAAAAAODOc50hERWjUQPLtvaS_9jMOVv3"
+              // data-callback="onSubmit"
+              // data-action="submit"
             >
               Submit
             </Button>

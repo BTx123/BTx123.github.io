@@ -24,7 +24,6 @@ export default function RecipeTemplate({ data }) {
 export const pageQuery = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
       frontmatter {
         datetime(formatString: "MMMM DD, YYYY")
         datetimeFromNow: datetime(fromNow: true)
@@ -36,6 +35,7 @@ export const pageQuery = graphql`
         url
         tags
       }
+      html
     }
   }
 `;

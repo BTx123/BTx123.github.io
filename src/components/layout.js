@@ -171,7 +171,11 @@ const Layout = ({ children }) => {
             </Link>
             <Hidden xsDown>
               <Typography variant="h6" noWrap>
-                <Link className={classes.siteTitle} component={ReachLink} to="/">
+                <Link
+                  className={classes.siteTitle}
+                  component={ReachLink}
+                  to="/"
+                >
                   {title}
                 </Link>
               </Typography>
