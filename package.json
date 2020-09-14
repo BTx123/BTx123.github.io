@@ -1,0 +1,84 @@
+{
+  "name": "brian-tom.com",
+  "author": "Brian Tom <btom.0831@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/BTx123/BTx123.github.io/issues"
+  },
+  "homepage": "https://brian-tom.com",
+  "version": "0.1.0",
+  "license": "MIT",
+  "keywords": [
+    "gatsby",
+    "personal"
+  ],
+  "description": "Brian Tom's personal website",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BTx123/BTx123.github.io"
+  },
+  "private": true,
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md,yml}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0",
+    "audit": "lighthouse http://localhost:9000 --view"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.2.0",
+    "@material-ui/styles": "^4.10.0",
+    "babel-plugin-styled-components": "^1.11.1",
+    "gatsby": "^2.24.53",
+    "gatsby-image": "^2.4.16",
+    "gatsby-plugin-manifest": "^2.4.27",
+    "gatsby-plugin-material-ui": "^2.1.10",
+    "gatsby-plugin-offline": "^3.2.26",
+    "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-plugin-sharp": "^2.6.31",
+    "gatsby-plugin-styled-components": "^3.3.10",
+    "gatsby-source-filesystem": "^2.3.27",
+    "gatsby-source-git": "^1.1.0",
+    "gatsby-transformer-remark": "^2.8.34",
+    "gatsby-transformer-sharp": "^2.5.14",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0",
+    "styled-components": "^5.2.0",
+    "typeface-roboto": "0.0.54"
+  },
+  "devDependencies": {
+    "@hot-loader/react-dom": "^16.13.0",
+    "babel-eslint": "^10.1.0",
+    "gh-pages": "^2.2.0",
+    "husky": "^4.2.5",
+    "lighthouse": "^6.3.0",
+    "prettier": "^2.0.4"
+  },
+  "engines": {
+    "node": ">= 12.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && npm run format",
+      "pre-push": "npm test && npm run format"
+    }
+  }
+}
