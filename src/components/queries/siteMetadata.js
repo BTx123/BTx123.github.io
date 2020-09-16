@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useStaticQuery, graphql } from "gatsby";
 
 const useSiteMetadata = () => {
@@ -11,6 +12,28 @@ const useSiteMetadata = () => {
           author
           url
           icon
+          social {
+            facebook {
+              username
+              url
+            }
+            github {
+              username
+              url
+            }
+            instagram {
+              username
+              url
+            }
+            linkedin {
+              username
+              url
+            }
+            spotify {
+              username
+              url
+            }
+          }
         }
       }
     }

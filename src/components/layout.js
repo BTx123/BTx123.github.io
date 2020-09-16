@@ -1,32 +1,36 @@
 import React from "react";
 
 import Img from "gatsby-image";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Divider from "@material-ui/core/Divider";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import {
+  Toolbar,
+  Typography,
+  IconButton,
+  AppBar,
+  Divider,
+  Drawer,
+  Hidden,
+  ThemeProvider,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import DescriptionIcon from "@material-ui/icons/Description";
 import ContactMailIcon from "@material-ui/icons/ContactMail";
 import PersonIcon from "@material-ui/icons/Person";
 import RestaurantIcon from "@material-ui/icons/Restaurant";
 import CodeIcon from "@material-ui/icons/Code";
-import { Link, ThemeProvider } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+
 import useCustomTheme from "../theme";
 import useSiteMetadata from "./queries/siteMetadata";
 import Footer from "../components/footer";
 import ScrollToTop from "../components/scrollToTop";
-import { Link as ReachLink } from "@reach/router";
+
+import { InternalLink } from "../components/link";
 
 const drawerWidth = 240;
 // const logoSize = 30;
@@ -42,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 200, // show appbar on top of drawer when opened
+    zIndex: theme.zIndex.modal + 1, // show appbar on top of drawer when opened
     position: "fixed",
   },
   menuButton: {
@@ -67,9 +71,12 @@ const useStyles = makeStyles((theme) => ({
     },
     width: "auto",
   },
-  content: {
+  main: {
     flexGrow: 1,
     padding: theme.spacing(3),
+  },
+  footer: {
+    marginTop: theme.spacing(3),
   },
 }));
 
@@ -123,7 +130,7 @@ const Layout = ({ children }) => {
               button
               selected={selectedIndex === index}
               onClick={(event) => handleListItemClick(event, index)}
-              component={ReachLink}
+              component={Link}
               to={`/${text}`}
             >
               <ListItemIcon>
@@ -165,18 +172,14 @@ const Layout = ({ children }) => {
             >
               <MenuIcon />
             </IconButton>
-            <Link className={classes.logo} component={ReachLink} to="/">
+            <InternalLink className={classes.logo} to="/">
               <Img fixed={logo.file.childImageSharp.fixed} alt="bt" />
-            </Link>
+            </InternalLink>
             <Hidden xsDown>
               <Typography variant="h6" noWrap>
-                <Link
-                  className={classes.siteTitle}
-                  component={ReachLink}
-                  to="/"
-                >
+                <InternalLink className={classes.siteTitle} to="/">
                   {title}
-                </Link>
+                </InternalLink>
               </Typography>
             </Hidden>
           </Toolbar>
@@ -211,11 +214,12 @@ const Layout = ({ children }) => {
             </Drawer>
           </Hidden>
         </nav>
-        <main className={classes.content}>
+        <main className={classes.main}>
           <div className={classes.toolbar} id="scroll-to-top-anchor" />
           {children}
-          {/* {tempContent} */}
-          <Footer />
+          <div className={classes.footer}>
+            <Footer />
+          </div>
         </main>
       </div>
       <ScrollToTop />
@@ -224,120 +228,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-
-const tempContent = (
-  <React.Fragment>
-    <Typography paragraph>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
-      non enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-      imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-      Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-      Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-      adipiscing bibendum est ultricies integer quis. Cursus euismod quis
-      viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet proin
-      fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras
-      tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum
-      varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
-      Lorem donec massa sapien faucibus et molestie ac.
-    </Typography>
-    <Typography paragraph>
-      Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-      ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum
-      integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi
-      lacus sed viverra tellus. Purus sit amet volutpat consequat mauris.
-      Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-      vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra
-      accumsan in. In hendrerit gravida rutrum quisque non tellus orci ac.
-      Pellentesque nec nam aliquam sem et tortor. Habitant morbi tristique
-      senectus et. Adipiscing elit duis tristique sollicitudin nibh sit. Ornare
-      aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-      accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices
-      sagittis orci a.
-    </Typography>
-    <Typography paragraph>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
-      non enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-      imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-      Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-      Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-      adipiscing bibendum est ultricies integer quis. Cursus euismod quis
-      viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet proin
-      fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras
-      tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum
-      varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
-      Lorem donec massa sapien faucibus et molestie ac.
-    </Typography>
-    <Typography paragraph>
-      Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-      ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum
-      integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi
-      lacus sed viverra tellus. Purus sit amet volutpat consequat mauris.
-      Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-      vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra
-      accumsan in. In hendrerit gravida rutrum quisque non tellus orci ac.
-      Pellentesque nec nam aliquam sem et tortor. Habitant morbi tristique
-      senectus et. Adipiscing elit duis tristique sollicitudin nibh sit. Ornare
-      aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-      accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices
-      sagittis orci a.
-    </Typography>
-    <Typography paragraph>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
-      non enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-      imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-      Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-      Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-      adipiscing bibendum est ultricies integer quis. Cursus euismod quis
-      viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet proin
-      fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras
-      tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum
-      varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
-      Lorem donec massa sapien faucibus et molestie ac.
-    </Typography>
-    <Typography paragraph>
-      Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-      ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum
-      integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi
-      lacus sed viverra tellus. Purus sit amet volutpat consequat mauris.
-      Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-      vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra
-      accumsan in. In hendrerit gravida rutrum quisque non tellus orci ac.
-      Pellentesque nec nam aliquam sem et tortor. Habitant morbi tristique
-      senectus et. Adipiscing elit duis tristique sollicitudin nibh sit. Ornare
-      aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-      accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices
-      sagittis orci a.
-    </Typography>
-    <Typography paragraph>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
-      non enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-      imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-      Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-      Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-      adipiscing bibendum est ultricies integer quis. Cursus euismod quis
-      viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet proin
-      fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras
-      tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum
-      varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
-      Lorem donec massa sapien faucibus et molestie ac.
-    </Typography>
-    <Typography paragraph>
-      Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-      ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum
-      integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi
-      lacus sed viverra tellus. Purus sit amet volutpat consequat mauris.
-      Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-      vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra
-      accumsan in. In hendrerit gravida rutrum quisque non tellus orci ac.
-      Pellentesque nec nam aliquam sem et tortor. Habitant morbi tristique
-      senectus et. Adipiscing elit duis tristique sollicitudin nibh sit. Ornare
-      aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-      accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices
-      sagittis orci a.
-    </Typography>
-  </React.Fragment>
-);

@@ -5,7 +5,8 @@ on:
     branches:
       - master
   schedule:
-    - cron: "0 3 * * *"
+    # Cron schedule using UTC time
+    - cron: "0 10 * * *"
 
 jobs:
   build:

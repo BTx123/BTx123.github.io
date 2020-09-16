@@ -7,50 +7,33 @@ module.exports = {
     icon: `${__dirname}/src/images/icon.png`,
     social: {
       linkedin: {
-        name: "LinkedIn",
         username: "briantom123",
         url: "https://www.linkedin.com/in/briantom123",
       },
       github: {
-        name: "GitHub",
         username: "BTx123",
         url: "https://github.com/BTx123",
       },
       facebook: {
-        name: "Facebook",
         username: "br14n.t0m",
         url: "https://www.facebook.com/br14n.t0m",
       },
       instagram: {
-        name: "Instagram",
         username: "bt.x123",
         url: "https://www.instagram.com/bt.x123",
       },
       twitter: {
-        name: "Twitter",
         username: "bt_x123",
         url: "https://twitter.com/bt_x123",
+      },
+      spotify: {
+        username: "12149414320",
+        url: "https://open.spotify.com/user/12149414320",
       },
     },
   },
   plugins: [
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `data`,
-        path: `${__dirname}/src/data`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     {
       // Place before gatsby-plugin-offline
       resolve: `gatsby-plugin-manifest`,
@@ -64,27 +47,8 @@ module.exports = {
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      // If you want to use styled components, in conjunction to Material-UI, you should:
-      // - Change the injection order
-      // - Add the plugin
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        stylesProvider: {
-          injectFirst: true,
-        },
-      },
-    },
-    `gatsby-plugin-styled-components`,
-    {
-      resolve: `gatsby-source-git`,
-      options: {
-        name: `recipes`,
-        remote: `https://github.com/BTx123/Recipes.git`,
-        branch: `master`,
-        patterns: `recipes/**/*.md`,
-      },
-    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -100,6 +64,41 @@ module.exports = {
         plugins: [],
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/data`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `recipes`,
+        remote: `https://github.com/BTx123/Recipes.git`,
+        branch: `master`,
+        patterns: `recipes/**/*.md`,
+      },
+    },
+    {
+      // If you want to use styled components, in conjunction to Material-UI, you should:
+      // - Change the injection order
+      // - Add the plugin
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
+    `gatsby-plugin-styled-components`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,

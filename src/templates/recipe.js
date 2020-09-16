@@ -14,7 +14,7 @@ export default function RecipeTemplate({ data }) {
       <SEO title={`${frontmatter.title} Recipe`} />
       <Typography variant="h1">{frontmatter.title}</Typography>
       <Typography variant="subtitle1">
-        Published {frontmatter.datetimeFromNow}
+        Published {frontmatter.datetime} | {frontmatter.datetimeFromNow}
       </Typography>
       <Typography dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>

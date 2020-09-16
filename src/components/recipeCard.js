@@ -12,11 +12,7 @@ import {
 import { navigate } from "@reach/router";
 import PropType from "prop-types";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    // maxWidth: "300px",
-  },
-}));
+const useStyles = makeStyles((theme) => ({}));
 
 const RecipeCard = ({ title, date, excerpt, tags, path }) => {
   const classes = useStyles();
@@ -24,10 +20,15 @@ const RecipeCard = ({ title, date, excerpt, tags, path }) => {
   return (
     <Card>
       <CardActionArea onClick={() => navigate(path)}>
-        <CardMedia className={classes.media} image="images/" />
+        <CardMedia
+          className={classes.media}
+          image="/static/images/recipes/20200508_165542.jpg"
+        />
         <CardContent>
           <Typography variant="h5">{title}</Typography>
-          <Typography variant="body1">{date}</Typography>
+          <Typography variant="body1" color="textSecondary" gutterBottom>
+            {date}
+          </Typography>
           <Typography variant="body2">{excerpt}</Typography>
         </CardContent>
       </CardActionArea>
@@ -39,8 +40,6 @@ const RecipeCard = ({ title, date, excerpt, tags, path }) => {
             label={tag}
             color="secondary"
             size="small"
-            component="a"
-            href="#"
             clickable
           />
         ))}
