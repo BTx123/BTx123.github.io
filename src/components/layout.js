@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.modal + 1, // show appbar on top of drawer when opened
-    position: "fixed",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -87,8 +86,6 @@ const Layout = ({ children }) => {
 
   // State for mobile view
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  // State for selected list item
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   const handleDrawerToggle = (open) => (event) => {
     if (
@@ -98,10 +95,6 @@ const Layout = ({ children }) => {
       return;
     }
     setMobileOpen(open);
-  };
-
-  const handleListItemClick = (event, index) => {
-    setSelectedIndex(index);
   };
 
   const logo = useStaticQuery(graphql`
@@ -126,13 +119,7 @@ const Layout = ({ children }) => {
       <List onClick={handleDrawerToggle(false)}>
         {sections.map((text, index) => (
           <React.Fragment key={text}>
-            <ListItem
-              button
-              selected={selectedIndex === index}
-              onClick={(event) => handleListItemClick(event, index)}
-              component={Link}
-              to={`/${text}`}
-            >
+            <ListItem button component={Link} to={`/${text}`}>
               <ListItemIcon>
                 {(() => {
                   switch (index) {
