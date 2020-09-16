@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Typography, Grid, Link } from "@material-ui/core";
+import { Typography, Grid } from "@material-ui/core";
 
 import { graphql } from "gatsby";
 
