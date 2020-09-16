@@ -1,6 +1,12 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import React from "react";
+
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+
 import themeJSON from "./theme.json";
 
-export default function useCustomTheme() {
-  return createMuiTheme(themeJSON);
-}
+const useCustomTheme = () => {
+  const theme = createMuiTheme(themeJSON);
+  return responsiveFontSizes(theme);
+};
+
+export default useCustomTheme;
