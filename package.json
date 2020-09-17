@@ -4,10 +4,7 @@
   "description": "Brian Tom's personal website",
   "homepage": "https://brian-tom.com",
   "version": "0.1.0",
-  "license": "CC-BY-4.0",
-  "bugs": {
-    "url": "https://github.com/BTx123/BTx123.github.io/issues"
-  },
+  "license": "MIT",
   "keywords": [
     "personal-site",
     "gatsby",
