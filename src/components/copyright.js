@@ -17,7 +17,7 @@ export default function Copyright(props) {
         {author}
       </Link>{" "}
       {new Date().getFullYear()}
-      {"."}
+      {". All Rights Reserved."}
     </Typography>
   );
 }
