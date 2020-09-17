@@ -4,7 +4,7 @@ import { Grid, Typography, Hidden } from "@material-ui/core";
 
 import Copyright from "./copyright";
 import useSiteMetadata from "./queries/siteMetadata";
-import { ExternalLink } from "./link";
+import Link from "./link";
 import {
   FacebookIcon,
   GitHubIcon,
@@ -29,7 +29,7 @@ const Footer = () => {
       <Grid container item direction="row" md={6} lg={4} xl={3} spacing={1}>
         {[linkedin, github, facebook, instagram, spotify].map((social) => (
           <Grid container item xs sm={6} justify="center" key={social.url}>
-            <ExternalLink to={social.url}>
+            <Link to={social.url}>
               <Grid container alignItems="center" spacing={1}>
                 <Grid item>
                   {(() => {
@@ -55,7 +55,7 @@ const Footer = () => {
                   </Hidden>
                 </Grid>
               </Grid>
-            </ExternalLink>
+            </Link>
           </Grid>
         ))}
       </Grid>
@@ -65,9 +65,9 @@ const Footer = () => {
       <Grid item xs={12}>
         <Typography variant="body2">
           Created with{" "}
-          <ExternalLink to="https://www.gatsbyjs.com/" color="inherit">
+          <Link to="https://www.gatsbyjs.com/" color="inherit">
             GatsbyJS
-          </ExternalLink>
+          </Link>
           .
         </Typography>
       </Grid>

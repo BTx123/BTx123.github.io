@@ -1,7 +1,7 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
-import { ExternalLink } from "./link";
+import Link from "./link";
 import useSiteMetadata from "./queries/siteMetadata";
+import { Typography } from "@material-ui/core";
 
 export default function Copyright(props) {
   const { url, author } = useSiteMetadata();
@@ -13,9 +13,9 @@ export default function Copyright(props) {
   return (
     <Typography {...props}>
       {"Copyright © "}
-      <ExternalLink color="inherit" to={siteUrl}>
+      <Link color="inherit" to={siteUrl}>
         {author}
-      </ExternalLink>{" "}
+      </Link>{" "}
       {new Date().getFullYear()}
       {"."}
     </Typography>

@@ -25,7 +25,7 @@ const ContactPage = () => {
 
   return (
     <Layout>
-      <SEO title="Contact">
+      <SEO title="Contact Me">
         {/* TODO: Fix null getElementById when switching pages - unload js somehow, move out of seo? */}
         {/* <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=6Leq_soZAAAAAODOc50hERWjUQPLtvaS_9jMOVv3"></script> */}
         {/* <script>
@@ -40,7 +40,7 @@ const ContactPage = () => {
           }`}
         </script> */}
       </SEO>
-      <Typography variant="h1">Contact</Typography>
+      <Typography variant="h1">Contact Me</Typography>
       <Container maxWidth="md">
         <Typography paragraph>
           Send me a message with the form below and I will get back to you

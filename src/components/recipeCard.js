@@ -9,7 +9,7 @@ import {
   Card,
   CardActionArea,
 } from "@material-ui/core";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import PropType from "prop-types";
 
 const useStyles = makeStyles((theme) => ({}));

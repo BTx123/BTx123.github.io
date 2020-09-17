@@ -1,64 +1,49 @@
 import React from "react";
 
-import { Link } from "@material-ui/core";
 import { Link as GatsbyLink } from "gatsby";
 
-import PropTypes from "prop-types";
+import { Link as MuiLink } from "@material-ui/core";
 
-/**
- * Open external links securely to prevent cross-site hijacking.
- */
-export const ExternalLink = (props) => (
-  <Link href={props.to} rel="noopener" {...props}>
-    {props.children}
-  </Link>
+// Since DOM elements <a> cannot receive activeClassName
+// and partiallyActive, destructure the prop here and
+// pass it only to GatsbyLink
+const Link = React.forwardRef(
+  ({ children, to, activeClassName, partiallyActive, ...other }, ref) => {
+    // Test assumes that any internal link (intended for Gatsby)
+    // will start with exactly one slash, and that anything else is external.
+    const internal = /^\/(?!\/)/.test(to);
+    const file = /\.[0-9a-z]+$/i.test(to);
+    // Use Gatsby Link for internal links with check for file downloads
+    if (internal) {
+      if (file) {
+        return (
+          <MuiLink component="a" href={to} {...other}>
+            {children}
+          </MuiLink>
+        );
+      }
+      return (
+        <MuiLink
+          component={GatsbyLink}
+          to={to}
+          activeClassName={activeClassName}
+          partiallyActive={partiallyActive}
+          ref={ref}
+          {...other}
+        >
+          {children}
+        </MuiLink>
+      );
+    }
+    // Use MUI Link for external links
+    return (
+      <MuiLink href={to} {...other}>
+        {children}
+      </MuiLink>
+    );
+  }
 );
 
-// ExternalLink.defaultProps = {};
+Link.muiName = MuiLink.muiName;
 
-// ExternalLink.propTypes = {
-//   to: PropTypes.string.isRequired,
-//   children: PropTypes.node.isRequired,
-// };
-
-ExternalLink.muiName = Link.muiName;
-
-/**
- * Navigate to internal links with Gatsby optimizations.
- */
-// TODO: Fix this
-export const InternalLink = React.forwardRef((props, ref) => (
-  <Link component={GatsbyLink} ref={ref} {...props}>
-    {props.children}
-  </Link>
-));
-
-// InternalLink.defaultProps = {};
-
-// InternalLink.propTypes = {
-//   to: PropTypes.string.isRequired,
-//   children: PropTypes.node.isRequired,
-// };
-
-InternalLink.muiName = Link.muiName;
-
-// export const ListItemLink = ({ props }) => {
-//   const { icon, primary, to } = props;
-
-//   const CustomLink = React.useMemo(
-//     () =>
-//       React.forwardRef((linkProps, ref) => (
-//         <GatsbyLink ref={ref} to={to} {...linkProps} />
-//       )),
-//     [to]
-//   );
-
-//   return (
-//     <li>
-//       <ListItem button component={CustomLink}>
-//         <ListItemIcon>{icon}</ListItemIcon>
-//         <ListItemText primary={primary} />
-//       </ListItem>
-//     </li>
-//   );
-// };
+export default Link;
