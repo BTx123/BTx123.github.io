@@ -1,17 +1,22 @@
 {
   "name": "brian-tom.com",
   "author": "Brian Tom <btom.0831@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/BTx123/BTx123.github.io/issues"
-  },
+  "description": "Brian Tom's personal website",
   "homepage": "https://brian-tom.com",
   "version": "0.1.0",
   "license": "MIT",
   "keywords": [
+    "personal-site",
     "gatsby",
-    "personal"
+    "personal",
+    "projects",
+    "recipes",
+    "cooking",
+    "react",
+    "jsx",
+    "blog",
+    "javascript"
   ],
-  "description": "Brian Tom's personal website",
   "repository": {
     "type": "git",
     "url": "https://github.com/BTx123/BTx123.github.io"
@@ -31,7 +36,6 @@
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.2.0",
     "@material-ui/styles": "^4.10.0",
-    "babel-plugin-styled-components": "^1.11.1",
     "gatsby": "^2.24.53",
     "gatsby-image": "^2.4.16",
     "gatsby-plugin-manifest": "^2.4.27",
@@ -48,11 +52,11 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
-    "styled-components": "^5.2.0",
     "typeface-roboto": "0.0.54"
   },
   "devDependencies": {
     "@hot-loader/react-dom": "^16.13.0",
+    "@material-ui/codemod": "^4.5.0",
     "babel-eslint": "^10.1.0",
     "gh-pages": "^2.2.0",
     "husky": "^4.2.5",

@@ -16,6 +16,7 @@
       "error",
       {
         "patterns": [
+          // Warn on Material UI private imports
           "@material-ui/*/*/*",
           "!@material-ui/core/test-utils/*"
         ]
