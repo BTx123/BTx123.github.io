@@ -1,17 +1,25 @@
 {
   "name": "brian-tom.com",
   "author": "Brian Tom <btom.0831@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/BTx123/BTx123.github.io/issues"
-  },
+  "description": "Brian Tom's personal website",
   "homepage": "https://brian-tom.com",
   "version": "0.1.0",
   "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/BTx123/BTx123.github.io/issues"
+  },
   "keywords": [
+    "personal-site",
     "gatsby",
-    "personal"
+    "personal",
+    "projects",
+    "recipes",
+    "cooking",
+    "react",
+    "jsx",
+    "blog",
+    "javascript"
   ],
-  "description": "Brian Tom's personal website",
   "repository": {
     "type": "git",
     "url": "https://github.com/BTx123/BTx123.github.io"
