@@ -1,9 +1,10 @@
 import React from "react";
 
+import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
-import { useStaticQuery, graphql, Link } from "gatsby";
 
 import {
+  CssBaseline,
   Toolbar,
   Typography,
   IconButton,
@@ -30,10 +31,9 @@ import useSiteMetadata from "./queries/siteMetadata";
 import Footer from "../components/footer";
 import ScrollToTop from "../components/scrollToTop";
 
-import { InternalLink } from "../components/link";
+import Link from "../components/link";
 
 const drawerWidth = 240;
-// const logoSize = 30;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -101,8 +101,6 @@ const Layout = ({ children }) => {
     query {
       file(relativePath: { eq: "icon.png" }) {
         childImageSharp {
-          # Specify a fixed image and fragment.
-          # The default width is 400 pixels
           fixed(width: 30, height: 30) {
             ...GatsbyImageSharpFixed
           }
@@ -147,6 +145,7 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <div className={classes.root}>
         <AppBar position="fixed" className={classes.appBar}>
           <Toolbar>
@@ -159,14 +158,14 @@ const Layout = ({ children }) => {
             >
               <MenuIcon />
             </IconButton>
-            <InternalLink className={classes.logo} to="/">
+            <Link className={classes.logo} to="/">
               <Img fixed={logo.file.childImageSharp.fixed} alt="bt" />
-            </InternalLink>
+            </Link>
             <Hidden xsDown>
               <Typography variant="h6" noWrap>
-                <InternalLink className={classes.siteTitle} to="/">
+                <Link className={classes.siteTitle} to="/">
                   {title}
-                </InternalLink>
+                </Link>
               </Typography>
             </Hidden>
           </Toolbar>
