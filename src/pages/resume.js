@@ -9,30 +9,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Link from "../components/link";
 
-const ResumePage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      image: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "Brian Tom 20200916.png" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid
-            ...GatsbyImageSharpFluidLimitPresentationSize
-          }
-        }
-      }
-      pdf: file(
-        sourceInstanceName: { eq: "data" }
-        relativePath: { eq: "Brian Tom 20200916.pdf" }
-      ) {
-        name
-        publicURL
-      }
-    }
-  `);
-
+const ResumePage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Resume" />
@@ -51,5 +28,28 @@ const ResumePage = () => {
     </Layout>
   );
 };
+
+export const pageQuery = graphql`
+  query {
+    image: file(
+      sourceInstanceName: { eq: "images" }
+      relativePath: { eq: "Brian Tom 20201109.png" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+          ...GatsbyImageSharpFluidLimitPresentationSize
+        }
+      }
+    }
+    pdf: file(
+      sourceInstanceName: { eq: "data" }
+      relativePath: { eq: "Brian Tom 20201109.pdf" }
+    ) {
+      name
+      publicURL
+    }
+  }
+`;
 
 export default ResumePage;
