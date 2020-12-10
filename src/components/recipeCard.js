@@ -10,24 +10,29 @@ import {
   CardActionArea,
 } from "@material-ui/core";
 import { navigate } from "gatsby";
+import Img from "gatsby-image";
 import PropType from "prop-types";
 
 const useStyles = makeStyles((theme) => ({}));
 
-const RecipeCard = ({ title, date, excerpt, tags, path }) => {
+const RecipeCard = ({ title, datetime, excerpt, tags, coverImage, path }) => {
   const classes = useStyles();
 
   return (
     <Card>
       <CardActionArea onClick={() => navigate(path)}>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/recipes/20200508_165542.jpg"
-        />
+        <CardMedia>
+          <Img
+            fluid={coverImage}
+            title={title}
+            alt={title}
+            style={{ height: 150 }}
+          />
+        </CardMedia>
         <CardContent>
           <Typography variant="h5">{title}</Typography>
           <Typography variant="body1" color="textSecondary" gutterBottom>
-            {date}
+            {datetime}
           </Typography>
           <Typography variant="body2">{excerpt}</Typography>
         </CardContent>
