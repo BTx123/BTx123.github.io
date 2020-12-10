@@ -39,7 +39,9 @@ export default function RecipesPage({ data }) {
 
 export const pageQuery = graphql`
   query {
-    allGraphCmsRecipe(sort: {fields: [publishedAt, createdAt], order: [DESC, DESC]}) {
+    allGraphCmsRecipe(
+      sort: { fields: [publishedAt, createdAt], order: [DESC, DESC] }
+    ) {
       nodes {
         id
         remoteId
