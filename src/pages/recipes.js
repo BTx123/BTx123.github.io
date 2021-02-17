@@ -15,7 +15,7 @@ export default function RecipesPage({ data }) {
     <Grid item key={node.id} sm={12} md={6} lg={4} xl={3}>
       <RecipeCard
         title={node.title}
-        date={node.publishedAt ? node.publishedAt : node.createdAt}
+        date={new Date(node.publishedAt).toLocaleDateString()}
         rating={node.rating}
         tags={node.tags}
         excerpt={node.content.markdownNode.childMdx.excerpt}
@@ -39,9 +39,7 @@ export default function RecipesPage({ data }) {
 
 export const pageQuery = graphql`
   query {
-    allGraphCmsRecipe(
-      sort: { fields: [publishedAt, createdAt], order: [DESC, DESC] }
-    ) {
+    allGraphCmsRecipe(sort: { fields: publishedAt, order: DESC }) {
       nodes {
         id
         remoteId

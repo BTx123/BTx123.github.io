@@ -20,49 +20,51 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
   }
 };
 
+// Replacing '/' would result in empty string which is invalid
+const replacePath = (path) => (path === `/` ? path : path.replace(/\/$/, ``));
+// Implement the Gatsby API “onCreatePage”. This is
+// called after every page is created.
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions;
+  const oldPage = Object.assign({}, page);
+  // Remove trailing slash unless page is /
+  page.path = replacePath(page.path);
+  if (page.path !== oldPage.path) {
+    // Replace old page with new page
+    deletePage(oldPage);
+    createPage(page);
+  }
+};
+
 // Programmatically generates pages from markdown
 exports.createPages = async function ({ actions, graphql, reporter }) {
-  const { data } = await graphql(`
+  const result = await graphql(`
     query {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___datetime] }
-        limit: 1000
-      ) {
+      allGraphCmsRecipe {
         nodes {
-          frontmatter {
-            path
-            posttype
-          }
+          id
+          remoteId
         }
       }
     }
   `);
 
   // Handle errors
-  if (data.errors) {
+  if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
     return;
   }
 
-  data.allMarkdownRemark.nodes.forEach((node) => {
-    const { path, posttype } = node.frontmatter;
-    if (path !== null) {
-      switch (posttype) {
-        case "recipes":
-          actions.createPage({
-            path: path,
-            component: require.resolve(`./src/templates/recipe.js`),
-            context: { path: path },
-          });
-          break;
-        default:
-          actions.createPage({
-            path: path,
-            component: require.resolve(`./src/templates/generic.js`),
-            context: { path: path },
-          });
-          break;
-      }
-    }
+  // Templates
+  const genericTemplate = require.resolve(`./src/templates/generic.js`);
+  const recipeTemplate = require.resolve(`./src/templates/recipe.js`);
+
+  // Create recipe pages
+  result.data.allGraphCmsRecipe.nodes.forEach((node) => {
+    actions.createPage({
+      path: `/recipes/${node.remoteId}`,
+      component: recipeTemplate,
+      context: { recipeId: node.id },
+    });
   });
 };

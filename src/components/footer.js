@@ -13,6 +13,8 @@ import {
   SpotifyIcon,
 } from "../components/icons";
 
+import SiteIcon from "../components/icons";
+
 const Footer = () => {
   const { social } = useSiteMetadata();
 
@@ -60,9 +62,6 @@ const Footer = () => {
         ))}
       </Grid>
       <Grid item xs={12}>
-        <Copyright variant="body2" />
-      </Grid>
-      <Grid item xs={12}>
         <Typography variant="body2">
           Created with{" "}
           <Link to="https://www.gatsbyjs.com/" color="inherit">
@@ -70,6 +69,12 @@ const Footer = () => {
           </Link>
           .
         </Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <Copyright variant="body2" />
+      </Grid>
+      <Grid item xs={12}>
+        <SiteIcon />
       </Grid>
     </Grid>
   );

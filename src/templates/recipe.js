@@ -1,41 +1,56 @@
 import React from "react";
 
+import { graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
+import { Img } from "gatsby-image";
+
+import { Typography } from "@material-ui/core";
+
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { Typography } from "@material-ui/core";
-import { graphql } from "gatsby";
 
+const components = {
+  img: (props) => <img style={{ width: "100%" }} {...props} />,
+};
 export default function RecipeTemplate({ data }) {
-  const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
+  const { node } = data;
 
+  const formattedPublishedAt = new Date(node.publishedAt).toLocaleString();
+  console.log(node.content.html);
   return (
     <Layout>
-      <SEO title={`${frontmatter.title} Recipe`} />
-      <Typography variant="h1">{frontmatter.title}</Typography>
+      <SEO title={`${node.title} Recipe`} />
+      <Typography variant="h1">{node.title}</Typography>
       <Typography variant="subtitle1">
-        Published {frontmatter.datetime} | {frontmatter.datetimeFromNow}
+        Published {formattedPublishedAt}
       </Typography>
-      <Typography dangerouslySetInnerHTML={{ __html: html }} />
+      {/* <MDXRenderer>{node.content.markdownNode.childMdx.body}</MDXRenderer> */}
+      {/* <MDXProvider>{node.content.html}</MDXProvider> */}
+      <MDXProvider components={components}>
+        <Typography dangerouslySetInnerHTML={{ __html: node.content.html }} />
+      </MDXProvider>
     </Layout>
   );
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      frontmatter {
-        datetime(formatString: "MMMM DD, YYYY")
-        datetimeFromNow: datetime(fromNow: true)
-        title
-        rating
-        servings
-        active
-        total
-        url
-        tags
+  query($recipeId: String!) {
+    node: graphCmsRecipe(id: { eq: $recipeId }) {
+      id
+      title
+      publishedAt
+      servings
+      rating
+      tags
+      content {
+        markdownNode {
+          childMdx {
+            body
+          }
+        }
+        html
       }
-      html
     }
   }
 `;

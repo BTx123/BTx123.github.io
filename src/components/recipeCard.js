@@ -15,7 +15,7 @@ import PropType from "prop-types";
 
 const useStyles = makeStyles((theme) => ({}));
 
-const RecipeCard = ({ title, datetime, excerpt, tags, coverImage, path }) => {
+const RecipeCard = ({ title, date, excerpt, tags, coverImage, path }) => {
   const classes = useStyles();
 
   return (
@@ -32,7 +32,7 @@ const RecipeCard = ({ title, datetime, excerpt, tags, coverImage, path }) => {
         <CardContent>
           <Typography variant="h5">{title}</Typography>
           <Typography variant="body1" color="textSecondary" gutterBottom>
-            {datetime}
+            {date}
           </Typography>
           <Typography variant="body2">{excerpt}</Typography>
         </CardContent>
@@ -58,6 +58,8 @@ RecipeCard.propTypes = {
   date: PropType.string.isRequired,
   excerpt: PropType.string,
   tags: PropType.arrayOf(PropType.string),
+  coverImage: PropType.object,
+  path: PropType.string.isRequired,
 };
 
 RecipeCard.defaultProps = {
