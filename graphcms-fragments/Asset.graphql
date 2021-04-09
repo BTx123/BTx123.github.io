@@ -3,8 +3,26 @@ fragment Asset on Asset {
   locale
   remoteId: id
   createdAt(variation: COMBINED)
+  createdBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
   updatedAt(variation: COMBINED)
+  updatedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
   publishedAt(variation: COMBINED)
+  publishedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
   handle
   fileName
   height

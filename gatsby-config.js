@@ -38,6 +38,10 @@ module.exports = {
       },
     },
   },
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+    FAST_REFRESH: true,
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -99,7 +103,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 400,
+              maxWidth: 650,
             },
           },
         ],
@@ -111,18 +115,3 @@ module.exports = {
     `gatsby-plugin-offline`,
   ],
 };
-
-// {
-//   resolve: `gatsby-source-graphql`,
-//   options: {
-//     // The top level query type, can be anything you want!
-//     typeName: "GCMS",
-//     // The field you'll query against, can also be anything you want.
-//     fieldName: "gcms",
-//     // Your API endpoint, available from the dashboard and settings window.
-//     // You can use this endpoint that features US mountains for now.
-//     url: "https://api-us-west-2.graphcms.com/v2/ckf7mdu7y0cv601z3hx5gaj9i/master",
-//     // refetch interval in seconds
-//     refetchInterval: 300,
-//   },
-// },

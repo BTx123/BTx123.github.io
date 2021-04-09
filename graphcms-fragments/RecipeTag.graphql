@@ -1,0 +1,46 @@
+fragment RecipeTag on RecipeTag {
+  stage
+  remoteId: id
+  createdAt
+  createdBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
+  updatedAt
+  updatedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
+  publishedAt
+  publishedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
+  title
+  color {
+    ... on Color {
+      hex
+      rgba {
+        ... on RGBA {
+          r
+          g
+          b
+          a
+        }
+      }
+      css
+    }
+  }
+  recipe {
+    ... on Recipe {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
+}

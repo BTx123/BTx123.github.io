@@ -8,8 +8,13 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import RecipeCard from "../components/recipeCard";
 
-export default function RecipesPage({ data }) {
-  const { nodes } = data.allGraphCmsRecipe;
+export default function RecipesPage({
+  data: {
+    allGraphCmsRecipe: { nodes },
+    defaultCoverImage,
+  },
+}) {
+  const defaultCoverImageFluid = defaultCoverImage.childImageSharp.fluid;
 
   const recipes = nodes.map((node) => (
     <Grid item key={node.id} sm={12} md={6} lg={4} xl={3}>
@@ -19,7 +24,10 @@ export default function RecipesPage({ data }) {
         rating={node.rating}
         tags={node.tags}
         excerpt={node.content.markdownNode.childMdx.excerpt}
-        coverImage={node.coverImage.localFile.childImageSharp.fluid}
+        coverImage={
+          node.coverImage?.localFile.childImageSharp.fluid ??
+          defaultCoverImageFluid
+        }
         path={`/recipes/${node.remoteId}`}
       />
     </Grid>
@@ -30,7 +38,7 @@ export default function RecipesPage({ data }) {
       <SEO title="Recipes" />
       <Typography variant="h1">Recipes</Typography>
       <Typography paragraph>This is the recipes page.</Typography>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} alignContent="center">
         {recipes}
       </Grid>
     </Layout>
@@ -47,12 +55,17 @@ export const pageQuery = graphql`
         createdAt
         publishedAt
         rating
-        tags
+        tags: recipeTags {
+          title
+          color {
+            hex
+          }
+        }
         coverImage {
           localFile {
             childImageSharp {
-              fluid(maxWidth: 700, quality: 100) {
-                src
+              fluid(maxWidth: 700, quality: 90) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -63,6 +76,15 @@ export const pageQuery = graphql`
               excerpt
             }
           }
+        }
+      }
+    }
+    defaultCoverImage: file(
+      relativePath: { eq: "default-recipe-cover-image.png" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 700, quality: 90) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

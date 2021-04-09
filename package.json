@@ -50,6 +50,7 @@
     "gatsby-plugin-sharp": "^2.6.31",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-remark-images": "^3.7.1",
+    "gatsby-remark-images-anywhere": "^1.3.0",
     "gatsby-source-filesystem": "^2.3.27",
     "gatsby-source-git": "^1.1.0",
     "gatsby-source-graphcms": "^2.0.0-next.6",

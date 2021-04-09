@@ -7,25 +7,11 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 export default function GenericPage({ data }) {
-  // const { mdx } = data;
-  // const { frontmatter, body } = mdx;
-  // return (
-  //   <Layout>
-  //     <SEO title={`${frontmatter.title}`} />
-  //     <MDXRenderer>{body}</MDXRenderer>
-  //   </Layout>
-  // );
-}
+  const { node } = data;
 
-// export const pageQuery = graphql`
-//   query($path: String!) {
-//     mdx(frontmatter: { path: { eq: $path } }) {
-//       frontmatter {
-//         datetime(formatString: "MMMM DD, YYYY")
-//         title
-//         tags
-//       }
-//       body
-//     }
-//   }
-// `;
+  return (
+    <Layout>
+      <SEO title={`${node.title}`} />
+    </Layout>
+  );
+}

@@ -2,9 +2,42 @@ fragment Recipe on Recipe {
   stage
   remoteId: id
   createdAt
+  createdBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
   updatedAt
+  updatedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
   publishedAt
+  publishedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
   title
+  coverImage {
+    ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+    }
+  }
+  rating
+  servings
+  recipeTags {
+    ... on RecipeTag {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
   content {
     ... on RichText {
       raw
@@ -14,14 +47,5 @@ fragment Recipe on Recipe {
     }
   }
   markdown
-  tags
-  servings
-  rating
-  coverImage {
-    ... on Asset {
-      remoteTypeName: __typename
-      remoteId: id
-      locale
-    }
-  }
+  slug
 }

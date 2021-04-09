@@ -9,9 +9,10 @@ import {
   Card,
   CardActionArea,
 } from "@material-ui/core";
-import { navigate } from "gatsby";
+import { navigate, graphql } from "gatsby";
 import Img from "gatsby-image";
 import PropType from "prop-types";
+import ColorChip from "./colorChip";
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -40,10 +41,10 @@ const RecipeCard = ({ title, date, excerpt, tags, coverImage, path }) => {
       <CardActions>
         {/* TODO: onClick function to handle filtering */}
         {tags.map((tag) => (
-          <Chip
-            key={tag}
-            label={tag}
-            color="secondary"
+          <ColorChip
+            key={tag.title}
+            label={tag.title}
+            color={tag.color?.hex ?? "default"}
             size="small"
             clickable
           />
@@ -57,7 +58,14 @@ RecipeCard.propTypes = {
   title: PropType.string.isRequired,
   date: PropType.string.isRequired,
   excerpt: PropType.string,
-  tags: PropType.arrayOf(PropType.string),
+  tags: PropType.arrayOf(
+    PropType.shape({
+      title: PropType.string.isRequired,
+      color: PropType.shape({
+        hex: PropType.string.isRequired,
+      }),
+    })
+  ),
   coverImage: PropType.object,
   path: PropType.string.isRequired,
 };

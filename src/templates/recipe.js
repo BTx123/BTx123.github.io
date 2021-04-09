@@ -3,7 +3,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
-import { Img } from "gatsby-image";
 
 import { Typography } from "@material-ui/core";
 
@@ -12,23 +11,23 @@ import SEO from "../components/seo";
 
 const components = {
   img: (props) => <img style={{ width: "100%" }} {...props} />,
+  // Img
 };
 export default function RecipeTemplate({ data }) {
   const { node } = data;
 
-  const formattedPublishedAt = new Date(node.publishedAt).toLocaleString();
-  console.log(node.content.html);
+  const formattedPublishedAt = new Date(node.createdAt).toLocaleString();
+  const formattedUpdatedAt = new Date(node.updatedAt).toLocaleString();
   return (
     <Layout>
       <SEO title={`${node.title} Recipe`} />
       <Typography variant="h1">{node.title}</Typography>
       <Typography variant="subtitle1">
-        Published {formattedPublishedAt}
+        Created {formattedPublishedAt}
       </Typography>
-      {/* <MDXRenderer>{node.content.markdownNode.childMdx.body}</MDXRenderer> */}
-      {/* <MDXProvider>{node.content.html}</MDXProvider> */}
+      <Typography variant="subtitle1">Updated {formattedUpdatedAt}</Typography>
       <MDXProvider components={components}>
-        <Typography dangerouslySetInnerHTML={{ __html: node.content.html }} />
+        <MDXRenderer>{node.content.markdownNode.childMdx.body}</MDXRenderer>
       </MDXProvider>
     </Layout>
   );
@@ -39,10 +38,13 @@ export const pageQuery = graphql`
     node: graphCmsRecipe(id: { eq: $recipeId }) {
       id
       title
-      publishedAt
+      createdAt
+      updatedAt
       servings
       rating
-      tags
+      tags: recipeTags {
+        title
+      }
       content {
         markdownNode {
           childMdx {

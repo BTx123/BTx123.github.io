@@ -109,7 +109,8 @@ const Layout = ({ children }) => {
     }
   `);
 
-  const sections = ["about", "projects", "recipes", "resume", "contact"];
+  // const sections = ["about", "projects", "recipes", "resume", "contact"];
+  const sections = ["projects", "recipes", "resume", "contact"];
 
   const drawer = (
     <React.Fragment>
@@ -120,9 +121,9 @@ const Layout = ({ children }) => {
             <ListItem button component={Link} to={`/${text}`}>
               <ListItemIcon>
                 {(() => {
-                  switch (index) {
-                    case 0:
-                      return <PersonIcon />;
+                  switch (index + 1) {
+                    // case 0:
+                    //   return <PersonIcon />;
                     case 1:
                       return <CodeIcon />;
                     case 2:
@@ -136,7 +137,7 @@ const Layout = ({ children }) => {
               </ListItemIcon>
               <ListItemText primary={text.toUpperCase()} />
             </ListItem>
-            {index === 2 && <Divider />}
+            {index + 1 === 2 && <Divider />}
           </React.Fragment>
         ))}
       </List>
