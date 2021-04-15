@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{"16l3":function(e,t,a){"use strict";a.r(t),a.d(t,"default",(function(){return p}));var n=a("q1tI"),r=a.n(n),c=a("Bl7J"),o=a("vrFN"),l=a("ofer");function p(){return r.a.createElement(c.a,null,r.a.createElement(o.a,{title:"Projects"}),r.a.createElement(l.a,{variant:"h1"},"Projects"),r.a.createElement(l.a,{paragraph:!0},"Welcome to the projects page."))}}}]);
+//# sourceMappingURL=component---src-pages-projects-js-a83546e3c04b1f3be4b5.js.map
