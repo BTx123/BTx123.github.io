@@ -1,4 +1,4 @@
-name: New Gatsby CI
+name: Gatsby CI
 
 on:
   push:
@@ -12,27 +12,22 @@ jobs:
   build:
     strategy:
       matrix:
-        os:
-          - windows-latest
-        node:
-          - 14
+        os: [windows-latest]
+        node: [14.10.1]
 
     runs-on: ${{ matrix.os }}
 
-    name: Node ${{ matrix.node_version }} on ${{ matrix.os }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v1
       # Configures the node version used on GitHub-hosted runners
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v1
         with:
           # The Node.js version to configure
           node-version: ${{ matrix.node }}
-      - name: Install
-        run: npm install
-      # - name: Test
-      #   run: |
-      #     npm run test
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - name: Test
+        run: |
+          npm run test
       - name: Build and Deploy Gatsby
         uses: enriikke/gatsby-gh-pages-action@v2
         with:
