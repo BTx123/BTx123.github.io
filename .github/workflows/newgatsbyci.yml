@@ -21,7 +21,6 @@ jobs:
       # Configures the node version used on GitHub-hosted runners
       - uses: actions/setup-node@v1
         with:
-          # The Node.js version to configure
           node-version: ${{ matrix.node }}
       - name: Checkout repository
         uses: actions/checkout@v1
@@ -32,4 +31,5 @@ jobs:
         uses: enriikke/gatsby-gh-pages-action@v2
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
+          gatsby-args: --verbose
           deploy-branch: deploy
