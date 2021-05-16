@@ -21,18 +21,20 @@ jobs:
 
     name: Node ${{ matrix.node_version }} on ${{ matrix.os }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
       # Configures the node version used on GitHub-hosted runners
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           # The Node.js version to configure
           node-version: ${{ matrix.node }}
-      - name: Checkout repository
-        uses: actions/checkout@v1
+      - name: Install
+        run: npm install
       # - name: Test
       #   run: |
       #     npm run test
-      - name: Build and Deploy Gatsby
-        uses: enriikke/gatsby-gh-pages-action@v2
-        with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
-          deploy-branch: deploy
+      # - name: Build and Deploy Gatsby
+      #   uses: enriikke/gatsby-gh-pages-action@v2
+      #   with:
+      #     access-token: ${{ secrets.ACCESS_TOKEN }}
+      #     deploy-branch: deploy
