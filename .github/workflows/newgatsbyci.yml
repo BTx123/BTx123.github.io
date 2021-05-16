@@ -33,8 +33,8 @@ jobs:
       # - name: Test
       #   run: |
       #     npm run test
-      # - name: Build and Deploy Gatsby
-      #   uses: enriikke/gatsby-gh-pages-action@v2
-      #   with:
-      #     access-token: ${{ secrets.ACCESS_TOKEN }}
-      #     deploy-branch: deploy
+      - name: Build and Deploy Gatsby
+        uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: deploy
