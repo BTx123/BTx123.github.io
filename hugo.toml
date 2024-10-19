@@ -1,0 +1,4 @@
+baseURL = 'https://brian-tom.com/'
+languageCode = 'en-us'
+title = 'Brian Tom'
+theme = 'ananke'
