@@ -6,7 +6,7 @@ title: Boston 2024
 description: Photos from my Boston trip.
 # type: gallery
 categories: ["vacation"]
-# featured_image: dummy.jpg
+featured_image: DSC02923.jpg
 # resources:
 #   - src: dummy.jpg
 #     title: Brown tabby cat on white stairs by Alexander London
