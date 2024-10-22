@@ -1,6 +1,6 @@
 ---
 date: '2024-10-19T13:40:02-07:00'
-draft: true
+draft: false
 title: Gallery
 description: My photography portfolio.
 # featured_image: dummy.jpg # default: first image in this directory

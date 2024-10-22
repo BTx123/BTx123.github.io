@@ -1,6 +1,6 @@
 ---
 date: '2024-10-19T13:53:35-07:00'
-draft: true
+draft: false
 title: Hiking 1
 description: Hiking 1 description.
 # type: gallery

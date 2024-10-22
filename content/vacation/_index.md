@@ -1,6 +1,6 @@
 ---
 date: '2024-10-21T13:17:15-07:00'
-draft: true
+draft: false
 title: Vacation
 # featured_image: janis-ringli-UC1pzyJFyvs-unsplash.jpg
 # keywords: [Animals, Photos, Cats, Dogs]
