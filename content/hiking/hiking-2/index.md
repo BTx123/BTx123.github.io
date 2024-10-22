@@ -1,6 +1,6 @@
 ---
 date: '2024-10-19T13:53:35-07:00'
-draft: true
+draft: false
 featured: true
 title: Hiking 2
 description: Hiking 2 description.
