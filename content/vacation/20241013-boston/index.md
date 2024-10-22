@@ -1,6 +1,6 @@
 ---
 date: '2024-10-21T13:17:15-07:00'
-draft: true
+draft: false
 featured: true
 title: Boston 2024
 description: Photos from my Boston trip.
