@@ -1,0 +1,27 @@
+baseURL: 'https://brian-tom.com'
+languageCode: en-us
+title: Brian Tom
+defaultContentLanguage: en
+enableRobotsTXT: true
+copyright: © Brian Tom, All Rights Reserved.
+timeout: 120s
+module:
+  hugoVersion:
+    min: 0.121.2
+  imports:
+    path: github.com/nicokaiser/hugo-theme-gallery/v4
+services:
+  rss:
+    limit: 100
+params:
+  # defaultTheme: dark
+  # description: My personal gallery
+  # title: My Gallery
+  # author:
+  #   email: contact@brian-tom.com
+  #   name: Brian Tom
+  socialIcons:
+    github: 'https://github.com/BTx123/'
+    linkedin: 'https://www.linkedin.com/in/briantom123/'
+    email: 'mailto:contact@brian-tom.com'
+    instagram: 'https://www.instagram.com/bt.x123/'
