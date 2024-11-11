@@ -39,7 +39,7 @@ jobs:
           go-version: '1.23.x'
       - name: Install Go dependencies
         run: |
-          go get .
+          go install
       - name: Run Go Gallery Data Generation
         run: |
           go run main.go
