@@ -3,9 +3,6 @@
 <!-- Grab the gallery JSON data as the first parameter -->
 {{ $galleryJson := .Get 0 }}
 
-{{/*  <pre>{{ debug.Dump (.Page) }}</pre>  */}}
-{{/*  <pre>{{ debug.Dump (.Page.Resources) }}</pre>  */}}
-
 {{/*  Parse gallery JSON  */}}
 {{ $data := dict }}
 {{ with .Page.Resources.Get $galleryJson | transform.Unmarshal }}
@@ -27,8 +24,7 @@
                 {{ else }}
                     {{ $image := . }}
                     {{ $thumbnail := .Filter (slice images.AutoOrient (images.Process "fit 600x600")) }}
-                    {{/*  {{ $full := .Filter (slice images.AutoOrient (images.Process "fit 1600x1600")) }}  */}}
-                    {{ $full := .Filter (slice images.AutoOrient (images.Process "resize x1600")) }}
+                    {{ $full := .Filter (slice images.AutoOrient (images.Process "fit 1600x1600")) }}
 
                     {{/*  {{ if (strings.Contains .Name "Panorama") }}
                     {{ end }}  */}}
