@@ -34,7 +34,7 @@ jobs:
       HUGO_VERSION: 0.136.2
     steps:
       - name: Setup Go
-        uses: actions/setup-go/v5
+        uses: actions/setup-go@v5
         with:
           go-version: '1.23.x'
       - name: Install Go dependencies
