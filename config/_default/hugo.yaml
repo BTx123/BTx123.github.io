@@ -39,6 +39,19 @@ markup:
     startLevel: 1
     endLevel: 4
     ordered: false
+  goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+        enable: true
 minify:
   minifyOutput: false
 params:
@@ -50,6 +63,7 @@ params:
   footer: Brian Tom.
   copyright: All Rights Reserved.
   dateFormat: "January 02, 2006"
+  math: true
   metaKeywords:
     - blog
     - photography
