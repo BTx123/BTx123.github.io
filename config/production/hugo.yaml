@@ -1,0 +1,3 @@
+buildDrafts: false
+minify:
+  minifyOutput: false

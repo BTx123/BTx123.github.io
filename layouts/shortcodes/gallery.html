@@ -1,0 +1,91 @@
+<!-- Grab the image CDN parameter -->
+{{ $imageCdn := .Site.Params.imageCdn }}
+<!-- Grab the gallery JSON data as the first parameter -->
+{{ $galleryJson := .Get 0 }}
+
+{{/*  <pre>{{ debug.Dump (.Page) }}</pre>  */}}
+{{/*  <pre>{{ debug.Dump (.Page.Resources) }}</pre>  */}}
+
+{{/*  Parse gallery JSON  */}}
+{{ $data := dict }}
+{{ with .Page.Resources.Get $galleryJson | transform.Unmarshal }}
+    {{ $data = . }}
+{{ else }}
+    {{ errorf "Unable to get page resource %q" $galleryJson }}
+{{ end }}
+
+<section class="gallery">
+    <div id="gallery" style="visibility: hidden; height: 1px; overflow: hidden">
+        {{/*  Grab each image and add to gallery  */}}
+        {{ $slugs := $data.images }}
+        {{ range $slugIndex, $slug := $slugs }}
+
+            {{ $url := (delimit (slice $imageCdn $slug) "") }}
+            {{ with resources.GetRemote $url }}
+                {{ with .Err }}
+                    {{ errorf "%s" . }}
+                {{ else }}
+                    {{ $image := . }}
+                    {{ $thumbnail := .Filter (slice images.AutoOrient (images.Process "fit 600x600")) }}
+                    {{/*  {{ $full := .Filter (slice images.AutoOrient (images.Process "fit 1600x1600")) }}  */}}
+                    {{ $full := .Filter (slice images.AutoOrient (images.Process "resize x1600")) }}
+
+                    {{/*  {{ if (strings.Contains .Name "Panorama") }}
+                    {{ end }}  */}}
+
+                    {{/*  Generate data-title attribute using EXIF data  */}}
+                    {{ $dataTitleParts := slice }}
+                    {{ $title := "" }}
+                    {{ with .Exif }}
+                        {{ if .Tags.ImageDescription }}
+                            {{ $dataTitleParts = $dataTitleParts | append .Tags.ImageDescription }}
+                            {{ $title = .Tags.ImageDescription }}
+                        {{ end }}
+                        {{ $captureMetadata := slice }}
+                        {{ if .Tags.ExposureTime }}
+                            {{ $captureMetadata = $captureMetadata | append (printf "%ss" .Tags.ExposureTime) }}
+                        {{ end }}
+                        {{ if .Tags.FNumber }}
+                            {{ $captureMetadata = $captureMetadata | append (printf "f/%s" .Tags.FNumber) }}
+                        {{ end }}
+                        {{ if .Tags.ISO }}
+                            {{ $captureMetadata = $captureMetadata | append (printf "ISO %d" .Tags.ISO) }}
+                        {{ end }}
+                        {{ if .Tags.FocalLength }}
+                            {{ $captureMetadata = $captureMetadata | append (printf "%smm" .Tags.FocalLength) }}
+                        {{ end }}
+                        {{ if $captureMetadata }}
+                            {{ $dataTitleParts = $dataTitleParts | append (delimit $captureMetadata " &#183; ") }}
+                        {{ end }}
+                        {{ $cameraMetadata := slice }}
+                        {{ if (and (and .Tags.Make .Tags.Model) .Tags.LensModel) }}
+                            {{ $cameraMetadata = $cameraMetadata | append (delimit (slice .Tags.Make .Tags.Model) " ") }}
+                            {{ $cameraMetadata = $cameraMetadata | append .Tags.LensModel }}
+                        {{ end }}
+                        {{ if $cameraMetadata }}
+                            {{ $dataTitleParts = $dataTitleParts | append (delimit $cameraMetadata " &#183; ") }}
+                        {{ end }}
+                    {{ end }}
+                    {{ $dataTitle := (delimit $dataTitleParts "<br>") }}
+
+                    {{ $color := index $thumbnail.Colors 0 | default "transparent" }}
+                    <a class="gallery-item" href="{{ $image.RelPermalink }}" data-pswp-src="{{ $full.RelPermalink }}" data-pswp-width="{{ $full.Width }}" data-pswp-height="{{ $full.Height }}" title="{{ $dataTitle }}" itemscope itemtype="https://schema.org/ImageObject" style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
+                        <figure style="background-color: {{ $color }}; aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
+                            <img class="lazyload" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" data-src="{{ $thumbnail.RelPermalink }}" alt="{{ $dataTitle }}" />
+                        </figure>
+                        <meta itemprop="contentUrl" content="{{ $image.RelPermalink }}" />
+                    </a>
+                {{ end }}
+            {{ else }}
+                {{ errorf "Unable to get remote resource %q" $url }}
+            {{ end }}
+
+        {{ end }}
+    </div>
+</section>
+
+{{/*  Grab generated on timestamp  */}}
+{{ $generatedOn := time.AsTime $data.generatedOn | time.Format ":date_full" }}
+<div>
+    <p>Gallery generated on {{ $generatedOn }}.</p>
+</div>
