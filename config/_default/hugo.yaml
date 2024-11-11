@@ -1,0 +1,83 @@
+baseURL: https://brian-tom.com/
+title: Brian Tom
+languageCode: en-us
+defaultContentLanguage: en
+enableRobotsTXT: true
+enableEmoji: true
+# copyright: © 2024-{year} Brian Tom, All Rights Reserved.
+buildDrafts: true
+timeout: 120s
+module:
+  hugoVersion:
+    min: 0.121.2
+  imports:
+    - path: github.com/gokarna-theme/gokarna-hugo
+services:
+  rss:
+    limit: 100
+menu:
+  main:
+    - name: Resume
+      pageRef: /resume
+      weight: 10
+    - name: Posts
+      url: /posts/
+      weight: 20
+    - name: Galleries
+      url: /galleries/
+      weight: 30
+    - name: Tags
+      url: /tags/
+      weight: 40
+    - identifier: github
+      url: https://github.com/BTx123/BTx123.github.io
+      weight: 50
+      pre: <span data-feather='github'></span>
+      post: ""
+markup:
+  tableOfContents:
+    startLevel: 1
+    endLevel: 4
+    ordered: false
+  goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+        enable: true
+minify:
+  minifyOutput: false
+params:
+  accentColor: "#40C9A2" # from: https://coolors.co/2d333b-ffffff-000000-40c9a2-ff6b6b
+  avatarAltText: avatar
+  avatarSize: size-m
+  avatarURL: /images/avatar.webp
+  description: Software engineer, foodie, and a bit of photography.
+  footer: Brian Tom.
+  copyright: All Rights Reserved.
+  dateFormat: "January 02, 2006"
+  math: true
+  metaKeywords:
+    - blog
+    - photography
+    - food
+    - hugo
+  showBackToTopButton: true
+  showPostsOnHomePage: recent
+  socialIcons:
+    - name: github
+      url: https://github.com/BTx123/
+    - name: linkedin
+      url: https://www.linkedin.com/in/briantom123/
+    - name: instagram
+      url: https://www.instagram.com/bt.x123/
+    - name: email
+      url: mailto:contact@brian-tom.com
+  imageCdn: https://cdn.brian-tom.com/
