@@ -20,20 +20,23 @@ menu:
     - name: Resume
       pageRef: /resume
       weight: 10
+      # pre: <span data-feather='file'></span>
+      # post: ""
     - name: Posts
       url: /posts/
       weight: 20
+      # pre: <span data-feather='file-text'></span>
+      # post: ""
     - name: Galleries
       url: /galleries/
       weight: 30
+      # pre: <span data-feather='camera'></span>
+      # post: ""
     - name: Tags
       url: /tags/
       weight: 40
-    - identifier: github
-      url: https://github.com/BTx123/BTx123.github.io
-      weight: 50
-      pre: <span data-feather='github'></span>
-      post: ""
+      # pre: <span data-feather='tag'></span>
+      # post: ""
 markup:
   tableOfContents:
     startLevel: 1
