@@ -43,7 +43,7 @@ func goDotEnvVariable(key string) string {
 func main() {
 
 	// Variables
-	galleriesDirectory := "content/galleries"
+	galleriesDirectory := filepath.Join("content", "galleries")
 	accountId := goDotEnvVariable("ACCOUNT_ID")
 	r2AccessKeyId := goDotEnvVariable("R2_ACCESS_KEY_ID")
 	r2SecretAccessKey := goDotEnvVariable("R2_SECRET_ACCESS_KEY")
@@ -72,7 +72,7 @@ func main() {
 	data := make(map[string][]GalleryImage)
 	re := regexp.MustCompile(`^images/(\d{8}-[a-zA-Z]+)/(\S+)\.(jpg|png)$`)
 	for _, object := range listObjectsOutput.Contents {
-		// Accessing key
+		// Get key for R2 object
 		key := *object.Key
 		// fmt.Println("Key:", key)
 
