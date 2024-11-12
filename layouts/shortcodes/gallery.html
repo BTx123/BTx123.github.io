@@ -14,22 +14,24 @@
 <section class="gallery">
     <div id="gallery" style="visibility: hidden; height: 1px; overflow: hidden">
         {{/*  Grab each image and add to gallery  */}}
-        {{ $slugs := $data.images }}
-        {{ range $slugIndex, $slug := $slugs }}
+        {{ $images := $data.images }}
+        {{ range $imageIndex, $imageSlug := $images }}
 
-            {{ $url := (delimit (slice $imageCdn $slug) "") }}
-            {{ with resources.GetRemote $url }}
+            {{/*  Rename image to just use image index  */}}
+            {{ $imageName := printf "%d" $imageIndex }}
+
+            {{/*  Grab and process images, copying image to gallery directory  */}}
+            {{ $url := (delimit (slice $imageCdn $imageSlug) "") }}
+            {{ with resources.GetRemote $url | resources.Copy (printf "%s%s%s" $.Page.RelPermalink $imageName (path.Ext $url)) }}
                 {{ with .Err }}
                     {{ errorf "%s" . }}
                 {{ else }}
-                    {{ $image := . }}
-                    {{ $thumbnail := .Filter (slice images.AutoOrient (images.Process "fit 600x600")) }}
-                    {{ $full := .Filter (slice images.AutoOrient (images.Process "fit 1600x1600")) }}
+                    {{/*  Generate thumbnail image  */}}
+                    {{ $thumbnailName := printf "%s_t" $imageName }}
+                    {{ $thumbnailPath := printf "%s%s%s" $.Page.RelPermalink $thumbnailName (path.Ext .RelPermalink) }}
+                    {{ $thumbnail := .Filter (slice images.AutoOrient (images.Process "fit 600x600")) | resources.Copy $thumbnailPath }}
 
-                    {{/*  {{ if (strings.Contains .Name "Panorama") }}
-                    {{ end }}  */}}
-
-                    {{/*  Generate data-title attribute using EXIF data  */}}
+                    {{/*  Generate caption using EXIF data  */}}
                     {{ $dataTitleParts := slice }}
                     {{ $title := "" }}
                     {{ with .Exif }}
@@ -65,11 +67,11 @@
                     {{ $dataTitle := (delimit $dataTitleParts "<br>") }}
 
                     {{ $color := index $thumbnail.Colors 0 | default "transparent" }}
-                    <a class="gallery-item" href="{{ $image.RelPermalink }}" data-pswp-src="{{ $full.RelPermalink }}" data-pswp-width="{{ $full.Width }}" data-pswp-height="{{ $full.Height }}" title="{{ $dataTitle }}" itemscope itemtype="https://schema.org/ImageObject" style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
+                    <a class="gallery-item" href="{{ $url }}" data-pswp-src="{{ $url }}" data-pswp-width="{{ .Width }}" data-pswp-height="{{ .Height }}" title="{{ $dataTitle }}" itemscope itemtype="https://schema.org/ImageObject" style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
                         <figure style="background-color: {{ $color }}; aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
                             <img class="lazyload" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" data-src="{{ $thumbnail.RelPermalink }}" alt="{{ $dataTitle }}" />
                         </figure>
-                        <meta itemprop="contentUrl" content="{{ $image.RelPermalink }}" />
+                        <meta itemprop="contentUrl" content="{{ $url }}" />
                     </a>
                 {{ end }}
             {{ else }}

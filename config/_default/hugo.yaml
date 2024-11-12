@@ -4,7 +4,7 @@ languageCode: en-us
 defaultContentLanguage: en
 enableRobotsTXT: true
 enableEmoji: true
-# copyright: © 2024-{year} Brian Tom, All Rights Reserved.
+enableGitInfo: true
 buildDrafts: true
 timeout: 120s
 module:
@@ -20,20 +20,23 @@ menu:
     - name: Resume
       pageRef: /resume
       weight: 10
+      # pre: <span data-feather='file'></span>
+      # post: ""
     - name: Posts
       url: /posts/
       weight: 20
+      # pre: <span data-feather='file-text'></span>
+      # post: ""
     - name: Galleries
       url: /galleries/
       weight: 30
+      # pre: <span data-feather='camera'></span>
+      # post: ""
     - name: Tags
       url: /tags/
       weight: 40
-    - identifier: github
-      url: https://github.com/BTx123/BTx123.github.io
-      weight: 50
-      pre: <span data-feather='github'></span>
-      post: ""
+      # pre: <span data-feather='tag'></span>
+      # post: ""
 markup:
   tableOfContents:
     startLevel: 1
@@ -60,8 +63,7 @@ params:
   avatarSize: size-m
   avatarURL: /images/avatar.webp
   description: Software engineer, foodie, and a bit of photography.
-  footer: Brian Tom.
-  copyright: All Rights Reserved.
+  footer: Brian Tom. All Rights Reserved.
   dateFormat: "January 02, 2006"
   math: true
   metaKeywords:

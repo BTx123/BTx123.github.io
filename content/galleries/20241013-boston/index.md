@@ -1,9 +1,10 @@
 ---
-date: '2024-10-21T13:17:15-07:00'
+date: 2024-10-13
+lastmod: 2024-11-11
 draft: false
 title: Boston 2024
-type: page
-tags: ["vacation"]
+type: gallery
+tags: ["vacation", "urban"]
 ---
 
 Photos from my Boston trip.

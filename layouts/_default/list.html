@@ -1,0 +1,9 @@
+{{ define "main" }}
+    {{ if eq .Type "page" }}
+        {{- partial "page.html" . -}}
+    {{ else if eq .Type "galleries" }}
+        {{- partial "list-galleries.html" . -}}
+    {{ else }}
+        {{- partial "list.html" . -}}
+    {{ end }}
+{{ end }}

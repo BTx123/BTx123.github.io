@@ -1,8 +1,9 @@
 ---
-date: '2024-10-21T13:17:15-07:00'
+date: 2024-10-05
+lastmod: 2024-11-11
 draft: false
 title: Iceland 2024
-type: page
+type: gallery
 tags: ["vacation"]
 ---
 
