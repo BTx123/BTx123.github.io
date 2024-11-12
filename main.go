@@ -70,7 +70,7 @@ func main() {
 
 	// Find all matching objects (images) by gallery ID
 	data := make(map[string][]GalleryImage)
-	re := regexp.MustCompile(`^images/(\d{8}-[a-zA-Z]+)/(\S+)\.(jpg|png)$`)
+	re := regexp.MustCompile(`^images/(\d{8}[a-zA-Z0-9-]+)/(\S+)\.(jpg|png)$`)
 	for _, object := range listObjectsOutput.Contents {
 		// Get key for R2 object
 		key := *object.Key
