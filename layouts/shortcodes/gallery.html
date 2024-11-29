@@ -36,7 +36,7 @@
                     {{ $title := "" }}
                     {{ with .Exif }}
                         {{ if .Tags.ImageDescription }}
-                            {{ $dataTitleParts = $dataTitleParts | append .Tags.ImageDescription }}
+                            {{ $dataTitleParts = $dataTitleParts | append (printf "<div style='font-weight: bold;'>%s</div>" .Tags.ImageDescription) }}
                             {{ $title = .Tags.ImageDescription }}
                         {{ end }}
                         {{ $captureMetadata := slice }}
@@ -64,7 +64,7 @@
                             {{ $captureMetadata = $captureMetadata | append (printf "%smm" .Tags.FocalLength) }}
                         {{ end }}
                         {{ if $captureMetadata }}
-                            {{ $dataTitleParts = $dataTitleParts | append (delimit $captureMetadata " &#183; ") }}
+                            {{ $dataTitleParts = $dataTitleParts | append (printf "<div style='opacity: 0.33'>%s</div>" (delimit $captureMetadata " &#183; ")) }}
                         {{ end }}
                         {{ $cameraMetadata := slice }}
                         {{ if (and (and .Tags.Make .Tags.Model) .Tags.LensModel) }}
@@ -72,13 +72,13 @@
                             {{ $cameraMetadata = $cameraMetadata | append .Tags.LensModel }}
                         {{ end }}
                         {{ if $cameraMetadata }}
-                            {{ $dataTitleParts = $dataTitleParts | append (delimit $cameraMetadata " &#183; ") }}
+                            {{ $dataTitleParts = $dataTitleParts | append (printf "<div style='opacity: 0.33'>%s</div>" (delimit $cameraMetadata " &#183; ")) }}
                         {{ end }}
                     {{ end }}
-                    {{ $dataTitle := (delimit $dataTitleParts "<br>") }}
+                    {{ $dataTitle := (delimit $dataTitleParts "") }}
 
                     {{ $color := index $thumbnail.Colors 0 | default "transparent" }}
-                    <a class="gallery-item" href="{{ $url }}" data-pswp-src="{{ $url }}" data-pswp-width="{{ .Width }}" data-pswp-height="{{ .Height }}" title="{{ $dataTitle }}" itemscope itemtype="https://schema.org/ImageObject" style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
+                    <a class="gallery-item" href="{{ $url }}" data-pswp-src="{{ $url }}" data-pswp-width="{{ .Width }}" data-pswp-height="{{ .Height }}" title="{{ $title }}" itemscope itemtype="https://schema.org/ImageObject" style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
                         <figure style="background-color: {{ $color }}; aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
                             <img class="lazyload" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" data-src="{{ $thumbnail.RelPermalink }}" alt="{{ $dataTitle }}" />
                         </figure>
