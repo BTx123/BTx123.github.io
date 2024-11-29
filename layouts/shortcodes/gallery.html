@@ -44,7 +44,18 @@
                             {{ $captureMetadata = $captureMetadata | append (printf "%ss" .Tags.ExposureTime) }}
                         {{ end }}
                         {{ if .Tags.FNumber }}
-                            {{ $captureMetadata = $captureMetadata | append (printf "f/%s" .Tags.FNumber) }}
+                            {{ $fNumber := .Tags.FNumber }}
+                            {{/* Compute floating point FNumber in case string representation is fractional */}}
+                            {{ if strings.Contains $fNumber "/" }}
+                                {{ $fNumberParts := split $fNumber "/" }}
+                                {{ if lt ($fNumberParts | len) 2 }}
+                                    {{ errorf "Failed to convert FNumber %q from fraction to float" $fNumber }}
+                                {{ end }}
+                                {{ $numerator := float (collections.Index $fNumberParts 0) }}
+                                {{ $denominator := float (collections.Index $fNumberParts 1) }}
+                                {{ $fNumber = string (math.Div $numerator $denominator) }}
+                            {{ end }}
+                            {{ $captureMetadata = $captureMetadata | append (printf "f/%s" $fNumber) }}
                         {{ end }}
                         {{ if .Tags.ISO }}
                             {{ $captureMetadata = $captureMetadata | append (printf "ISO %d" .Tags.ISO) }}
