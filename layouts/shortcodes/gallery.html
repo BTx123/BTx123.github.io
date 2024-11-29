@@ -36,7 +36,6 @@
                     {{ $captureMetadata := slice }}
                     {{ $modelLensMetadata := slice }}
                     {{ with .Exif }}
-                        <pre>{{ debug.Dump .Tags }}</pre>
                         {{ if .Tags.ImageDescription }}
                             {{ $title = .Tags.ImageDescription }}
                         {{ end }}
