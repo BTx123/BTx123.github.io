@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"log"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -34,13 +34,16 @@ func goDotEnvVariable(key string) string {
 	err := godotenv.Load(".env")
 
 	if err != nil {
-		log.Fatalf("Error loading .env file")
+		slog.Error("Error loading .env file", "key", key, "error", err)
+		panic(err)
 	}
 
 	return os.Getenv(key)
 }
 
 func main() {
+
+	slog.SetLogLoggerLevel(slog.LevelInfo)
 
 	// Variables
 	galleriesDirectory := filepath.Join("content", "galleries")
@@ -54,6 +57,7 @@ func main() {
 		config.WithRegion("auto"),
 	)
 	if err != nil {
+		slog.Error("config.LoadDefaultConfig", "error", err)
 		panic(err)
 	}
 
@@ -65,6 +69,7 @@ func main() {
 		Bucket: &r2Bucket,
 	})
 	if err != nil {
+		slog.Error("s3.client.ListObjectsV2", "error", err)
 		panic(err)
 	}
 
@@ -74,7 +79,7 @@ func main() {
 	for _, object := range listObjectsOutput.Contents {
 		// Get key for R2 object
 		key := *object.Key
-		// fmt.Println("Key:", key)
+		slog.Debug("Checking", "key", key)
 
 		matches := re.FindStringSubmatch(key)
 		if matches != nil {
@@ -82,7 +87,7 @@ func main() {
 			gallery := matches[1]
 			imageName := matches[2]
 			imageType := matches[3]
-			// fmt.Println(slug, gallery, imageName, imageType)
+			slog.Debug("Match found", "slug", slug, "gallery", gallery, "imageName", imageName, "imageType", imageType)
 
 			if data[gallery] == nil {
 				images := make([]GalleryImage, 0)
@@ -91,32 +96,35 @@ func main() {
 			value := GalleryImage{slug, gallery, imageName, imageType}
 			data[gallery] = append(data[gallery], value)
 		} else {
-			fmt.Printf("Ignoring key: %s\n", key)
+			slog.Info("Ignoring", "key", key)
 		}
 	}
 
-	// fmt.Println(data)
+	slog.Debug("Got", "data", data)
 
 	// Get all gallery folders
 	entries, err := os.ReadDir(galleriesDirectory)
 	if err != nil {
+		slog.Error("os.ReadDir", "error", err)
 		panic(err)
 	}
 
 	for _, entry := range entries {
 		info, err := entry.Info()
 		if err != nil {
+			slog.Error("fs.Info", "error", err)
 			panic(err)
 		}
 
 		// Make sure entry is a directory
 		if !info.IsDir() {
+			slog.Debug("Not a directory", "id", info.Name())
 			continue
 		}
 
 		// Make sure data contains directory name (gallery ID)
 		if data[info.Name()] == nil {
-			fmt.Printf("Gallery ID %s not found in image data, skipping...\n", info.Name())
+			slog.Info("Gallery ID not found in image data, skipping...", "id", info.Name())
 			continue
 		}
 
@@ -124,7 +132,7 @@ func main() {
 		galleryPath := filepath.Join(galleriesDirectory, info.Name())
 		galleryJsonPath := filepath.Join(galleryPath, "gallery.json")
 		galleryImages := data[entry.Name()]
-		fmt.Printf("%d image(s) found for gallery: %s\n", len(galleryImages), entry.Name())
+		slog.Info("Image(s) found for gallery", "imageCount", len(galleryImages), "galleryName", entry.Name())
 
 		// Get slugs for images
 		slugs := make([]string, 0)
@@ -136,14 +144,16 @@ func main() {
 		// Serialize to string
 		jsonString, err := json.MarshalIndent(galleryData, "", "  ")
 		if err != nil {
+			slog.Error("json.MarshalIndent", "error", err)
 			panic(err)
 		}
 
-		// fmt.Println(jsonString)
+		slog.Debug("Serialized", "json", jsonString)
 
 		// Open the file for writing
 		file, err := os.Create(galleryJsonPath)
 		if err != nil {
+			slog.Error("os.Create", "error", err)
 			panic(err)
 		}
 		defer file.Close()
@@ -151,9 +161,10 @@ func main() {
 		// Write the string to the file
 		_, err = file.WriteString(string(jsonString))
 		if err != nil {
+			slog.Error("os.File.WriteString", "error", err)
 			panic(err)
 		}
 
-		fmt.Printf("Generated gallery data for %s\n", info.Name())
+		slog.Info("Generated gallery data", "galleryName", info.Name())
 	}
 }

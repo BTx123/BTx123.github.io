@@ -32,19 +32,42 @@
                     {{ $thumbnail := .Filter (slice images.AutoOrient (images.Process "fit 600x600")) | resources.Copy $thumbnailPath }}
 
                     {{/*  Generate caption using EXIF data  */}}
-                    {{ $dataTitleParts := slice }}
                     {{ $title := "" }}
+                    {{ $captureMetadata := slice }}
+                    {{ $modelLensMetadata := slice }}
                     {{ with .Exif }}
+                        <pre>{{ debug.Dump .Tags }}</pre>
                         {{ if .Tags.ImageDescription }}
-                            {{ $dataTitleParts = $dataTitleParts | append .Tags.ImageDescription }}
                             {{ $title = .Tags.ImageDescription }}
                         {{ end }}
-                        {{ $captureMetadata := slice }}
                         {{ if .Tags.ExposureTime }}
-                            {{ $captureMetadata = $captureMetadata | append (printf "%ss" .Tags.ExposureTime) }}
+                            {{ $exposureTime := .Tags.ExposureTime }}
+                            {{ if strings.Contains $exposureTime "/" }}
+                                {{ $exposureTimeParts := split $exposureTime "/" }}
+                                {{ if lt ($exposureTimeParts | len) 2 }}
+                                    {{ errorf "Failed to convert ExposureTime %q from fraction to float" $exposureTime }}
+                                {{ end }}
+                                {{ $numerator := float (collections.Index $exposureTimeParts 0) }}
+                                {{ $denominator := float (collections.Index $exposureTimeParts 1) }}
+                                {{ if gt $numerator $denominator }}
+                                    {{ $exposureTime = string (math.Div $numerator $denominator) }}
+                                {{ end }}
+                            {{ end }}
+                            {{ $captureMetadata = $captureMetadata | append (printf "%ss" $exposureTime) }}
                         {{ end }}
                         {{ if .Tags.FNumber }}
-                            {{ $captureMetadata = $captureMetadata | append (printf "f/%s" .Tags.FNumber) }}
+                            {{ $fNumber := .Tags.FNumber }}
+                            {{/* Compute floating point FNumber in case string representation is fractional */}}
+                            {{ if strings.Contains $fNumber "/" }}
+                                {{ $fNumberParts := split $fNumber "/" }}
+                                {{ if lt ($fNumberParts | len) 2 }}
+                                    {{ errorf "Failed to convert FNumber %q from fraction to float" $fNumber }}
+                                {{ end }}
+                                {{ $numerator := float (collections.Index $fNumberParts 0) }}
+                                {{ $denominator := float (collections.Index $fNumberParts 1) }}
+                                {{ $fNumber = string (math.Div $numerator $denominator) }}
+                            {{ end }}
+                            {{ $captureMetadata = $captureMetadata | append (printf "f/%s" $fNumber) }}
                         {{ end }}
                         {{ if .Tags.ISO }}
                             {{ $captureMetadata = $captureMetadata | append (printf "ISO %d" .Tags.ISO) }}
@@ -52,24 +75,31 @@
                         {{ if .Tags.FocalLength }}
                             {{ $captureMetadata = $captureMetadata | append (printf "%smm" .Tags.FocalLength) }}
                         {{ end }}
-                        {{ if $captureMetadata }}
-                            {{ $dataTitleParts = $dataTitleParts | append (delimit $captureMetadata " &#183; ") }}
-                        {{ end }}
-                        {{ $cameraMetadata := slice }}
                         {{ if (and (and .Tags.Make .Tags.Model) .Tags.LensModel) }}
-                            {{ $cameraMetadata = $cameraMetadata | append (delimit (slice .Tags.Make .Tags.Model) " ") }}
-                            {{ $cameraMetadata = $cameraMetadata | append .Tags.LensModel }}
-                        {{ end }}
-                        {{ if $cameraMetadata }}
-                            {{ $dataTitleParts = $dataTitleParts | append (delimit $cameraMetadata " &#183; ") }}
+                            {{ $modelLensMetadata = $modelLensMetadata | append (delimit (slice .Tags.Make .Tags.Model) " ") }}
+                            {{ $modelLensMetadata = $modelLensMetadata | append .Tags.LensModel }}
                         {{ end }}
                     {{ end }}
-                    {{ $dataTitle := (delimit $dataTitleParts "<br>") }}
 
                     {{ $color := index $thumbnail.Colors 0 | default "transparent" }}
-                    <a class="gallery-item" href="{{ $url }}" data-pswp-src="{{ $url }}" data-pswp-width="{{ .Width }}" data-pswp-height="{{ .Height }}" title="{{ $dataTitle }}" itemscope itemtype="https://schema.org/ImageObject" style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
+                    <a class="gallery-item" href="{{ $url }}" data-pswp-src="{{ $url }}" data-pswp-width="{{ .Width }}" data-pswp-height="{{ .Height }}" title="{{ $title }}" itemscope itemtype="https://schema.org/ImageObject" style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
                         <figure style="background-color: {{ $color }}; aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
-                            <img class="lazyload" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" data-src="{{ $thumbnail.RelPermalink }}" alt="{{ $dataTitle }}" />
+                            <img class="lazyload" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" data-src="{{ $thumbnail.RelPermalink }}" alt="{{ $title }}" />
+                            <span class="pswp-caption-content">
+                                {{ if not (eq $title "") }}
+                                <div style="font-weight: bold;">{{ $title }}</div>
+                                {{ end }}
+                                {{ if gt ($captureMetadata | len) 0 }}
+                                <div style="opacity: 0.33">
+                                    {{ delimit $captureMetadata " · " }}
+                                </div>
+                                {{ end }}
+                                {{ if gt ($modelLensMetadata | len) 0 }}
+                                <div style="opacity: 0.33">
+                                    {{ delimit $modelLensMetadata " · " }}
+                                </div>
+                                {{ end }}
+                            </span>
                         </figure>
                         <meta itemprop="contentUrl" content="{{ $url }}" />
                     </a>
