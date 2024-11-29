@@ -41,7 +41,19 @@
                         {{ end }}
                         {{ $captureMetadata := slice }}
                         {{ if .Tags.ExposureTime }}
-                            {{ $captureMetadata = $captureMetadata | append (printf "%ss" .Tags.ExposureTime) }}
+                            {{ $exposureTime := .Tags.ExposureTime }}
+                            {{ if strings.Contains $exposureTime "/" }}
+                                {{ $exposureTimeParts := split $exposureTime "/" }}
+                                {{ if lt ($exposureTimeParts | len) 2 }}
+                                    {{ errorf "Failed to convert ExposureTime %q from fraction to float" $exposureTime }}
+                                {{ end }}
+                                {{ $numerator := float (collections.Index $exposureTimeParts 0) }}
+                                {{ $denominator := float (collections.Index $exposureTimeParts 1) }}
+                                {{ if gt $numerator $denominator }}
+                                    {{ $exposureTime = string (math.Div $numerator $denominator) }}
+                                {{ end }}
+                            {{ end }}
+                            {{ $captureMetadata = $captureMetadata | append (printf "%ss" $exposureTime) }}
                         {{ end }}
                         {{ if .Tags.FNumber }}
                             {{ $fNumber := .Tags.FNumber }}
