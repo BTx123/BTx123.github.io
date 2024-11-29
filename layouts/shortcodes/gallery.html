@@ -32,14 +32,14 @@
                     {{ $thumbnail := .Filter (slice images.AutoOrient (images.Process "fit 600x600")) | resources.Copy $thumbnailPath }}
 
                     {{/*  Generate caption using EXIF data  */}}
-                    {{ $dataTitleParts := slice }}
                     {{ $title := "" }}
+                    {{ $captureMetadata := slice }}
+                    {{ $modelLensMetadata := slice }}
                     {{ with .Exif }}
+                        <pre>{{ debug.Dump .Tags }}</pre>
                         {{ if .Tags.ImageDescription }}
-                            {{ $dataTitleParts = $dataTitleParts | append (printf "<div style='font-weight: bold;'>%s</div>" .Tags.ImageDescription) }}
                             {{ $title = .Tags.ImageDescription }}
                         {{ end }}
-                        {{ $captureMetadata := slice }}
                         {{ if .Tags.ExposureTime }}
                             {{ $exposureTime := .Tags.ExposureTime }}
                             {{ if strings.Contains $exposureTime "/" }}
@@ -75,24 +75,31 @@
                         {{ if .Tags.FocalLength }}
                             {{ $captureMetadata = $captureMetadata | append (printf "%smm" .Tags.FocalLength) }}
                         {{ end }}
-                        {{ if $captureMetadata }}
-                            {{ $dataTitleParts = $dataTitleParts | append (printf "<div style='opacity: 0.33'>%s</div>" (delimit $captureMetadata " &#183; ")) }}
-                        {{ end }}
-                        {{ $cameraMetadata := slice }}
                         {{ if (and (and .Tags.Make .Tags.Model) .Tags.LensModel) }}
-                            {{ $cameraMetadata = $cameraMetadata | append (delimit (slice .Tags.Make .Tags.Model) " ") }}
-                            {{ $cameraMetadata = $cameraMetadata | append .Tags.LensModel }}
-                        {{ end }}
-                        {{ if $cameraMetadata }}
-                            {{ $dataTitleParts = $dataTitleParts | append (printf "<div style='opacity: 0.33'>%s</div>" (delimit $cameraMetadata " &#183; ")) }}
+                            {{ $modelLensMetadata = $modelLensMetadata | append (delimit (slice .Tags.Make .Tags.Model) " ") }}
+                            {{ $modelLensMetadata = $modelLensMetadata | append .Tags.LensModel }}
                         {{ end }}
                     {{ end }}
-                    {{ $dataTitle := (delimit $dataTitleParts "") }}
 
                     {{ $color := index $thumbnail.Colors 0 | default "transparent" }}
                     <a class="gallery-item" href="{{ $url }}" data-pswp-src="{{ $url }}" data-pswp-width="{{ .Width }}" data-pswp-height="{{ .Height }}" title="{{ $title }}" itemscope itemtype="https://schema.org/ImageObject" style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
                         <figure style="background-color: {{ $color }}; aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
-                            <img class="lazyload" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" data-src="{{ $thumbnail.RelPermalink }}" alt="{{ $dataTitle }}" />
+                            <img class="lazyload" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" data-src="{{ $thumbnail.RelPermalink }}" alt="{{ $title }}" />
+                            <span class="pswp-caption-content">
+                                {{ if not (eq $title "") }}
+                                <div style="font-weight: bold;">{{ $title }}</div>
+                                {{ end }}
+                                {{ if gt ($captureMetadata | len) 0 }}
+                                <div style="opacity: 0.33">
+                                    {{ delimit $captureMetadata " · " }}
+                                </div>
+                                {{ end }}
+                                {{ if gt ($modelLensMetadata | len) 0 }}
+                                <div style="opacity: 0.33">
+                                    {{ delimit $modelLensMetadata " · " }}
+                                </div>
+                                {{ end }}
+                            </span>
                         </figure>
                         <meta itemprop="contentUrl" content="{{ $url }}" />
                     </a>
