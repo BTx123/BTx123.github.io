@@ -1,0 +1,66 @@
+backend:
+  name: github
+  repo: BTx123/BTx123.github.io
+  branch: main
+site_url: https://brian-tom.com
+locale: en
+logo_url: https://brian-tom.com/android-chrome-512x512.png
+slug:
+  encoding: ascii
+  clean_accents: true
+media_folder: static/images/uploads
+public_folder: /images/uploads
+publish_mode: editorial_workflow
+editor:
+  preview: false
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    description: Blog posts
+    folder: content/posts
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    create: true
+    fields:
+      - { label: Type, name: type, widget: hidden, default: post }
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: string, required: false }
+      - { label: Created On, name: date, widget: datetime, default: "{{now}}" }
+      - { label: Updated On, name: lastmod, widget: datetime, default: "{{now}}" }
+      - { label: Tags, name: tags, widget: list, field: { label: Tag, name: tag, widget: string }, summary: "{{fields.tag}}" }
+      - { label: Cover Image, name: coverImage, widget: image, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }
+  - name: galleries
+    label: Galleries
+    label_singular: Gallery
+    description: Photo galleries
+    folder: content/galleries
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    path: "{{slug}}/index"
+    create: true
+    media_folder: ""
+    public_folder: ""
+    fields:
+      - { label: Type, name: type, widget: hidden, default: gallery }
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: string, required: false }
+      - { label: Created On, name: date, widget: datetime, default: "{{now}}" }
+      - { label: Updated On, name: lastmod, widget: datetime, default: "{{now}}" }
+      - { label: Cover Image, name: coverImage, widget: image }
+      - { label: Tags, name: tags, widget: list, field: { label: Tag, name: tag, widget: string }, summary: "{{fields.tag}}" }
+      - { label: Location, name: location, widget: map, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }
+  - name: pages
+    label: Pages
+    description: Custom pages
+    files:
+      - name: resume
+        label: Resume Page
+        file: content/resume.md
+        editor:
+          preview: false
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Publish Date, name: date, widget: datetime, default: "{{now}}" }
+          - { label: Description, name: description, widget: string }
+          - { label: Body, name: body, widget: markdown }
