@@ -1,7 +1,8 @@
 ---
 title: First Decap CMS Post
-date: 2024-11-29T22:59:00.000Z
 description: My first Decap CMS post.
+date: 2024-11-29T22:59:00.000Z
+lastmod: 2024-11-30T01:58:00.000Z
 ---
 # This is some H1 text.
 
