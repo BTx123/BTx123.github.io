@@ -4,7 +4,7 @@ backend:
   branch: main
 site_url: https://brian-tom.com
 locale: en
-logo_url: https://brian-tom.com/android-chrome-512x512.png
+logo_url: https://cdn.brian-tom.com/static/android-chrome-512x512.png
 slug:
   encoding: ascii
   clean_accents: true
