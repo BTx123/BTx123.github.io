@@ -17,13 +17,9 @@ description: My first Decap CMS post.
 
 > This is some quoted text with **bold** and *italics*.
 
-
-
 1. Item 1
 2. Item 2
 3. Item 3
-
-
 
 ```python
 def main():
