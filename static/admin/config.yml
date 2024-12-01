@@ -2,6 +2,7 @@ backend:
   name: github
   repo: BTx123/BTx123.github.io
   branch: main
+  base_url: https://oauth-m3nitvl2ra-uc.a.run.app
 site_url: https://brian-tom.com
 locale: en
 logo_url: https://cdn.brian-tom.com/static/android-chrome-512x512.png

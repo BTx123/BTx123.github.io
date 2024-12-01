@@ -1,6 +1,6 @@
 module github.com/BTx123/BTx123.github.io
 
-go 1.23.2
+go 1.23
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.32.4
