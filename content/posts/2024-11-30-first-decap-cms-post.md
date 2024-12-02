@@ -24,8 +24,8 @@ lastmod: 2024-11-30T01:58:00.000Z
 
 ```python
 def main():
-  print("Hello, World")
+    print("Hello, World")
 
 if __name__ == "__main__":
-  main()
+    main()
 ```
